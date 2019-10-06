@@ -1,0 +1,31 @@
+<div class="top">
+
+    <div class="search">
+      <h4>キーワードで検索</h4>
+      <input type="search" placeholder="検索ワードを入力">
+      <%= link_to '検索', "#", class: "btn waves-effect waves-light" %>
+    </div>
+
+
+    <div class="map-place">
+      <h4>地図から探す</h4>
+
+      <div class="map">
+        <div class="region-select">
+          <div class="collection">
+            <% @regions.each do |r| %>
+              <%= link_to r.region_name, "#", class: "collection-item" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tag-search">
+      <h4>タグから探す</h4>
+            <% @tags.each do |t| %>
+              <%= link_to t.tag_name, "#", class: "btn" %>
+            <% end %>
+    </div>
+
+</div>
