@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  prefecture_name: MyString
+  prefecture_name_kana: MyString
+  prefecture_image_id: MyString
+  region_id: 1
+
+two:
+  prefecture_name: MyString
+  prefecture_name_kana: MyString
+  prefecture_image_id: MyString
+  region_id: 1
