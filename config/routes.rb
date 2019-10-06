@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :end_users
   namespace :admin do
     get 'admin_users/index'
   end
