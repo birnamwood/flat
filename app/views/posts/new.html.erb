@@ -33,6 +33,13 @@
         <%= f.label "動画を追加" %>
         <br>
         <%= f.file_field :video, class:"btn-flat"%>
+        <br>
+
+        <%= f.label "画像を追加" %>
+        <div>
+          <%= link_to_add_association '画像を追加', f , :post_images, class: "btn-flat" %>
+        </div>
+
 
         <br>
         <%= f.submit value="記事を投稿", class: "btn"%>
