@@ -25,5 +25,7 @@
         <%= f.label "紹介文" %>
         <%= f.text_area :body, placeholder: "紹介文"%>
 
+        <%= f.file_field :video %>
+
         <%= f.submit value="記事を投稿", class: "btn"%>
   <% end %>

@@ -9,7 +9,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :post_title
       t.string :post_name
       t.string :overview
-      t.string :video_url
+      t.string :video
       t.string :access
       t.string :budget
       t.text :body

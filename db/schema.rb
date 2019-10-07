@@ -131,7 +131,7 @@ ActiveRecord::Schema.define(version: 2019_10_06_105643) do
     t.string "post_title"
     t.string "post_name"
     t.string "overview"
-    t.string "video_url"
+    t.string "video"
     t.string "access"
     t.string "budget"
     t.text "body"

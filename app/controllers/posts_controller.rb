@@ -9,4 +9,10 @@ class PostsController < ApplicationController
 
   def show
   end
+
+  private
+  def post_params
+    params.require(:post).permit(:video)
+   #params.require(:モデル名).permit(:カラム名)
+  end
 end
