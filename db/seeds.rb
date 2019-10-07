@@ -18,6 +18,10 @@ Region.create(region_name: '四国地方', region_name_kana: 'シコクチホウ
 Region.create(region_name: '九州地方', region_name_kana: 'キュウシュウチホウ')
 Region.create(region_name: '沖縄地方', region_name_kana: 'オキナワチホウ')
 
+Prefecture.create(prefecture_name: '北海道', prefecture_name_kana: 'ホッカイドウ', region_id: '1')
+
+Municipality.create(municipality_name: '札幌市', municipality_name_kana: 'サッポロシ', prefecture_id: '1')
+
 Tag.create(tag_name: '自然', tag_name: '自然')
 Tag.create(tag_name: 'レジャー', tag_name: 'レジャー')
 Tag.create(tag_name: 'ツーリング', tag_name: 'ツーリング')

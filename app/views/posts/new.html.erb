@@ -1,0 +1,29 @@
+<h1>記事投稿</h1>
+
+<%= form_with model: @post do |f| %>
+        <%= f.label "場所の名前" %>
+        <%= f.text_field :post_name, placeholder: "場所の名前を入力" %>
+        <%= f.label "タイトル" %>
+        <%= f.text_field :post_name, placeholder: "記事のタイトル" %>
+
+        <%= f.label "郵便番号" %>
+        <%= f.text_field :post_name, placeholder: "郵便番号" %>
+
+        <%= f.label "都道府県" %>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :prefecture_name, {prompt: "都道府県を選択"}, {class: "browser-default"}) %>
+        <%= f.label "市町村" %>
+        <%= f.collection_select(:municipality_id, Municipality.all, :id, :municipality_name, {prompt: "市町村を選択"}, {class: "browser-default"}) %>
+        <%= f.label "住所" %>
+        <%= f.text_field :address, placeholder: "住所" %>
+
+        <%= f.label "概要" %>
+        <%= f.text_field :overview, placeholder: "概要" %>
+        <%= f.label "アクセス" %>
+        <%= f.text_field :access, placeholder: "アクセス" %>
+        <%= f.label "予算" %>
+        <%= f.text_field :budget, placeholder: "予算" %>
+        <%= f.label "紹介文" %>
+        <%= f.text_area :body, placeholder: "紹介文"%>
+
+        <%= f.submit value="記事を投稿", class: "btn"%>
+  <% end %>
