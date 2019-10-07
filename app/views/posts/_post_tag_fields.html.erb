@@ -1,0 +1,4 @@
+  <div class="nested-fields add-post-tag">
+        <%= f.collection_select(:tag_id, Tag.all, :id, :tag_name, {prompt: "タグを選択"}, {class: "browser-default"}) %>
+        <%= link_to_remove_association "タグを削除", f, class: "btn" %>
+  </div>

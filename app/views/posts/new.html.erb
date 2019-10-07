@@ -6,6 +6,11 @@
         <%= f.label "タイトル" %>
         <%= f.text_field :post_title, placeholder: "記事のタイトル" %>
 
+        <div>
+          <%= link_to_add_association 'タグを追加', f , :post_tags, class: "btn-flat" %>
+        </div>
+
+
         <%= f.label "郵便番号" %>
         <%= f.text_field :zipcode, placeholder: "郵便番号" %>
 
@@ -25,7 +30,11 @@
         <%= f.label "紹介文" %>
         <%= f.text_area :body, placeholder: "紹介文"%>
 
-        <%= f.file_field :video %>
+        <%= f.label "動画を追加" %>
+        <br>
+        <%= f.file_field :video, class:"btn-flat"%>
 
+        <br>
         <%= f.submit value="記事を投稿", class: "btn"%>
+        <br>
   <% end %>
