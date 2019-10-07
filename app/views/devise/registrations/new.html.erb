@@ -13,7 +13,21 @@
     <%= f.text_field :lastname, autofocus: true, autocomplete: "Name" %>
     <%= f.label :firstname %>
     <%= f.text_field :firstname, autofocus: true, autocomplete: "Name" %>
+    <%= f.label :nickname %>
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "Name" %>
+    <%= f.label "郵便番号" %>
+    <%= f.text_field :zipcode, placeholder: "郵便番号" %>
+    <%= f.label "都道府県" %>
+    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :prefecture_name, {prompt: "都道府県を選択"}, {class: "browser-default"}) %>
+    <%= f.label "市町村" %>
+    <%= f.collection_select(:municipality_id, Municipality.all, :id, :municipality_name, {prompt: "市町村を選択"}, {class: "browser-default"}) %>
+    <%= f.label "住所" %>
+    <%= f.text_field :address, placeholder: "住所" %>
   </div>
+
+
+
+
 
   <div class="field">
     <%= f.label :password %>

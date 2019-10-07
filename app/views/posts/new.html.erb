@@ -4,10 +4,10 @@
         <%= f.label "場所の名前" %>
         <%= f.text_field :post_name, placeholder: "場所の名前を入力" %>
         <%= f.label "タイトル" %>
-        <%= f.text_field :post_name, placeholder: "記事のタイトル" %>
+        <%= f.text_field :post_title, placeholder: "記事のタイトル" %>
 
         <%= f.label "郵便番号" %>
-        <%= f.text_field :post_name, placeholder: "郵便番号" %>
+        <%= f.text_field :zipcode, placeholder: "郵便番号" %>
 
         <%= f.label "都道府県" %>
         <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :prefecture_name, {prompt: "都道府県を選択"}, {class: "browser-default"}) %>
