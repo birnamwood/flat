@@ -18,52 +18,57 @@
   position: relative;
 }
 
-#hokkaido {
+#prefecture-zone {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+.hokkaido {
   position: absolute;
   top: 8%;
   left: 80%;
 }
-#tohoku {
+.tohoku {
   position: absolute;
   top: 38%;
   left: 78%;
 }
-#hokuriku {
+.hokuriku {
   position: absolute;
   top: 48%;
   left: 60%;
 }
-#kanto {
+.kanto {
   position: absolute;
   top: 63%;
   left: 78%;
 }
-#tyubu {
+.tyubu {
   position: absolute;
   top: 65%;
   left: 60%;
 }
-#kansai {
+.kansai {
   position: absolute;
   top: 68%;
   left: 46%;
 }
-#tyugoku {
+.tyugoku {
   position: absolute;
   top: 62%;
   left: 27%;
 }
-#sikoku {
+.sikoku {
   position: absolute;
   top: 80%;
   left: 28%;
 }
-#kyusyu {
+.kyusyu {
   position: absolute;
   top: 68%;
   left: 10%;
 }
-#okinawa {
+.okinawa {
   position: absolute;
   top: 93%;
   left: 8%;

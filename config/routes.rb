@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'posts/new'
-  get 'posts/edit'
-  get 'posts/show'
   root to: 'home#index'
   devise_for :end_users
   devise_for :admin_users
@@ -12,4 +9,5 @@ Rails.application.routes.draw do
 
   resources :home, only: [:index]
   resources :posts, only: [:new, :create, :edit, :update, :show]
+  get 'home/regions'
 end

@@ -11,30 +11,32 @@
     <div class="map-place">
 
       <div class="map">
+        <div id="prefecture-zone">
+        </div>
         <div class="region-select">
             <% @regions.each do |r| %>
               <% if r.region_name == "北海道地方"%>
-                <%= link_to r.region_name, "#", id:"hokkaido", class:"btn" %>
+                <%= link_to r.region_name, {controller: "home", action: "regions", region_id: r.id}, id:"region-button", class:"btn hokkaido", remote: true%>
               <% elsif r.region_name == "東北地方" %>
-                <%= link_to r.region_name, "#", id:"tohoku", class:"btn" %>
+                <%= link_to r.region_name, {controller: "home", action: "regions", region_id: r.id}, id:"region-button", class:"btn tohoku", remote: true %>
               <% elsif r.region_name == "北陸地方" %>
-                <%= link_to r.region_name, "#", id:"hokuriku", class:"btn" %>
+                <%= link_to r.region_name, {controller: "home", action: "regions", region_id: r.id}, id:"region-button", class:"btn hokuriku", remote: true %>
               <% elsif r.region_name == "関東地方" %>
-                <%= link_to r.region_name, "#", id:"kanto", class:"btn" %>
+                <%= link_to r.region_name, {controller: "home", action: "regions", region_id: r.id}, id:"region-button", class:"btn kanto", remote: true %>
               <% elsif r.region_name == "中部地方" %>
-                <%= link_to r.region_name, "#", id:"tyubu", class:"btn" %>
+                <%= link_to r.region_name, {controller: "home", action: "regions", region_id: r.id}, id:"region-button", class:"btn tyubu", remote: true %>
               <% elsif r.region_name == "関西地方" %>
-                <%= link_to r.region_name, "#", id:"kansai", class:"btn" %>
+                <%= link_to r.region_name, {controller: "home", action: "regions", region_id: r.id}, id:"region-button", class:"btn kansai", remote: true %>
               <% elsif r.region_name == "中国地方" %>
-                <%= link_to r.region_name, "#", id:"tyugoku", class:"btn" %>
+                <%= link_to r.region_name, {controller: "home", action: "regions", region_id: r.id}, id:"region-button", class:"btn tyugoku", remote: true %>
               <% elsif r.region_name == "四国地方" %>
-                <%= link_to r.region_name, "#", id:"sikoku", class:"btn" %>
+                <%= link_to r.region_name, {controller: "home", action: "regions", region_id: r.id}, id:"region-button", class:"btn sikoku", remote: true %>
               <% elsif r.region_name == "九州地方" %>
-                <%= link_to r.region_name, "#", id:"kyusyu", class:"btn" %>
+                <%= link_to r.region_name, {controller: "home", action: "regions", region_id: r.id}, id:"region-button", class:"btn kyusyu", remote: true %>
               <% elsif r.region_name == "沖縄地方" %>
-                <%= link_to r.region_name, "#", id:"okinawa", class:"btn" %>
+                <%= link_to r.region_name, {controller: "home", action: "regions", region_id: r.id}, id:"region-button", class:"btn okinawa", remote: true %>
               <% else %>
-                <%= link_to r.region_name, "#", id:"other-region" %>
+                <%= link_to r.region_name, {controller: "home", action: "regions", region_id: r.id}, class:"btn other-region" %>
               <% end %>
             <% end %>
         </div>
