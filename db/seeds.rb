@@ -19,6 +19,13 @@ Region.create(region_name: '九州地方', region_name_kana: 'キュウシュウ
 Region.create(region_name: '沖縄地方', region_name_kana: 'オキナワチホウ')
 
 Prefecture.create(prefecture_name: '北海道', prefecture_name_kana: 'ホッカイドウ', region_id: '1')
+Prefecture.create(prefecture_name: '青森県', prefecture_name_kana: 'アオモリケン', region_id: '2')
+Prefecture.create(prefecture_name: '秋田県', prefecture_name_kana: 'アキタケン', region_id: '2')
+Prefecture.create(prefecture_name: '岩手県', prefecture_name_kana: 'イワテケン', region_id: '2')
+Prefecture.create(prefecture_name: '山形県', prefecture_name_kana: 'ヤマガタケン', region_id: '2')
+Prefecture.create(prefecture_name: '宮城県', prefecture_name_kana: 'ミヤギケン', region_id: '2')
+Prefecture.create(prefecture_name: '福島県', prefecture_name_kana: 'フクシマケン', region_id: '2')
+
 
 Municipality.create(municipality_name: '札幌市', municipality_name_kana: 'サッポロシ', prefecture_id: '1')
 
