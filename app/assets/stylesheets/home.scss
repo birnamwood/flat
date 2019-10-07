@@ -7,6 +7,10 @@
   margin: auto;
 }
 
+.map-place {
+  width: 60%;
+  margin: auto;
+}
 .map {
   background-image: image-url("map.png");
   background-size: cover;
@@ -18,4 +22,15 @@
   position: absolute;
   top: 0%;
   left: 10%;
+}
+
+
+@media (max-width: 1000px) {
+  .map-place {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+
 }
