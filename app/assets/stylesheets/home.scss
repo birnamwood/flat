@@ -8,7 +8,6 @@
 }
 
 .map-place {
-  width: 60%;
   margin: auto;
 }
 .map {
@@ -18,16 +17,61 @@
   padding-top: 92.64%;
   position: relative;
 }
-.region-select {
+
+#hokkaido {
   position: absolute;
-  top: 0%;
+  top: 8%;
+  left: 80%;
+}
+#tohoku {
+  position: absolute;
+  top: 38%;
+  left: 78%;
+}
+#hokuriku {
+  position: absolute;
+  top: 48%;
+  left: 60%;
+}
+#kanto {
+  position: absolute;
+  top: 63%;
+  left: 78%;
+}
+#tyubu {
+  position: absolute;
+  top: 65%;
+  left: 60%;
+}
+#kansai {
+  position: absolute;
+  top: 68%;
+  left: 46%;
+}
+#tyugoku {
+  position: absolute;
+  top: 62%;
+  left: 27%;
+}
+#sikoku {
+  position: absolute;
+  top: 80%;
+  left: 28%;
+}
+#kyusyu {
+  position: absolute;
+  top: 68%;
   left: 10%;
 }
-
+#okinawa {
+  position: absolute;
+  top: 93%;
+  left: 8%;
+}
 
 @media (max-width: 1000px) {
   .map-place {
-    width: 100%;
+
   }
 }
 

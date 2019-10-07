@@ -12,13 +12,34 @@
 
       <div class="map">
         <div class="region-select">
-          <div class="collection">
             <% @regions.each do |r| %>
-              <%= link_to r.region_name, "#", class: "collection-item" %>
+              <% if r.region_name == "北海道地方"%>
+                <%= link_to r.region_name, "#", id:"hokkaido", class:"btn" %>
+              <% elsif r.region_name == "東北地方" %>
+                <%= link_to r.region_name, "#", id:"tohoku", class:"btn" %>
+              <% elsif r.region_name == "北陸地方" %>
+                <%= link_to r.region_name, "#", id:"hokuriku", class:"btn" %>
+              <% elsif r.region_name == "関東地方" %>
+                <%= link_to r.region_name, "#", id:"kanto", class:"btn" %>
+              <% elsif r.region_name == "中部地方" %>
+                <%= link_to r.region_name, "#", id:"tyubu", class:"btn" %>
+              <% elsif r.region_name == "関西地方" %>
+                <%= link_to r.region_name, "#", id:"kansai", class:"btn" %>
+              <% elsif r.region_name == "中国地方" %>
+                <%= link_to r.region_name, "#", id:"tyugoku", class:"btn" %>
+              <% elsif r.region_name == "四国地方" %>
+                <%= link_to r.region_name, "#", id:"sikoku", class:"btn" %>
+              <% elsif r.region_name == "九州地方" %>
+                <%= link_to r.region_name, "#", id:"kyusyu", class:"btn" %>
+              <% elsif r.region_name == "沖縄地方" %>
+                <%= link_to r.region_name, "#", id:"okinawa", class:"btn" %>
+              <% else %>
+                <%= link_to r.region_name, "#", id:"other-region" %>
+              <% end %>
             <% end %>
-          </div>
         </div>
       </div>
+
     </div>
 
     <div class="tag-search">
