@@ -1,4 +1,30 @@
 
+<div>
+  <h4>著者</h4>
+  <%= @user.nickname%>
+  <h4>場所の名前</h4>
+  <%= @post.post_name%>
+  <h4>タイトル</h4>
+  <%= @post.post_title%>
 
-<%= @post.post_title%>
-<%= video_tag @post.video_url.to_s,loop: true, controls: true, width: 550 %>
+  <h4>タグ</h4>
+  <% @post_tags.each do |t| %>
+    <%= t.tag.tag_name %>
+  <% end %>
+
+  <h4>住所</h4>
+  〒<%= @post.zipcode %>
+    <%= @prefecture.prefecture_name %>
+    <%= @municipality.municipality_name %>
+    <%= @post.address %>
+
+
+  <h4>動画</h4>
+  <%= video_tag @post.video_url.to_s,loop: true, controls: true, width: 550 %>
+  <h4>写真</h4>
+  <% @post_images.each do |p| %>
+    <%= image_tag p.post_image_id.to_s, :size =>'320x480' %>
+    <br>
+  <% end %>
+
+</div>

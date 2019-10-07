@@ -12,6 +12,10 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = @post.end_user
+    @prefecture = @post.prefecture
+    @municipality = @post.municipality
+    @post_tags = @post.post_tags
+    @post_images = @post.post_images
     @comment_new = Comment.new
     @comments = @post.comments
   end
