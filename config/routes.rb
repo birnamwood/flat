@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :home, only: [:index]
   resources :posts, only: [:new, :create, :edit, :update, :show]
   resources :prefectures, only: [:show]
+  resources :municipalities, only: [:show]
 end
