@@ -1,0 +1,16 @@
+<nav>
+    <div class="nav-wrapper">
+            <%= link_to @region.region_name, root_path, class: "breadcrumb" %>
+            <%= link_to @prefecture.prefecture_name, prefecture_path(@prefecture), class: "breadcrumb" %>
+    </div>
+</nav>
+
+<div>
+  <%= @prefecture.prefecture_name%>の市町村一覧
+  <br>
+
+  <% @municipalities.each do |m| %>
+    <%= link_to m.municipality_name, '#' %>
+    <br>
+  <% end %>
+</div>

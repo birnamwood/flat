@@ -1,0 +1,13 @@
+{
+  "editor.wordWrap": "on", // コードの一行が長くなるための可読性向上
+  "editor.minimap.enabled": false, // ミニマップはいらない
+  "editor.insertSpaces": true, // tab キーを押すとスペースが挿入されます。
+  "editor.tabSize": 2, // tabをデフォルトで2スペースにする
+  "editor.renderWhitespace": "boundary", // エディターで空白文字を表示する方法を制御します。'none'、'boundary' および 'all' が使用可能です。'boundary' オプションでは、単語間の単一スペースは表示されません。
+  "vim.insertModeKeyBindings": [
+    {
+        "before": ["j","j"],
+        "after": ["<Esc>"]
+    }
+],
+}

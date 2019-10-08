@@ -1,5 +1,6 @@
+
 <% prefectures.each do |p| %>
   <div class="collection">
-   <%= link_to p.prefecture_name, "#", class:"btn collection-item" %>
+   <%= link_to p.prefecture_name, prefecture_path(p), class:"btn collection-item" %>
   </div>
 <% end %>
