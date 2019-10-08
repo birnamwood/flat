@@ -50,15 +50,9 @@ function initMap(){
     center: {lat: 35.69, lng: 139.644},
     zoom: 16
   });
-}
 
-
-window.onload = function () {
   // 入力を取得
   let inputAddress = document.getElementById('post-map-address').textContent;
-  //let inputAddress = "青森県青森市１"
-  $()
-  console.log(inputAddress);
 
   // geocodingしたあとmapを移動
   geocoder.geocode( { 'address': inputAddress}, function(results, status) {
