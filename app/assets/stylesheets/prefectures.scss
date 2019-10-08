@@ -2,11 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.prefecture-page {
-  width: 80%;
-  margin: auto;
-}
 .municipality-area {
-  box-shadow: 0 3px 0 0 lightgray, 0 1px 1px 3px lightgray
+  background-color: lightblue;
+}
+
+.municipality-area li {
+  width: 30%;
+  float: left;
 }

@@ -24,6 +24,11 @@ $primary-color: color("blue", "lighten-2") !default;
   margin: 0;
   box-sizing: border-box;
 }
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
 
 .body {
   width: 80%;
@@ -31,10 +36,4 @@ $primary-color: color("blue", "lighten-2") !default;
   margin-top: 50px;
   margin-bottom: 50px;
   min-height: 100vh;
-}
-
-header {
-  // position: absolute;
-  // width: 100%;
-  // top: 0;
 }

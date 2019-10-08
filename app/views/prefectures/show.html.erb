@@ -7,11 +7,21 @@
 
 <div class="prefecture-page">
   <h4><%= @prefecture.prefecture_name%>の市町村一覧</h4>
-  <br>
 
-      <div class="municipality-area">
-        <% @municipalities.each do |m| %>
-            <%= link_to m.municipality_name, municipality_path(m) %>
-        <% end %>
+      <div class="municipality-area card clearfix">
+        <ul>
+          <% @municipalities.each do |m| %>
+            <li class="card-title">
+              <%= link_to m.municipality_name, municipality_path(m) %>
+            </li>
+          <% end %>
+         </ul>
       </div>
+
+  <br>
+  <h4><%= @prefecture.prefecture_name%>の投稿一覧</h4>
+      <% if @posts.empty? %>
+        <h4>投稿記事は0件です</h4>
+      <% end %>
+          <%= render partial: 'posts/post_list_item', collection: @posts, as: "post" %>
 </div>

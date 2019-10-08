@@ -1,0 +1,29 @@
+<div class="post-list-item">
+  <div class="post-list-nav">
+    <nav>
+      <%= link_to post.post_name, post_path(post) %>
+          <ul class="right">
+              <li>投稿者</li>
+              <li><%= link_to post.end_user.nickname, end_user_path %></li>
+          </ul>
+    </nav>
+  </div>
+
+  <div class="post-list-content clearfix">
+    <div class="post-list-image">
+      <% post.post_images.each do |i| %>
+        <%= link_to(post_path(post)) do %>
+          <%= image_tag i.post_image_id.to_s, :size =>'300x300' %>
+        <% end %>
+        <% break if i== 1 %>
+      <% end %>
+    </div>
+
+    <div class="post-list-text">
+      概要：<%= post.overview %>
+      <br>
+      予算：<%= post.budget %>
+    </div>
+  </div>
+
+</div>

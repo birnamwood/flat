@@ -3,6 +3,6 @@ class PrefecturesController < ApplicationController
     @prefecture = Prefecture.find(params[:id])
     @municipalities = @prefecture.municipalities
     @region = @prefecture.region
-    @posts = @prefecture.posts
+    @posts = @prefecture.posts.includes(:post_images)
   end
 end
