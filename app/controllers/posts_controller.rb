@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     @user = @post.end_user
     @prefecture = @post.prefecture
     @municipality = @post.municipality
+    @region = @prefecture.region
     @post_tags = @post.post_tags
     @post_images = @post.post_images
     @comment_new = Comment.new

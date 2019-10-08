@@ -3,5 +3,6 @@ class PrefecturesController < ApplicationController
     @prefecture = Prefecture.find(params[:id])
     @municipalities = @prefecture.municipalities
     @region = @prefecture.region
+    @posts = @prefecture.posts
   end
 end
