@@ -26,6 +26,8 @@ $primary-color: color("blue", "lighten-2") !default;
 }
 
 .body {
+  width: 80%;
+  margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
   min-height: 100vh;
