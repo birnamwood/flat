@@ -25,7 +25,14 @@ $primary-color: color("blue", "lighten-2") !default;
   box-sizing: border-box;
 }
 
-header{
-  background-color: #e7e7e7;
-  height: 100px;
+.body {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  min-height: 100vh;
+}
+
+header {
+  // position: absolute;
+  // width: 100%;
+  // top: 0;
 }

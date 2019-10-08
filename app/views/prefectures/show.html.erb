@@ -5,12 +5,13 @@
     </div>
 </nav>
 
-<div>
-  <%= @prefecture.prefecture_name%>の市町村一覧
+<div class="prefecture-page">
+  <h4><%= @prefecture.prefecture_name%>の市町村一覧</h4>
   <br>
 
-  <% @municipalities.each do |m| %>
-    <%= link_to m.municipality_name, municipality_path(m) %>
-    <br>
-  <% end %>
+      <div class="municipality-area">
+        <% @municipalities.each do |m| %>
+            <%= link_to m.municipality_name, municipality_path(m) %>
+        <% end %>
+      </div>
 </div>

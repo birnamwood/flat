@@ -1,21 +1,23 @@
-<nav>
-  <div class="clearfix nav-wrapper">
+<header>
+  <nav>
+    <div class="clearfix nav-wrapper">
 
-    <div class="brand-logo">
-      <%= link_to 'Flat', root_path %>
+      <div class="brand-logo">
+        <%= link_to 'Flat', root_path %>
+      </div>
+
+      <div>
+        <ul class="right">
+        <% if end_user_signed_in? %>
+            <li><%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %></li>
+              <li><%= link_to "記事の投稿", new_post_path %></li>
+          <% else %>
+              <li><%= link_to "新規登録", new_end_user_registration_path %></li>
+              <li><%= link_to "ログイン", new_end_user_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+
     </div>
-
-    <div>
-      <ul class="right">
-       <% if end_user_signed_in? %>
-           <li><%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %></li>
-            <li><%= link_to "記事の投稿", new_post_path %></li>
-        <% else %>
-            <li><%= link_to "新規登録", new_end_user_registration_path %></li>
-            <li><%= link_to "ログイン", new_end_user_session_path %></li>
-        <% end %>
-      </ul>
-    </div>
-
-  </div>
-</nav>
+  </nav>
+</header>
