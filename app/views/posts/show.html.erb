@@ -1,3 +1,5 @@
+
+
 <nav>
     <div class="nav-wrapper">
             <%= link_to @region.region_name, root_path, class: "breadcrumb" %>
@@ -22,10 +24,9 @@
 
   <h4>住所</h4>
   〒<%= @post.zipcode %>
-    <%= @prefecture.prefecture_name %>
-    <%= @municipality.municipality_name %>
-    <%= @post.address %>
-
+    <p id="post-map-address"><%= @prefecture.prefecture_name %><%= @municipality.municipality_name %><%= @post.address %></p>
+      <div id="post-map">
+      </div>
 
   <h4>動画</h4>
   <%= video_tag @post.video_url.to_s,loop: true, controls: true, width: 550 %>
@@ -36,3 +37,45 @@
   <% end %>
 
 </div>
+
+<script>
+let map
+let geocoder
+
+function initMap(){
+  // geocoderを初期化
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('post-map'), {
+    center: {lat: 35.69, lng: 139.644},
+    zoom: 16
+  });
+}
+
+
+window.onload = function () {
+  // 入力を取得
+  let inputAddress = document.getElementById('post-map-address').textContent;
+  //let inputAddress = "青森県青森市１"
+  $()
+  console.log(inputAddress);
+
+  // geocodingしたあとmapを移動
+  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+    if (status == 'OK') {
+　　　　　　　　　　　　// map.setCenterで地図が移動
+      map.setCenter(results[0].geometry.location);
+
+　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5LbkYIm6WbRn2Ddzo8bDxwS0jSinnRnI&callback=initMap" async defer></script>
