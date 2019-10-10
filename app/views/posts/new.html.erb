@@ -6,6 +6,12 @@
         <%= f.label "タイトル" %>
         <%= f.text_field :post_title, placeholder: "記事のタイトル" %>
 
+        <%= f.label "評価を入力" %>
+        <div id='rating'>
+          <%= f.hidden_field :rating, id: :post_rating %>
+        </div>
+
+
         <div>
           <%= link_to_add_association 'タグを追加', f , :post_tags, class: "btn-flat" %>
         </div>
@@ -45,3 +51,12 @@
         <%= f.submit value="記事を投稿", class: "btn"%>
         <br>
   <% end %>
+
+
+<script>
+$('#rating').raty({
+path: '/assets/',
+half: true,
+scoreName: 'post[rating]'
+});
+</script>

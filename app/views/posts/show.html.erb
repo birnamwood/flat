@@ -22,6 +22,23 @@
     <%= t.tag.tag_name %>
   <% end %>
 
+  <h4>評価</h4>
+    <%= @post.rating %>
+         <div id="star-rate-<%= @post.id %>"></div>
+          <script>
+          $('#star-rate-<%= @post.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= @post.rating %>,
+          });
+          </script>
+
+
+
   <h4>住所</h4>
   〒<%= @post.zipcode %>
     <p id="post-map-address"><%= @prefecture.prefecture_name %><%= @municipality.municipality_name %><%= @post.address %></p>

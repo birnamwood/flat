@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:zipcode, :prefecture_id, :municipality_id, :address, :post_title, :post_name, :overview, :video, :access, :budget, :body,
+    params.require(:post).permit(:zipcode, :prefecture_id, :municipality_id, :address, :post_title, :post_name, :overview, :video, :access, :budget, :body, :rating,
               post_images_attributes: [:id, :post_id, :post_image_id, :post_image_comment, :_destroy],
               post_tags_attributes: [:id, :post_id, :tag_id, :_destroy])
   end

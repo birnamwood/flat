@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery.raty
-//= require ratyrate
 //= require cocoon
 //= require materialize
 //= require rails-ujs

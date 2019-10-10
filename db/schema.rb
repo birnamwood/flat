@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_10_045751) do
+ActiveRecord::Schema.define(version: 2019_10_10_060635) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "end_user_id"
@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(version: 2019_10_10_045751) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "rating"
   end
 
   create_table "prefectures", force: :cascade do |t|
