@@ -7,6 +7,12 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
+    @end_user = @post.end_user
+    # 追加用
+    @postnew = Post.new
+    @post_tag = @postnew.post_tags.build
+    @post_image = @postnew.post_images.build
   end
 
   def show
@@ -22,12 +28,21 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
-    post.end_user_id = current_end_user.id
+    @post = Post.new(post_params)
+    @post.end_user_id = current_end_user.id
 
-    post.save
+    @post.save
     flash[:success] = "記事を投稿しました。"
-    redirect_to root_path
+    redirect_to post_path(@post)
+  end
+
+  def update
+    @post = Post.find(params[:id])
+      if @post.update(post_params)
+        redirect_to post_path(@post)
+      else
+        redirect_to edit_post_path(@post)
+      end
   end
 
   private

@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :home, only: [:index]
-  resources :posts, only: [:new, :create, :edit, :update, :show]
+  resources :posts, only: [:new, :create, :edit, :update, :show, :destroy]
+  resources :post_tags, only: [:destroy]
+  resources :post_images, only: [:destroy]
   resources :prefectures, only: [:show]
   resources :municipalities, only: [:show]
   resources :end_users, only: [:show]
