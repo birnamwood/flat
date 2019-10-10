@@ -15,4 +15,5 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :post_tags, allow_destroy: true
 
   mount_uploader :video, VideoUploader
+
 end

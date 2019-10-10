@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  post '/rate' => 'rater#create', :as => 'rate'
   root to: 'home#index'
   get 'home/regions'
   devise_for :end_users
