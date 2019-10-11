@@ -1,29 +1,38 @@
 <div class="post-list-item">
-  <div class="post-list-nav">
-    <nav>
-      <%= link_to post.post_name, post_path(post) %>
-          <ul class="right">
-              <li>投稿者</li>
-              <li><%= link_to post.end_user.nickname, end_user_path %></li>
-          </ul>
-    </nav>
-  </div>
 
   <div class="post-list-content clearfix">
     <div class="post-list-image">
-      <% post.post_images.each do |i| %>
-        <%= link_to(post_path(post)) do %>
-          <%= image_tag i.post_image_id.to_s, :size =>'300x300' %>
+      <%= link_to post.post_name, post_path(post), class: "post-list-title" %>
+        <% post.post_images.first(1).each do |i| %>
+          <%= image_tag i.post_image_id.to_s, class: "list-image" %>
         <% end %>
-        <% break if i== 1 %>
-      <% end %>
+        <div class="post-list-author">by <%= link_to post.end_user.nickname, end_user_path, class: "post-list-author-name"%></div>
     </div>
 
     <div class="post-list-text">
-      概要：<%= post.overview %>
-      <br>
-      予算：<%= post.budget %>
+         <div>おすすめ度<div id="star-rate-<%= post.id %>" class="post-list-text-star"></div></div>
+         <div class="post-list-text-body">
+          <%= post.body %>
+         </div>
+         <div class="post-list-text-evaluate">
+           <p>いいね</p>
+         </div>
+
     </div>
   </div>
 
 </div>
+
+<script>
+$(document).on('turbolinks:load', function() {
+  $('#star-rate-<%= post.id %>').raty({
+    size: 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    readOnly: true,
+    score: '<%= post.rating %>'
+  });
+});
+</script>

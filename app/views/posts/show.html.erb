@@ -28,19 +28,6 @@
   <h4>評価</h4>
     <%= @post.rating %>
          <div id="star-rate-<%= @post.id %>"></div>
-          <script>
-          $('#star-rate-<%= @post.id %>').raty({
-            size: 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            half: true,
-            readOnly: true,
-            score: <%= @post.rating %>,
-          });
-          </script>
-
-
 
   <h4>住所</h4>
   〒<%= @post.zipcode %>
@@ -93,4 +80,17 @@ function initMap(){
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5LbkYIm6WbRn2Ddzo8bDxwS0jSinnRnI&callback=initMap" async defer></script>
-<script src="/js/jquery.raty.js"></script>
+
+<script>
+$(document).on('turbolinks:load', function() {
+  $('#star-rate-<%= @post.id %>').raty({
+    size: 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    readOnly: true,
+    score: <%= @post.rating %>
+  });
+});
+</script>
