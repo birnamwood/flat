@@ -2,8 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.search {
+  box-shadow: 0 0  8px lightgray;
+  margin-bottom: 5%;
+}
+.keyword-search, .tag-search {
+  float: left;
+  width: 50%;
+  padding: 5%;
+}
 .map-place {
+  box-shadow: 0 0 8px lightgray;
   margin: auto;
+  padding: 5%;
 }
 .map {
   background-image: image-url("map.png");
