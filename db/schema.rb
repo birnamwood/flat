@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_10_060635) do
+ActiveRecord::Schema.define(version: 2019_10_12_103903) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "end_user_id"
@@ -101,6 +101,11 @@ ActiveRecord::Schema.define(version: 2019_10_10_060635) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "inquiries", force: :cascade do |t|
     t.string "email"
     t.string "name"
@@ -148,7 +153,6 @@ ActiveRecord::Schema.define(version: 2019_10_10_060635) do
     t.integer "prefecture_id"
     t.integer "municipality_id"
     t.string "address"
-    t.string "post_title"
     t.string "post_name"
     t.string "overview"
     t.string "video"
