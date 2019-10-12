@@ -79,7 +79,6 @@ scoreName: 'post[rating]'
 </script>
 <script>
   $('#post_prefecture_id').change(function() {
-      console.log("aa")
     $.ajax({
         url:"../select_prefectures",
         data: { pref_id: $(this).val() }
