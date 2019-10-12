@@ -29,7 +29,9 @@
         <%= f.label "都道府県" %>
         <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :prefecture_name, {prompt: "都道府県を選択"}, {class: "browser-default"}) %>
         <%= f.label "市町村" %>
-        <%= f.collection_select(:municipality_id, Municipality.all, :id, :municipality_name, {prompt: "市町村を選択"}, {class: "browser-default"}) %>
+          <div id="municipality-zone">
+            <%= render "select_municipality", {municipality: @municipality} %>
+          </div>
         <%= f.label "住所その他" %>
         <%= f.text_field :address, placeholder: "住所" %>
 
@@ -74,4 +76,15 @@ score: userScore ,
 half: true,
 scoreName: 'post[rating]'
 });
+</script>
+<script>
+  $('#post_prefecture_id').change(function() {
+      console.log("aa")
+    $.ajax({
+        url:"../select_prefectures",
+        data: { pref_id: $(this).val() }
+    }).done(function(data){
+      $('#post_municipality_id').html(data)
+    });
+  });
 </script>

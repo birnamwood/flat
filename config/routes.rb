@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :home, only: [:index]
+  get 'posts/select_prefectures'
   resources :posts, only: [:new, :create, :edit, :update, :show, :destroy]
   resources :post_tags, only: [:destroy]
   resources :post_images, only: [:destroy]

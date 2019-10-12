@@ -4,11 +4,14 @@ class PostsController < ApplicationController
     @post_tag = @post.post_tags.build
     @post_image = @post.post_images.build
     @end_user = current_end_user
+    @municipality = Municipality.none
   end
 
   def edit
     @post = Post.find(params[:id])
     @end_user = @post.end_user
+    @prefecture = @post.prefecture
+    @municipality = @prefecture.municipalities
     # 追加用
     @postnew = Post.new
     @post_tag = @postnew.post_tags.build
@@ -56,6 +59,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def select_prefectures
+    @prefecture = Prefecture.find(params[:pref_id])
+    @municipality = @prefecture.municipalities
+    render partial: 'select_municipality', locals: { municipality: @municipality }
+  end
 
   private
   def post_params
