@@ -23,7 +23,7 @@
 
     <div class="post-content-tag">
       <% @post_tags.each do |t| %>
-        <%= link_to t.tag.tag_name, "#", class:"btn" %>
+        <%= link_to t.tag.tag_name, "#", class:"btn-flat" %>
       <% end %>
     </div>
 
@@ -43,7 +43,7 @@
 
       <div class="post-content-rating">
         <h4><i class="small material-icons">directions_run</i><%= @user.nickname %>さんの評価</h4>
-        <p>評価：<%= @post.rating %>点</p>
+        <p>おすすめ度：<%= @post.rating %>点</p>
         <div id="star-rate-<%= @post.id %>"></div>
         <br>
         <p>予算：<%= @post.budget %></p>
