@@ -9,7 +9,6 @@ class EndUser < ApplicationRecord
 
   has_many :visits, dependent: :destroy
   has_many :clips, dependent: :destroy
-  has_many :evaluates, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :addresses, dependent: :destroy

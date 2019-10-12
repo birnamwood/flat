@@ -45,6 +45,18 @@ class PostsController < ApplicationController
       end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+        flash[:success] = "記事を削除しました。"
+        redirect_to end_user_path(current_end_user)
+    else
+        flash[:warning] = "記事の削除に失敗しました。"
+        redirect_to post_path(@post)
+    end
+  end
+
+
   private
   def post_params
     params.require(:post).permit(:zipcode, :prefecture_id, :municipality_id, :address, :post_title, :post_name, :overview, :video, :access, :budget, :body, :rating,

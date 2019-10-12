@@ -6,7 +6,6 @@ class Post < ApplicationRecord
 
   has_many :visits, dependent: :destroy
   has_many :clips, dependent: :destroy
-  has_many :evaluates, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :post_images, dependent: :destroy
   has_many :post_tags, dependent: :destroy

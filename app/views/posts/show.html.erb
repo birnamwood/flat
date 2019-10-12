@@ -10,6 +10,7 @@
   <% if @post.end_user == current_end_user %>
     <br>
     <%= link_to "記事を編集する", edit_post_path(@post), class: "btn" %>
+    <%= link_to "記事を削除する", post_path(@post), method: :delete, class: "btn" %>
   <% end %>
 
 <div>

@@ -10,7 +10,7 @@
         <% else %>
             <%= image_tag("no_image.png", class: "list-image") %>
         <% end %>
-        <div class="post-list-author">by <%= link_to post.end_user.nickname, end_user_path, class: "post-list-author-name"%></div>
+        <div class="post-list-author">by <%= link_to post.end_user.nickname, end_user_path(post.end_user), class: "post-list-author-name"%></div>
     </div>
 
     <div class="post-list-text">
