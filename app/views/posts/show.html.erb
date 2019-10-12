@@ -11,39 +11,54 @@
     <br>
     <%= link_to "記事を編集する", edit_post_path(@post), class: "btn" %>
     <%= link_to "記事を削除する", post_path(@post), method: :delete, class: "btn" %>
-  <% end %>
-
-  <h4>動画</h4>
-  <%= video_tag @post.video_url.to_s,loop: true, controls: true, width: 550 %>
-  <h4>写真</h4>
-  <% @post_images.each do |p| %>
-    <%= image_tag p.post_image_id.to_s, :size =>'320x480' %>
+    <br>
     <br>
   <% end %>
 
-<div>
-  <h4>著者</h4>
-  <%= @user.nickname%>
-  <h4>場所の名前</h4>
-  <%= @post.post_name%>
+  <div class="post-content">
+    <nav>
+      <div class="left post-content-title"><%= @post.post_name%></div>
+      <div class="right post-content-author">by <%= link_to @user.nickname, end_user_path(@user) %></div>
+    </nav>
 
-  <h4>タグ</h4>
-  <% @post_tags.each do |t| %>
-    <%= t.tag.tag_name %>
-  <% end %>
+    <div class="post-content-tag">
+      <% @post_tags.each do |t| %>
+        <%= link_to t.tag.tag_name, "#", class:"btn" %>
+      <% end %>
+    </div>
 
-  <h4>評価</h4>
-    <%= @post.rating %>
-         <div id="star-rate-<%= @post.id %>"></div>
-
-  <h4>住所</h4>
-  〒<%= @post.zipcode %>
-    <p id="post-map-address"><%= @prefecture.prefecture_name %><%= @municipality.municipality_name %><%= @post.address %></p>
-      <div id="post-map">
+    <div class="post-content-image-area clearfix">
+      <div class="post-content-photo">
+        <div class="carousel carousel-slider">
+          <% @post_images.each do |p| %>
+            <%= image_tag p.post_image_id.to_s, id: "photo-content", class: "carousel-item" %>
+            <br>
+          <% end %>
+        </div>
       </div>
+      <div class="post-content-video">
+        <%= video_tag @post.video_url.to_s,loop: true, controls: true, id: "video-content" %>
+      </div>
+    </div>
 
+      <div class="post-content-rating">
+        <h4><i class="small material-icons">directions_run</i><%= @user.nickname %>さんの評価</h4>
+        <p>評価：<%= @post.rating %>点</p>
+        <div id="star-rate-<%= @post.id %>"></div>
+        <br>
+        <p>予算：<%= @post.budget %></p>
+        <br>
+        <%= @post.body %>
+     </div>
 
-</div>
+      <div class="post-content-mapping">
+        <br>
+        <p id="post-map-address">〒<%= @post.zipcode %>
+          <%= @prefecture.prefecture_name %><%= @municipality.municipality_name %><%= @post.address %></p>
+          <div id="post-map"></div>
+     </div>
+
+  </div>
 
 <script>
 let map
@@ -92,5 +107,17 @@ $(document).on('turbolinks:load', function() {
     readOnly: true,
     score: <%= @post.rating %>
   });
+});
+</script>
+
+<script>
+document.addEventListener('turbolinks:load', function() {
+  var elems = document.querySelectorAll('.carousel');
+  // ここでオプションを指定。今回はなし
+  var options = {
+    fullWidth: true,
+    indicators: true
+  }
+  M.Carousel.init(elems, options);
 });
 </script>

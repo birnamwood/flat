@@ -67,3 +67,43 @@
 .post-list-text-evaluate {
   height: 10%;
 }
+
+.post-content {
+  box-shadow: 0 0 8px lightgray;
+  padding-bottom: 5%;
+}
+.post-content-title {
+  font-size: 24px;
+  padding-left: 1%;
+}
+.post-content-author {
+  font-size: 16px;
+  padding-right: 1%;
+}
+.post-content-tag {
+  width: 100%;
+  padding: 1%;
+}
+.post-content-image-area {
+  height: 500px;
+}
+.post-content-video, .post-content-photo {
+  width: 50%;
+  margin: auto;
+  float: left;
+  padding: 1%;
+}
+#video-content, #photo-content {
+ width: 100%;
+}
+.post-content-rating {
+  width: 90%;
+  padding: 1%;
+  margin: auto;
+  box-shadow: 0 0 8px lightgray;
+}
+.post-content-mapping {
+  width: 90%;
+  padding: 1%;
+  margin: auto;
+}
