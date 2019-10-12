@@ -1,6 +1,7 @@
 <h1>記事投稿</h1>
 
-<%= form_with model: @post do |f| %>
+<div class="add-post-area">
+    <%= form_with model: @post do |f| %>
         <%= f.label "場所の名前" %>
         <%= f.text_field :post_name, placeholder: "場所の名前が記事のタイトルになります" %>
 
@@ -10,7 +11,7 @@
         </div>
 
 
-        <div>
+        <div class="add-post-tag">
           <%= link_to_add_association 'タグを追加', f , :post_tags, class: "btn-flat" %>
         </div>
 
@@ -30,7 +31,7 @@
         <%= f.text_field :address, placeholder: "住所" %>
 
         <%= f.label "予算" %>
-        <%= f.text_field :budget, placeholder: "予算" %>
+        <%= f.text_field :budget, placeholder: "予算（円）" %>
         <%= f.label "紹介文" %>
         <%= f.text_area :body, placeholder: "紹介文"%>
 
@@ -40,7 +41,7 @@
         <br>
 
         <%= f.label "画像を追加" %>
-        <div>
+        <div class="add-post-photo">
           <%= link_to_add_association '画像を追加', f , :post_images, class: "btn-flat" %>
         </div>
 
@@ -48,7 +49,8 @@
         <br>
         <%= f.submit value="記事を投稿", class: "btn"%>
         <br>
-  <% end %>
+    <% end %>
+</div>
 
 
 <script>
