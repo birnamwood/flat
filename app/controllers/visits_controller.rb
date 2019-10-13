@@ -1,5 +1,10 @@
 class VisitsController < ApplicationController
 
+  def show
+    @end_user = EndUser.find(params[:id])
+    @posts = @end_user.visit_posts
+  end
+
   def create
     @post = Post.find(params[:post_id])
     visit = current_end_user.visits.new(post_id: @post.id)

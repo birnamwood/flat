@@ -15,6 +15,8 @@ class EndUser < ApplicationRecord
 
   has_many :user_clips, foreign_key: "end_user_id", class_name: "Clip", dependent: :destroy
   has_many :clip_posts, through: :user_clips, source: :post
+  has_many :user_visits, foreign_key: "end_user_id", class_name: "Visit", dependent: :destroy
+  has_many :visit_posts, through: :user_visits, source: :post
 
   has_many :active_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
   has_many :passive_relationships, class_name:  "Relationship", foreign_key: "followed_id", dependent: :destroy
