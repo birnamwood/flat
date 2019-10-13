@@ -9,6 +9,7 @@
       <div>
         <ul class="right">
         <% if end_user_signed_in? %>
+            <li><%= link_to "マイページ", end_user_path(current_end_user) %></li>
             <li><%= link_to "クリップ一覧", clip_path(current_end_user) %></li>
             <li><%= link_to "行った場所一覧", visit_path(current_end_user) %></li>
             <li><%= link_to "記事の投稿", new_post_path %></li>
