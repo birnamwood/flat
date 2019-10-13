@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :home, only: [:index]
   resources :post_tags, only: [:destroy]
+  resources :tags, only: [:show]
   resources :post_images, only: [:destroy]
   resources :prefectures, only: [:show]
   resources :municipalities, only: [:show]
