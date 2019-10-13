@@ -19,7 +19,10 @@
           <%= post.body %>
          </div>
          <div class="post-list-text-evaluate">
-           <p>いいね</p>
+            <i class="material-icons">directions_run</i>
+            <%= post.clips.count %>ユーザー
+            <i class="material-icons heart-pink">favorite</i>
+            <%= post.visits.count %>ユーザー
          </div>
 
     </div>
