@@ -16,4 +16,10 @@ Rails.application.routes.draw do
   resources :prefectures, only: [:show]
   resources :municipalities, only: [:show]
   resources :end_users, only: [:show]
+  resources :end_users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships, only: [:create, :destroy]
 end
