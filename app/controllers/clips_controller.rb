@@ -2,7 +2,7 @@ class ClipsController < ApplicationController
 
   def show
     @end_user = EndUser.find(params[:id])
-    @posts = @end_user.clip_posts
+    @posts = @end_user.clip_posts.page(params[:page]).reverse_order
   end
 
   def create

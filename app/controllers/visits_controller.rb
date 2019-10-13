@@ -2,7 +2,7 @@ class VisitsController < ApplicationController
 
   def show
     @end_user = EndUser.find(params[:id])
-    @posts = @end_user.visit_posts
+    @posts = @end_user.visit_posts.page(params[:page]).reverse_order
   end
 
   def create

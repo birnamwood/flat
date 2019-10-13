@@ -13,4 +13,5 @@
         <h4>投稿記事は0件です</h4>
       <% end %>
           <%= render partial: 'posts/post_list_item', collection: @posts, as: "post" %>
+          <%= paginate @posts, class: "paginate" %>
 </div>
