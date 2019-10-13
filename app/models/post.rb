@@ -15,4 +15,10 @@ class Post < ApplicationRecord
 
   mount_uploader :video, VideoUploader
 
+  def cliped_by?(end_user) #クリップしているかどうか
+    clips.where(end_user_id: end_user.id).exists?
+  end
+  def visited_by?(end_user) #行ったかどうか
+    visits.where(end_user_id: end_user.id).exists?
+  end
 end

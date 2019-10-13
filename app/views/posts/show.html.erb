@@ -51,12 +51,44 @@
         <%= @post.body %>
      </div>
 
+    <%# <p>いいね機能実装予定</p> %>
+        <% if end_user_signed_in? %>
+          <% if @end_user != current_end_user %>
+              <% if @post.visited_by?(current_end_user) %>
+                <%= link_to post_visit_path(@post.id, current_end_user.id), method: :delete do %>
+                  <%= @post.visits.count %>人行った</span>
+                <% end %>
+              <% else %>
+                <%= link_to post_visits_path(@post.id), method: :post do %>
+                  <%= @post.visits.count %>人行った</span>
+                <% end %>
+              <% end %>
+              <%# クリップ機能 %>
+              <% if @post.cliped_by?(current_end_user) %>
+                <%= link_to post_clip_path(@post.id, current_end_user.id), method: :delete do %>
+                  <%= @post.clips.count %>人行きたい</span>
+                <% end %>
+              <% else %>
+                <%= link_to post_clips_path(@post.id), method: :post do %>
+                  <%= @post.clips.count %>人行きたい</span>
+                <% end %>
+              <% end %>
+
+          <% end %>
+        <% else%>
+           <h2><%= @post.visits.count %>人行った</h2>
+           <h2><%= @post.clips.count %>人行きたい</h2>
+        <% end %>
+
+
+
+
       <div class="post-content-mapping">
         <br>
         <p id="post-map-address">〒<%= @post.zipcode %>
           <%= @prefecture.prefecture_name %><%= @municipality.municipality_name %><%= @post.address %></p>
           <div id="post-map"></div>
-     </div>
+      </div>
 
   </div>
 
