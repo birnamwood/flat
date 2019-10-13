@@ -1,0 +1,8 @@
+<div class="clips-page">
+
+  <h4><%= @end_user.nickname%>さんのクリップした投稿一覧</h4>
+      <% if @posts.empty? %>
+        <h4>クリップは0件です</h4>
+      <% end %>
+          <%= render partial: 'posts/post_list_item', collection: @posts, as: "post" %>
+</div>

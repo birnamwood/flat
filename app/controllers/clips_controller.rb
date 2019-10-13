@@ -1,5 +1,10 @@
 class ClipsController < ApplicationController
 
+  def show
+    @end_user = EndUser.find(params[:id])
+    @posts = @end_user.clip_posts
+  end
+
   def create
     @post = Post.find(params[:post_id])
     clip = current_end_user.clips.new(post_id: @post.id)

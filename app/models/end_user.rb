@@ -7,11 +7,14 @@ class EndUser < ApplicationRecord
   belongs_to :prefecture
   belongs_to :municipality
 
+  has_many :posts, dependent: :destroy
   has_many :visits, dependent: :destroy
   has_many :clips, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :posts, dependent: :destroy
   has_many :addresses, dependent: :destroy
+
+  has_many :user_clips, foreign_key: "end_user_id", class_name: "Clip", dependent: :destroy
+  has_many :clip_posts, through: :user_clips, source: :post
 
   has_many :active_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
   has_many :passive_relationships, class_name:  "Relationship", foreign_key: "followed_id", dependent: :destroy
