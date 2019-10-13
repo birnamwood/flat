@@ -52,41 +52,10 @@
      </div>
 
       <div class="post-content-clip">
-       <%# <p>行ったユーザー</p> %>
-        <% if end_user_signed_in? && @post.end_user != current_end_user %>
-              <%# クリップ機能 %>
-              <% if @post.cliped_by?(current_end_user) %>
-                <%= link_to post_clip_path(@post.id, current_end_user.id), method: :delete do %>
-                  <i class="material-icons heart-pink">attach_file</i>
-                  <%= @post.clips.count %>
-                <% end %>
-              <% else %>
-                <%= link_to post_clips_path(@post.id), method: :post do %>
-                  <i class="material-icons heart-pink">attach_file</i>
-                  <%= @post.clips.count %>
-                <% end %>
-              <% end %>
-              <%# 行った機能 %>
-              <% if @post.visited_by?(current_end_user) %>
-                <%= link_to post_visit_path(@post.id, current_end_user.id), method: :delete do %>
-                  <i class="material-icons">directions_run</i>
-                  <%= @post.visits.count %>
-                <% end %>
-              <% else %>
-                <%= link_to post_visits_path(@post.id), method: :post do %>
-                  <i class="material-icons">directions_run</i>
-                  <%= @post.visits.count %>
-                <% end %>
-              <% end %>
-        <% else%>
-            <i class="material-icons heart-pink">attach_file</i>
-            <%= @post.clips.count %>
-            <i class="material-icons">directions_run</i>
-            <%= @post.visits.count %>
-        <% end %>
+        <div id="clip-area<%= @post.id %>">
+         <%= render "clip_field", post: @post %>
+        </div>
      </div>
-
-
 
 
       <div class="post-content-mapping">
