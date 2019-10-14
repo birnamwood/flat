@@ -4,8 +4,9 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label "アイコン画像" %>
+    <br>
+    <%= f.file_field :icon_image_id, class:"btn-flat"%>
   </div>
 
   <div class="field">
@@ -21,7 +22,7 @@
     <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :prefecture_name, {prompt: "都道府県を選択"}, {class: "browser-default"}) %>
     <%= f.label "市町村" %>
         <div id="municipality-zone">
-          <%= render "select_municipality", {municipality: Municipality.none} %>
+          <%= render "end_users/select_user_municipality", {municipality: Municipality.none} %>
         </div>
     <%= f.label "住所" %>
     <%= f.text_field :address, placeholder: "住所" %>
@@ -29,6 +30,8 @@
 
 
   <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>
@@ -53,11 +56,11 @@
 <script>
   $('#end_user_prefecture_id').change(function() {
     $.ajax({
-        url:"../posts/select_prefectures",
+        url:"select_prefectures",
         type:"GET",
         data: { pref_id: $(this).val() }
     }).done(function(data){
-      $('#post_municipality_id').html(data)
+      $('#end_user_municipality_id').html(data)
     });
   });
 </script>

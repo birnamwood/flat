@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get 'home/regions'
   get 'posts/select_prefectures'
+  get 'end_users/select_prefectures'
   devise_for :end_users
   devise_for :admin_users
 

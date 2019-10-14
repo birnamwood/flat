@@ -16,4 +16,10 @@ class EndUsersController < ApplicationController
     @users = @end_user.followers
     render 'show_follow'
   end
+
+  def select_prefectures
+    @prefecture = Prefecture.find(params[:pref_id])
+    @municipality = @prefecture.municipalities
+    render partial: 'select_user_municipality', locals: { municipality: @municipality }
+  end
 end
