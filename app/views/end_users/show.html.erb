@@ -1,9 +1,8 @@
-<h1><%= @end_user.nickname %>さんのマイページ</h1>
 
 <% if @end_user.icon_image_id.present? %>
-  <%= image_tag @end_user.icon_image_id.to_s, size: "100x100" %>
+  <h2><%= image_tag(@end_user.icon_image_id.to_s, size: "50x50") %> <%= @end_user.nickname %>さんのマイページ</h2>
 <% else %>
-  <%= image_tag("no_image.png", size: "100x100") %>
+  <h1><%= image_tag("no_image.png", size: "50x50") %> <%= @end_user.nickname %>さんのマイページ</h1>
 <% end %>
 
   <div id="favorite-area">

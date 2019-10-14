@@ -1,8 +1,8 @@
 
-     <h3><%= @end_user.nickname %>さんの<%= @title %></h3>
-      <% @users.each do |user| %>
-        <p><%= user.nickname %></p>
-        <br>
-      <% end %>
+<h3><%= @end_user.nickname %><%= @title %></h3>
+<%= link_to "このユーザーのマイページへ", end_user_path(@end_user), class: "btn" %>
+<br>
 
-      <%= link_to "Back", end_user_path(@end_user) %>
+<div class="follow-user-list">
+  <%= render "user_list_fields", users: @users %>
+</div>

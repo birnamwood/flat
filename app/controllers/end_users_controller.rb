@@ -4,16 +4,16 @@ class EndUsersController < ApplicationController
   end
 
   def following
-    @title = "フォロー"
+    @title = "さんのフォローユーザー"
     @end_user  = EndUser.find(params[:id])
-    @users = @end_user.following
+    @users = @end_user.following.page(params[:page]).reverse_order
     render 'show_follow'
   end
 
   def followers
-    @title = "フォロワー"
+    @title = "さんのフォロワー"
     @end_user  = EndUser.find(params[:id])
-    @users = @end_user.followers
+    @users = @end_user.followers.page(params[:page]).reverse_order
     render 'show_follow'
   end
 

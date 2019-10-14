@@ -23,6 +23,8 @@ class EndUser < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  mount_uploader :icon_image_id, ImagesUploader
+
    # ユーザーをフォローする
   def follow(other_user)
     following << other_user
