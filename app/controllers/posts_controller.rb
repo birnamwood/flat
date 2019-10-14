@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @user = @post.end_user
+    @end_user = @post.end_user
     @prefecture = @post.prefecture
     @municipality = @post.municipality
     @region = @prefecture.region

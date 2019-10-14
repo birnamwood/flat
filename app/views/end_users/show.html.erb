@@ -1,5 +1,11 @@
-<h1>ユーザーマイページ</h1>
+<h1><%= @end_user.nickname %>さんのマイページ</h1>
 
-<div id="favorite-area">
-  <%= render "favorite_field", end_user: @end_user %>
-</div>
+<% if @end_user.icon_image_id.present? %>
+  <%= image_tag @end_user.icon_image_id.to_s, size: "100x100" %>
+<% else %>
+  <%= image_tag("no_image.png", size: "100x100") %>
+<% end %>
+
+  <div id="favorite-area">
+    <%= render "favorite_field", end_user: @end_user %>
+  </div>
