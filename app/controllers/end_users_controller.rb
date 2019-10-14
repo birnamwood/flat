@@ -4,6 +4,23 @@ class EndUsersController < ApplicationController
     @posts = @end_user.posts.page(params[:page]).reverse_order
   end
 
+  def edit
+    @end_user  = EndUser.find(params[:id])
+    @prefecture = @end_user.prefecture
+    @municipality = @prefecture.municipalities
+  end
+
+  def update
+    @end_user  = EndUser.find(params[:id])
+      if @end_user.update(end_users_params)
+        flash[:success] = "ユーザー情報を更新しました。"
+        redirect_to end_user_path(@end_user)
+      else
+        flash[:danger] = "ユーザー情報の更新に失敗しました。"
+        redirect_to end_user_path(@end_user)
+      end
+  end
+
   def following
     @title = "さんのフォローユーザー"
     @end_user  = EndUser.find(params[:id])
@@ -22,5 +39,11 @@ class EndUsersController < ApplicationController
     @prefecture = Prefecture.find(params[:pref_id])
     @municipality = @prefecture.municipalities
     render partial: 'select_user_municipality', locals: { municipality: @municipality }
+  end
+
+  private
+
+  def end_users_params
+    params.require(:end_user).permit(:icon_image_id, :lastname, :firstname, :nickname, :zipcode, :prefecture_id, :municipality_id, :address)
   end
 end

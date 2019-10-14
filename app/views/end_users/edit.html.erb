@@ -1,1 +1,49 @@
 <h1>profile編集</h1>
+<%= form_with model: @end_user, method: :patch do |f| %>
+
+  <div class="field">
+    <%= f.label "アイコン画像" %>
+    <br>
+      <% if @end_user.icon_image_id.present? %>
+        <%= image_tag(@end_user.icon_image_id.to_s, size: "100x100") %>
+      <% end %>
+    <br>
+    <%= f.file_field :icon_image_id, class:"btn-flat"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :lastname %>
+    <%= f.text_field :lastname, autofocus: true, autocomplete: "Name" %>
+    <%= f.label :firstname %>
+    <%= f.text_field :firstname, autofocus: true, autocomplete: "Name" %>
+    <%= f.label :nickname %>
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "Name" %>
+    <%= f.label "郵便番号" %>
+    <%= f.text_field :zipcode, placeholder: "郵便番号" %>
+    <%= f.label "都道府県" %>
+    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :prefecture_name, {prompt: "都道府県を選択"}, {class: "browser-default"}) %>
+    <%= f.label "市町村" %>
+        <div id="municipality-zone">
+          <%= render "end_users/select_user_municipality", {municipality: @municipality} %>
+        </div>
+    <%= f.label "住所" %>
+    <%= f.text_field :address, placeholder: "住所" %>
+  </div>
+
+<br>
+  <div class="actions">
+    <%= f.submit "更新", class: "btn" %>
+  </div>
+<% end %>
+
+<script>
+  $('#end_user_prefecture_id').change(function() {
+    $.ajax({
+        url:"../select_prefectures",
+        type:"GET",
+        data: { pref_id: $(this).val() }
+    }).done(function(data){
+      $('#end_user_municipality_id').html(data)
+    });
+  });
+</script>
