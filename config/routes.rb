@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :clips, only: [:show]
   resources :visits, only: [:show]
   resources :relationships, only: [:create, :destroy]
-  resources :end_users, only: [:show]
+  resources :end_users, only: [:show, :edit]
   resources :posts, only: [:new, :create, :edit, :update, :show, :destroy] do
     resources :visits, only: [:destroy, :create]
     resources :clips, only: [:destroy, :create]

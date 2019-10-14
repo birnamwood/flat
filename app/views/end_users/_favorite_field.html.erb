@@ -19,15 +19,18 @@
 
   <div class="favorite-field-following">
     <%= link_to following_end_user_path(end_user)  do %>
-        <span><%= end_user.following.count %>フォロー</span>
+        <span><strong><%= end_user.following.count %></strong>フォロー</span>
       <% end %>
   </div>
 
   <div class="favorite-field-follower">
     <%= link_to followers_end_user_path(end_user) do %>
-        <span><%= end_user.followers.count %>フォロワー</span>
+        <span><strong><%= end_user.followers.count %></strong>フォロワー</span>
     <% end %>
   </div>
 
+  <div class="profile-edit">
+    <%= link_to "プロフィール編集", edit_end_user_path(end_user), class: "btn"%>
+  </div>
 
 </div>
