@@ -1,25 +1,33 @@
-  <%= link_to following_end_user_path(end_user)  do %>
-      <%= end_user.following.count %>
-    following
-    <% end %>
-  <br>
-  <%= link_to followers_end_user_path(end_user) do %>
-      <%= end_user.followers.count %>
-    followers
-  <% end %>
-
-  <% if end_user_signed_in? %>
-    <% if end_user != current_end_user %>
-      <% if current_end_user.following?(end_user) %>
-        <%= form_for(current_end_user.active_relationships.find_by(followed_id: end_user.id),
-                html: { method: :delete }, remote: true) do |f| %>
-                <%= f.submit "Unfollow", class: "btn btn-default" %>
-        <% end %>
-      <% else %>
-        <%= form_for(current_end_user.active_relationships.build, remote: true) do |f| %>
-          <div><%= hidden_field_tag :followed_id, end_user.id %></div>
-          <%= f.submit "Follow", class: "btn btn-primary" %>
+<div class="favorite-field clearfix">
+  <div class="favorite-field-button">
+    <% if end_user_signed_in? %>
+      <% if end_user != current_end_user %>
+        <% if current_end_user.following?(end_user) %>
+          <%= form_for(current_end_user.active_relationships.find_by(followed_id: end_user.id),
+                  html: { method: :delete }, remote: true) do |f| %>
+                  <%= f.submit "フォロー中", class: "btn btn-default" %>
+          <% end %>
+        <% else %>
+          <%= form_for(current_end_user.active_relationships.build, remote: true) do |f| %>
+            <div><%= hidden_field_tag :followed_id, end_user.id %></div>
+            <%= f.submit "フォローする", class: "btn btn-primary" %>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
-  <% end %>
+  </div>
+
+  <div class="favorite-field-following">
+    <%= link_to following_end_user_path(end_user)  do %>
+        <span><%= end_user.following.count %>フォロー</span>
+      <% end %>
+  </div>
+
+  <div class="favorite-field-follower">
+    <%= link_to followers_end_user_path(end_user) do %>
+        <span><%= end_user.followers.count %>フォロワー</span>
+    <% end %>
+  </div>
+
+
+</div>

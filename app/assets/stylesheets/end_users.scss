@@ -2,6 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//ユーザー詳細ページ
+.user-information-area {
+  box-shadow: 0 0 8px lightgray;
+  margin-bottom: 5%;
+}
+.user-icon-area {
+  width: 40%;
+  padding: 3%;
+  float: left;
+}
+.user-profile-area {
+  width: 60%;
+  padding: 3%;
+  float: left;
+  font-size: 24px;
+}
+.favorite-field {
+  padding: 3%;
+}
+.favorite-field-button {
+  width: 40%;
+  float:left;
+}
+.favorite-field-following, .favorite-field-follower {
+  float:left;
+  margin-left: 3%;
+  font-size: 16px;
+}
 // フォロー一覧ページ
 .follow-user-list {
   margin-top: 5%;
