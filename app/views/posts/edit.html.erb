@@ -62,14 +62,16 @@
 
 
 <script>
-//初期値をDBの値にする
-userScore = document.getElementById('post_rating').value
+$(document).on('turbolinks:load', function() {
+  //初期値をDBの値にする
+  userScore = document.getElementById('post_rating').value
 
-$('#rating').raty({
-path: '/assets/',
-score: userScore ,
-half: true,
-scoreName: 'post[rating]'
+  $('#rating').raty({
+    path: '/assets/',
+    score: userScore ,
+    half: true,
+    scoreName: 'post[rating]'
+  });
 });
 </script>
 <script>
