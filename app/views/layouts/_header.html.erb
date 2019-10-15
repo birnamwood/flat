@@ -17,12 +17,13 @@
         <% end %>
 
         <ul class="right hide-on-med-and-down">
-        <% if end_user_signed_in? %>
+          <% if end_user_signed_in? %>
             <li><%= link_to clip_path(current_end_user) do %><i class="material-icons">attach_file</i><% end %></li>
             <li><%= link_to visit_path(current_end_user) do %><i class="material-icons">directions_run</i><% end %></li>
             <li><%= link_to new_post_path do %><i class="material-icons">edit</i><% end %></li>
 
             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">
+            <i class="material-icons left">account_box</i>
               <%= current_end_user.nickname%>
               <i class="material-icons right">arrow_drop_down</i></a></li>
           <% else %>
@@ -30,12 +31,48 @@
               <li><%= link_to "新規登録", new_end_user_registration_path %></li>
           <% end %>
         </ul>
-      </div>
 
+
+              <div id="hm-icon">
+                <a class="menu-trigger" href="#">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </a>
+              </div>
+             <div id="sp-menu">
+             <h2>FLAT MENU</h2>
+                <ul>
+                  <% if end_user_signed_in? %>
+                    <li><%= link_to "マイページ", end_user_path(current_end_user) %></li>
+                    <li><%= link_to "クリップ一覧", clip_path(current_end_user) %></li>
+                    <li><%= link_to "訪問済み一覧", visit_path(current_end_user) %></li>
+                    <li><%= link_to "記事投稿", new_post_path %></li>
+                    <li><%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %></li>
+                  <% else %>
+                    <li><%= link_to "ログイン", new_end_user_session_path %></li>
+                    <li><%= link_to "新規登録", new_end_user_registration_path %></li>
+                  <% end %>
+                </ul>
+             </div>
+
+      </div>
     </div>
   </nav>
 </header>
 
 <script>
-$(".dropdown-trigger").dropdown();
+$(function() {
+  $(".dropdown-trigger").dropdown();
+});
+</script>
+
+<script>
+$(function() {
+  $('.menu-trigger').on('click', function() {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    return false;
+  });
+ });
 </script>
