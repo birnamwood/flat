@@ -72,7 +72,7 @@
       </div>
 
       <div class="post-content-comment">
-        <h4>Comment</h4>
+          <h4><i class=" small material-icons comment-icon">comment</i> Comment</h4>
           <%= form_with( model: @comment_new) do |f| %>
               <%= f.text_field :content, autofocus: true, class:"form-control", placeholder: "コメントを入力" %>
               <br>
