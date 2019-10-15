@@ -15,7 +15,7 @@
     <br>
   <% end %>
 
-  <div class="post-content">
+<div class="post-content">
     <nav>
       <div class="left post-content-title"><%= @post.post_name%></div>
       <div class="right post-content-author">by <%= link_to @end_user.nickname, end_user_path(@end_user) %></div>
@@ -71,7 +71,20 @@
           <div id="post-map"></div>
       </div>
 
-  </div>
+      <div class="post-content-comment">
+        <h4>Comment</h4>
+          <%= form_with( model: @comment_new) do |f| %>
+              <%= f.text_field :content, autofocus: true, class:"form-control", placeholder: "コメントを入力" %>
+              <br>
+              <%= f.hidden_field :post_id, :value => @post.id %>
+              <%= f.submit "送信", class:"btn" %>
+          <% end %>
+          <br>
+          <%= render partial: 'posts/post_comments', collection: @comments, as: "comment" %>
+          <%= paginate @comments, class: "paginate" %>
+      </div>
+
+</div>
 
 <script>
 let map

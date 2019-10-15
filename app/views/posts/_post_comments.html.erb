@@ -1,0 +1,21 @@
+<div class="comment-area clearfix">
+  <div class="comment-area-user clearfix">
+    <div class="comment-area-usericon">
+      <% if comment.end_user.icon_image_id.present? %>
+        <%= image_tag(comment.end_user.icon_image_id.to_s, size: "50x50", class:"user-icon") %>
+      <% else %>
+        <%= image_tag("no_image.png", size: "50x50", class:"user-icon") %>
+      <% end %>
+    </div>
+    <div class="comment-area-username">
+      <p><%= comment.end_user.nickname %></p>
+    </div>
+    <div class="comment-area-date right">
+      <p><%= comment.created_at.strftime("%Y年%m月%d日") %><%= comment.created_at.strftime("%H時%M分") %><p>
+    </div>
+  </div>
+
+  <div class="comment-area-content right">
+    <%= comment.content %>
+  </div>
+</div>

@@ -142,3 +142,27 @@
   padding: 1%;
   margin: auto;
 }
+.post-content-comment {
+  width: 90%;
+  padding: 1%;
+  margin: auto;
+  box-shadow: 0 0 8px lightgray;
+}
+.comment-area {
+  padding: 1%;
+  margin-bottom: 1%;
+  width: 95%;
+  margin: auto;
+}
+.comment-area-usericon, .comment-area-username {
+  padding: 1%;
+  float: left;
+}
+.comment-area-username, .comment-area-date {
+  line-height: 55px;
+}
+.comment-area-content {
+  border-bottom: 1px solid gray;
+  font-size: 20px;
+  width: 97%;
+}

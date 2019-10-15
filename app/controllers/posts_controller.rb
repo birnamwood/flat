@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     @post_tags = @post.post_tags
     @post_images = @post.post_images
     @comment_new = Comment.new
-    @comments = @post.comments
+    @comments = @post.comments.page(params[:page]).reverse_order
   end
 
   def create
