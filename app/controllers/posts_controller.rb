@@ -33,10 +33,13 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.end_user_id = current_end_user.id
-
-    @post.save
-    flash[:success] = "記事を投稿しました。"
-    redirect_to post_path(@post)
+    if @post.save
+      flash[:success] = "記事を投稿しました。"
+      redirect_to post_path(@post)
+    else
+      flash[:success] = "記事の投稿に失敗しました。"
+      redirect_to new_post_path
+    end
   end
 
   def update
