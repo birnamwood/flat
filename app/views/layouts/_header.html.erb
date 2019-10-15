@@ -18,15 +18,12 @@
 
         <ul class="right hide-on-med-and-down">
         <% if end_user_signed_in? %>
-            <li><%= link_to "クリップ一覧", clip_path(current_end_user) %></li>
-            <li><%= link_to "行った場所一覧", visit_path(current_end_user) %></li>
-            <li><%= link_to "記事の投稿", new_post_path %></li>
+            <li><%= link_to clip_path(current_end_user) do %><i class="material-icons">attach_file</i><% end %></li>
+            <li><%= link_to visit_path(current_end_user) do %><i class="material-icons">directions_run</i><% end %></li>
+            <li><%= link_to new_post_path do %><i class="material-icons">edit</i><% end %></li>
+
             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">
-              <% if current_end_user.icon_image_id.present? %>
-                <%= image_tag current_end_user.icon_image_id.to_s, size: "60x60", class: "user-icon" %>
-              <% else %>
-                <%= image_tag("no_image.png", size: "60x60", class:"user-icon") %>
-              <% end %>
+              <%= current_end_user.nickname%>
               <i class="material-icons right">arrow_drop_down</i></a></li>
           <% else %>
               <li><%= link_to "ログイン", new_end_user_session_path %></li>
