@@ -43,10 +43,10 @@
 
       <div class="post-content-rating">
         <% if @end_user.icon_image_id.present? %>
-          <h4><%= image_tag @end_user.icon_image_id.to_s, size: "50x50" %> <%= @end_user.nickname %>さんの評価</h4>
+          <h4><%= image_tag @end_user.icon_image_id.to_s, size: "50x50", class: "user-icon" %> <%= @end_user.nickname %>さんの評価</h4>
 
         <% else %>
-          <h4><%= image_tag("no_image.png", size: "50x50") %> <%= @end_user.nickname %>さんの評価</h4>
+          <h4><%= image_tag("no_image.png", size: "50x50", class:"user-icon") %> <%= @end_user.nickname %>さんの評価</h4>
         <% end %>
 
         <p>おすすめ度：<%= @post.rating %>点</p>

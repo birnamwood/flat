@@ -1,17 +1,17 @@
 
 <% if @end_user.icon_image_id.present? %>
-  <h2><%= image_tag(@end_user.icon_image_id.to_s, size: "50x50") %> <%= @end_user.nickname %>さんのマイページ</h2>
+  <h2><%= image_tag(@end_user.icon_image_id.to_s, size: "50x50", class: "user-icon") %> <%= @end_user.nickname %>さんのマイページ</h2>
 <% else %>
-  <h1><%= image_tag("no_image.png", size: "50x50") %> <%= @end_user.nickname %>さんのマイページ</h1>
+  <h1><%= image_tag("no_image.png", size: "50x50", class: "user-icon") %> <%= @end_user.nickname %>さんのマイページ</h1>
 <% end %>
 
 <div class="user-mypage">
   <div class="user-information-area clearfix">
     <div class="user-icon-area">
       <% if @end_user.icon_image_id.present? %>
-        <%= image_tag(@end_user.icon_image_id.to_s, size: "300x300") %>
+        <%= image_tag(@end_user.icon_image_id.to_s, size: "300x300", class: "user-icon") %>
       <% else %>
-        <%= image_tag("no_image.png", size: "300x300") %>
+        <%= image_tag("no_image.png", size: "300x300", class: "user-icon") %>
       <% end %>
     </div>
     <div class="user-profile-area">
