@@ -1,7 +1,10 @@
 <footer>
   <nav>
-    © 2019 Copyright
+    © 2019 Copyright flat
     <ul class="right">
+      <% if end_user_signed_in? %>
+        <li><%= link_to "お問い合わせ", new_inquiry_path %></li>
+      <% end %>
       <li><%= link_to "利用規約", "#" %></li>
       <li><%= link_to "このサイトについて", "#" %></li>
     </ul>

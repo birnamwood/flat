@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'inquiries/new'
   root to: 'home#index'
   get 'home/regions'
   get 'posts/select_prefectures'
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   resources :visits, only: [:show]
   resources :searches, only: [:index]
   resources :relationships, only: [:create, :destroy]
+  resources :inquiries, only: [:new, :create]
   resources :end_users, only: [:show, :edit, :update]
   resources :posts, only: [:new, :create, :edit, :update, :show, :destroy] do
     resources :visits, only: [:destroy, :create]
