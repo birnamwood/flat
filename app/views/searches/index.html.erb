@@ -1,0 +1,8 @@
+<h4>「 <%= @check %> 」の検索結果</h4>
+  <% if @search_posts.present? %>
+    <%= render partial: 'posts/post_list_item', collection: @search_posts, as: "post" %>
+  <% else %>
+        <h4>検索結果は0件です</h4>
+  <% end %>
+    <%= paginate @search_posts, class: "paginate" %>
+</div>

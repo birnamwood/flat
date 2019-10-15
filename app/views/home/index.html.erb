@@ -3,8 +3,16 @@
   <div class="search clearfix">
       <div class="keyword-search">
         <h4>キーワードで検索</h4>
-        <input type="search" placeholder="検索ワードを入力">
-        <%= link_to "検索", "#", class: "btn waves-effect waves-light" %>
+          <%= search_form_for @search, url: searches_path do |f| %>
+            <div class="search_form_box">
+              <%= f.text_field :post_name_or_end_user_nickname_cont , class: "search_form", placeholder: '検索キーワード' %>
+            </div>
+            <div class="search_btn_box">
+              <%= button_tag :type => "submit", :class =>"btn waves-effect" do %>
+                <i class="material-icons">search</i>
+              <% end %>
+            </div>
+          <% end %>
       </div>
       <div class="tag-search">
         <h4>タグから探す</h4>
