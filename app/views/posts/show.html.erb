@@ -82,8 +82,8 @@
           <br>
           <div id="reload-comment-area">
             <%= render partial: 'posts/post_comments', collection: @comments, as: "comment" %>
+            <%= paginate @comments, class: "paginate" %>
           </div>
-          <%= paginate @comments, class: "paginate" %>
       </div>
 
 </div>

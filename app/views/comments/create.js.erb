@@ -1,2 +1,2 @@
 $(".form-control").val('');
-$("#reload-comment-area").html("<%= j(render partial: 'posts/post_comments', collection: @comments, as: "comment") %>");
+$("#reload-comment-area").html("<%= j(render partial: 'posts/post_comments', collection: @comments, as: "comment") %><%= j(paginate @comments, class: "paginate") %>");
