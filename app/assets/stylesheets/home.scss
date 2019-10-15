@@ -80,7 +80,57 @@
   left: 8%;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 992px) {
+  .hokkaido {
+    position: absolute;
+    top: 8%;
+    left: 79%;
+  }
+  .tohoku {
+    position: absolute;
+    top: 38%;
+    left: 76%;
+  }
+  .hokuriku {
+    position: absolute;
+    top: 48%;
+    left: 58%;
+  }
+  .kanto {
+    position: absolute;
+    top: 63%;
+    left: 75%;
+  }
+  .tyubu {
+    position: absolute;
+    top: 70%;
+    left: 60%;
+  }
+  .kansai {
+    position: absolute;
+    top: 66%;
+    left: 43%;
+  }
+  .tyugoku {
+    position: absolute;
+    top: 62%;
+    left: 26%;
+  }
+  .sikoku {
+    position: absolute;
+    top: 80%;
+    left: 27%;
+  }
+  .kyusyu {
+    position: absolute;
+    top: 67%;
+    left: 9%;
+  }
+  .okinawa {
+    position: absolute;
+    top: 93%;
+    left: 7%;
+  }
 }
 
 @media (max-width: 640px) {
