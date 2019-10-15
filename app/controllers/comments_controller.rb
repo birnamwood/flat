@@ -7,10 +7,17 @@ class CommentsController < ApplicationController
 
     if comment.save
       flash[:success] = "コメントを送信しました。"
-      redirect_to post_path(post)
+      @comments = post.comments.page(params[:page]).reverse_order
+      respond_to do |format|
+        format.html { redirect_to post_path(post) }
+        format.js
+      end
     else
       flash[:error] = comment.errors.full_messages
-      redirect_to post_path(post)
+      respond_to do |format|
+        format.html { redirect_to post_path(post) }
+        format.js
+      end
     end
   end
 
@@ -18,8 +25,12 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     post = @comment.post
     if @comment.destroy
-        flash[:success] = "コメントを削除しました"
-      redirect_to post_path(post)
+      @comments = post.comments.page(params[:page]).reverse_order
+      flash[:success] = "コメントを削除しました"
+      respond_to do |format|
+        format.html { redirect_to post_path(post) }
+        format.js
+      end
     end
   end
 

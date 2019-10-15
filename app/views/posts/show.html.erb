@@ -80,8 +80,10 @@
               <%= f.submit "送信", class:"btn" %>
           <% end %>
           <br>
-          <%= render partial: 'posts/post_comments', collection: @comments, as: "comment" %>
-          <%= paginate @comments, class: "paginate" %>
+          <div id="reload-comment-area">
+            <%= render partial: 'posts/post_comments', collection: @comments, as: "comment" %>
+          </div>
+            <%= paginate @comments, class: "paginate" %>
       </div>
 
 </div>
