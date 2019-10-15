@@ -19,3 +19,9 @@
     <%= comment.content %>
   </div>
 </div>
+
+<div>
+  <% if comment.end_user == current_end_user %>
+    <%= link_to "削除", comment_path(comment), method: :delete, remote: true, class: "btn btn-delete right" %>
+  <% end %>
+</div>

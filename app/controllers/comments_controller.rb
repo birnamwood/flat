@@ -4,10 +4,10 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     comment.end_user_id = current_end_user.id
     comment.post_id = post.id
+    @comments = post.comments.page(params[:page]).reverse_order
 
     if comment.save
       flash[:success] = "コメントを送信しました。"
-      @comments = post.comments.page(params[:page]).reverse_order
       respond_to do |format|
         format.html { redirect_to post_path(post) }
         format.js
@@ -24,8 +24,8 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     post = @comment.post
+    @comments = post.comments.page(params[:page]).reverse_order
     if @comment.destroy
-      @comments = post.comments.page(params[:page]).reverse_order
       flash[:success] = "コメントを削除しました"
       respond_to do |format|
         format.html { redirect_to post_path(post) }
