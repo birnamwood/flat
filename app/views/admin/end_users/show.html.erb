@@ -35,6 +35,7 @@
               <%= @end_user.nickname %>
             <% end %>
           </td></tr>
+          <tr><td>メールアドレス</td><td><%= @end_user.email %></td></tr>
           <tr><td>在住</td><td><%= @end_user.prefecture.prefecture_name %><%= @end_user.municipality.municipality_name %></td></tr>
           <tr><td>投稿数</td><td><%= @end_user.posts.count %></td></tr>
           <tr>

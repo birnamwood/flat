@@ -3,10 +3,10 @@
     <tr>
       <td>アイコン</td>
       <td>ユーザー名</td>
+      <td>メールアドレス</td>
       <td>在住</td>
       <td>投稿数</td>
       <td>登録日</td>
-      <td>詳細</td>
       <td>編集</td>
     </tr>
   </thead>
@@ -23,10 +23,10 @@
           <% else %>
         <td><%= link_to user.nickname, admin_end_user_path(user) %></td>
           <% end %>
+        <td><%= user.email %></td>
         <td><%= user.prefecture.prefecture_name %></td>
         <td><%= user.posts.count %></td>
         <td><%= user.created_at.strftime("%Y年%m月%d日") %></td>
-        <td><%= link_to "詳細", admin_end_user_path(user), class: "btn btn-flat" %></td>
         <td><%= link_to "編集", edit_admin_end_user_path(user), class: "btn" %></td>
       </tr>
     <% end %>
