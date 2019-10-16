@@ -44,6 +44,12 @@ $primary-color: color("blue", "lighten-2") !default;
 .btn-delete {
   background-color: orangered;
 }
+.btn-google {
+  background-color: lightblue;
+}
+.width-max {
+  width: 100%;
+}
 
 .heart-pink {
   color: pink;
@@ -58,6 +64,16 @@ $primary-color: color("blue", "lighten-2") !default;
   color: green;
 }
 
+.login-help {
+  padding: 5%;
+  width: 50%;
+  margin: auto;
+  box-shadow: 0 0  8px lightgray;
+}
+#end_user_remember_me {
+  opacity: 100;
+  position: relative;
+}
 /* ------------------------ */
 /* ------ spメニュー ------ */
 /* ------------------------ */
