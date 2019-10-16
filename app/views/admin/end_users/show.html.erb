@@ -1,2 +1,63 @@
-<h1>Admin::EndUsers#show</h1>
-<p>Find me in app/views/admin/end_users/show.html.erb</p>
+<% if @end_user.icon_image_id.present? %>
+  <h2><%= image_tag(@end_user.icon_image_id.to_s, size: "50x50", class: "user-icon") %> 
+    <% if @end_user.nickname.blank? %>
+      <%= @end_user.name %>さんの情報</h2>
+    <% else %>
+      <%= @end_user.nickname %>さんの情報</h2>
+    <% end %>
+<% else %>
+  <h2><%= image_tag("no_image.png", size: "50x50", class: "user-icon") %> 
+    <% if @end_user.nickname.blank? %>
+      <%= @end_user.name %>さんの情報</h2>
+    <% else %>
+      <%= @end_user.nickname %>さんの情報</h2>
+    <% end %>
+<% end %>
+
+<div class="user-mypage">
+  <div class="user-information-area clearfix">
+    <div class="user-icon-area">
+      <% if @end_user.icon_image_id.present? %>
+        <%= image_tag(@end_user.icon_image_id.to_s, size: "300x300", class: "user-icon") %>
+      <% else %>
+        <%= image_tag("no_image.png", size: "300x300", class: "user-icon") %>
+      <% end %>
+    </div>
+    <div class="user-profile-area">
+      <table>
+        <thead>
+        </thead>
+        <tbody>
+          <tr><td>名前<td>
+            <% if @end_user.nickname.blank? %>
+              <%= @end_user.name %>
+            <% else %>
+              <%= @end_user.nickname %>
+            <% end %>
+          </td></tr>
+          <tr><td>在住</td><td><%= @end_user.prefecture.prefecture_name %><%= @end_user.municipality.municipality_name %></td></tr>
+          <tr><td>投稿数</td><td><%= @end_user.posts.count %></td></tr>
+          <tr><td>登録日</td><td><%= @end_user.created_at.strftime("%Y年%m月%d日") %></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="favorite-area">
+      <%= render "favorite_field", end_user: @end_user %>
+    </div>
+  </div>
+
+  <div class="user-post-area">
+    <h4>
+       <% if @end_user.nickname.blank? %>
+        <%= @end_user.name %>
+       <% else %>
+        <%= @end_user.nickname %>
+       <% end %>
+    の投稿一覧</h4>
+      <% if @posts.empty? %>
+        <h4>投稿記事は0件です</h4>
+      <% end %>
+    <%= render partial: 'posts/post_list_item', collection: @posts, as: "post" %>
+    <%= paginate @posts, class: "paginate" %>
+  </div>
+</div>

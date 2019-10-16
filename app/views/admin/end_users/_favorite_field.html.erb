@@ -1,0 +1,19 @@
+<div class="favorite-field clearfix">
+
+  <div class="favorite-field-following">
+    <%= link_to following_admin_end_user_path(end_user)  do %>
+        <span><strong><%= end_user.following.count %></strong>フォロー</span>
+      <% end %>
+  </div>
+
+  <div class="favorite-field-follower">
+    <%= link_to followers_admin_end_user_path(end_user) do %>
+        <span><strong><%= end_user.followers.count %></strong>フォロワー</span>
+    <% end %>
+  </div>
+
+  <div class="profile-edit">
+        <%= link_to "ユーザーを編集", edit_admin_end_user_path(end_user), class: "btn"%>
+  </div>
+
+</div>

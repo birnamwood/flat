@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :admin_users, only: [:index]
-    resources :end_users, only: [:index, :show, :edit, :update]
+    resources :end_users, only: [:index, :show, :edit, :update] do
+      member do
+        get :following, :followers
+      end
+    end
   end
 
   resources :home, only: [:index]
