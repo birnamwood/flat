@@ -15,5 +15,49 @@ class Admin::PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
+    @end_user = @post.end_user
+    @prefecture = @post.prefecture
+    @municipality = @prefecture.municipalities
+    # 追加用
+    @postnew = Post.new
+    @post_tag = @postnew.post_tags.build
+    @post_image = @postnew.post_images
   end
+
+  def update
+    @post = Post.find(params[:id])
+      if @post.update(post_params)
+        flash[:success] = "記事を更新しました。"
+        redirect_to admin_post_path(@post)
+      else
+        flash[:success] = "記事の更新に失敗しました。"
+        redirect_to edit_admin_post_path(@post)
+      end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+        flash[:success] = "記事を削除しました。"
+        redirect_to admin_admin_users_path
+    else
+        flash[:warning] = "記事の削除に失敗しました。"
+        redirect_to admin_post_path(@post)
+    end
+  end
+
+  def select_prefectures
+    @prefecture = Prefecture.find(params[:pref_id])
+    @municipality = @prefecture.municipalities
+    render partial: 'select_municipality', locals: { municipality: @municipality }
+  end
+
+  private
+  def post_params
+    params.require(:post).permit(:zipcode, :prefecture_id, :municipality_id, :address, :post_title, :post_name, :overview, :video, :access, :budget, :body, :rating,
+              post_images_attributes: [:id, :post_id, :post_image_id, :post_image_comment, :_destroy],
+              post_tags_attributes: [:id, :post_id, :tag_id, :_destroy])
+  end
+
 end

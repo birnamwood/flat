@@ -1,2 +1,90 @@
-<h1>Admin::Posts#edit</h1>
-<p>Find me in app/views/admin/posts/edit.html.erb</p>
+<h1>記事編集</h1>
+
+<%= form_with model: @post, url: admin_post_path(@post), method: :patch do |f| %>
+        <%= f.label "場所の名前" %>
+        <%= f.text_field :post_name, placeholder: "場所の名前が記事のタイトルになります" %>
+
+        <%= f.label "評価を入力" %>
+        <div id='rating'>
+          <%= f.hidden_field :rating, id: :post_rating %>
+        </div>
+
+        <%= f.label "タグを選択" %>
+          <%= f.fields_for :post_tags do |p| %>
+            <div class="edit-post_tags">
+              <%= render 'edit_post_tag_fields', edit_post_tag: p %>
+            </div>
+          <% end %>
+
+        <div class="add-post-tag">
+          <%= link_to_add_association 'タグを追加', f , :post_tags, class: "btn-flat" %>
+        </div>
+
+
+        <%= f.label "郵便番号" %>
+        <%= f.text_field :zipcode, placeholder: "郵便番号" %>
+
+        <%= f.label "都道府県" %>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :prefecture_name, {prompt: "都道府県を選択"}, {class: "browser-default"}) %>
+        <%= f.label "市町村" %>
+          <div id="municipality-zone">
+            <%= render "select_municipality", {municipality: @municipality} %>
+          </div>
+        <%= f.label "住所その他" %>
+        <%= f.text_field :address, placeholder: "住所" %>
+
+        <%= f.label "予算" %>
+        <%= f.text_field :budget, placeholder: "予算" %>
+        <%= f.label "紹介文" %>
+        <%= f.text_area :body, placeholder: "紹介文", class: "input-body" %>
+
+        <%= f.label "動画を編集" %>
+        <br>
+        <% if @post.video_url %>
+          <%= video_tag @post.video_url.to_s,loop: true, controls: true, width: "200px" %>
+        <% end %>
+        <br>
+        <%= f.file_field :video, class:"btn-flat"%>
+        <br>
+
+        <%= f.label "画像を編集" %>
+          <%= f.fields_for :post_images do |i| %>
+            <div class="edit-post_images">
+              <%= render 'edit_post_image_fields', edit_post_image: i %>
+            </div>
+          <% end %>
+
+        <div class="add-post-photo">
+          <%= link_to_add_association '画像を追加', f , :post_images, class: "btn-flat" %>
+        </div>
+
+
+        <br>
+        <%= f.submit value="記事を更新", class: "btn"%>
+        <br>
+  <% end %>
+
+
+<script>
+$(document).on('turbolinks:load', function() {
+  //初期値をDBの値にする
+  userScore = document.getElementById('post_rating').value
+
+  $('#rating').raty({
+    path: '/assets/',
+    score: userScore ,
+    half: true,
+    scoreName: 'post[rating]'
+  });
+});
+</script>
+<script>
+  $('#post_prefecture_id').change(function() {
+    $.ajax({
+        url:"../select_prefectures",
+        data: { pref_id: $(this).val() }
+    }).done(function(data){
+      $('#post_municipality_id').html(data)
+    });
+  });
+</script>

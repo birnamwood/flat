@@ -1,0 +1,12 @@
+<div class="edit-post-image-area clearfix">
+  <div class="edit-image-area clearfix">
+    <%= image_tag edit_post_image.object.post_image_id.to_s, size: "200x200", class:"edit-image" %>
+    <%= edit_post_image.file_field :post_image_id, class: "btn-flat edit-image-button" %>
+  </div>
+  <br>
+  <br>
+  <%= edit_post_image.label "画像コメント" %>
+  <%= edit_post_image.text_field :post_image_comment %>
+  <%= link_to "画像を削除", admin_post_image_path(edit_post_image.object.id), method: :delete , class: "btn-flat btn-delete right" %>
+  <%= edit_post_image.hidden_field :id, value: edit_post_image.object.id %>
+</div>

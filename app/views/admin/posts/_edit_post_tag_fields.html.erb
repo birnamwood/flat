@@ -1,0 +1,5 @@
+<div class="add-post-tag-area clearfix">
+  <%= edit_post_tag.collection_select(:tag_id, Tag.all, :id, :tag_name, {prompt: "タグを選択"}, {class: "browser-default add-post-tag-select"}) %>
+  <%= link_to "タグを削除", admin_post_tag_path(edit_post_tag.object.id), method: :delete, class: "btn-flat btn-delete add-post-tag-delete" %>
+  <%= edit_post_tag.hidden_field :id, value: edit_post_tag.object.id %>
+</div>
