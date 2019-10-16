@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :admin_users, only: [:index]
+    resources :tags, only: [:show]
     resources :posts, only: [:index, :edit, :update, :show, :destroy]
     get 'end_users/select_prefectures'
     resources :end_users, only: [:index, :show, :edit, :update] do

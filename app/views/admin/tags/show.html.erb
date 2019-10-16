@@ -1,0 +1,10 @@
+<div class="tags-page">
+
+  <h4>タグ:<%= @tag.tag_name%>が登録されている投稿一覧</h4>
+      <% if @posts.empty? %>
+        <h4>登録は0件です</h4>
+      <% end %>
+
+  <%= render 'admin/posts/post_list_item', posts: @posts %>
+  <%= paginate @posts, class: "paginate" %>
+</div>
