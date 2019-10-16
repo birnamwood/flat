@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'inquiries/new'
   root to: 'home#index'
   get 'home/regions'
   get 'posts/select_prefectures'
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :admin_users, only: [:index]
+    resources :end_users, only: [:index, :show, :edit, :update]
   end
 
   resources :home, only: [:index]
