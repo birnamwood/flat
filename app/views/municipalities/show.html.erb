@@ -7,10 +7,11 @@
 </nav>
 
 <div class="prefecture-page">
-  <h4><%= @municipality.municipality_name%>の投稿一覧</h4>
 
       <% if @posts.empty? %>
-        <h4>投稿記事は0件です</h4>
+        <h4><%= @municipality.municipality_name%>の投稿記事は0件です</h4>
+      <% else %>
+        <h4><%= @municipality.municipality_name%>の投稿一覧（<%= @municipality.posts.count %>件）</h4>
       <% end %>
           <%= render partial: 'posts/post_list_item', collection: @posts, as: "post" %>
           <%= paginate @posts, class: "paginate" %>
