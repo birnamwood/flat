@@ -3,7 +3,11 @@
     <div class="nav-wrapper clearfix">
 
       <div class="brand-logo">
-        <%= link_to 'Flat', root_path %>
+        <% if admin_user_signed_in? %>
+          <%= link_to "Flat", admin_admin_users_path %>
+        <% else %>
+          <%= link_to 'Flat', root_path %>
+        <% end %>
       </div>
 
       <div>
@@ -49,7 +53,7 @@
                 </a>
               </div>
              <div id="sp-menu">
-             <h2>FLAT MENU</h2>
+             <h2>MENU</h2>
                 <ul>
                   <% if end_user_signed_in? %>
                     <li><%= link_to "マイページ", end_user_path(current_end_user) %></li>
