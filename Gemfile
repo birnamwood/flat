@@ -71,10 +71,13 @@ gem 'devise'
 
 gem 'materialize-sass'
 gem 'material_icons'
+# file upload with AWS S3
 gem 'carrierwave'
+gem 'fog-aws'
 gem 'cocoon'
 gem 'jquery-rails'
 gem 'pry-byebug'
 gem 'ratyrate'
 gem 'kaminari'
 gem 'ransack'
+gem 'dotenv-rails'
