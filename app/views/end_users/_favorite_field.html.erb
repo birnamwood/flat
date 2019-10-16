@@ -30,7 +30,11 @@
   </div>
 
   <div class="profile-edit">
-    <%= link_to "プロフィール編集", edit_end_user_path(end_user), class: "btn"%>
+    <% if end_user_signed_in? %>
+      <% if end_user == current_end_user %>
+        <%= link_to "プロフィール編集", edit_end_user_path(end_user), class: "btn"%>
+      <% end %>
+    <% end %>
   </div>
 
 </div>
