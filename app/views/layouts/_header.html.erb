@@ -24,7 +24,11 @@
 
             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">
             <i class="material-icons left">account_box</i>
-              <%= current_end_user.nickname%>
+              <% if current_end_user.nickname.blank? %>
+                <%= current_end_user.name%>
+              <% else %>
+                <%= current_end_user.nickname%>
+              <% end %>
               <i class="material-icons right">arrow_drop_down</i></a></li>
           <% else %>
               <li><%= link_to "ログイン", new_end_user_session_path %></li>
