@@ -17,9 +17,9 @@
         <tr>
           <td><%= link_to post.post_name, admin_post_path(post) %></td>
             <% if post.end_user.nickname.blank? %>
-              <td><%= post.end_user.name %></td>
+              <td><%= link_to post.end_user.name, admin_end_user_path(post.end_user) %></td>
             <% else %>
-              <td><%= post.end_user.nickname %></td>
+              <td><%= link_to post.end_user.nickname, admin_end_user_path(post.end_user) %></td>
             <% end %>
           <td><%= post.post_images.count %>枚</td>
             <% if post.video_url.blank? %>
