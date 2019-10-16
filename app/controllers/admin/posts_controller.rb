@@ -53,6 +53,22 @@ class Admin::PostsController < ApplicationController
     render partial: 'select_municipality', locals: { municipality: @municipality }
   end
 
+  def checked
+    @post = Post.find(params[:id])
+      if @post.checked == false
+        if @post.update(checked: true)
+          flash[:success] = "記事をチェック済みにしました。"
+          redirect_to admin_posts_path
+        else
+          flash[:warning] = "記事のチェックに失敗しました。"
+          redirect_to admin_post_path(@post)
+        end
+      else
+          flash[:warning] = "すでにチェック済みです。"
+          redirect_to admin_post_path(@post)
+      end
+  end
+
   private
   def post_params
     params.require(:post).permit(:zipcode, :prefecture_id, :municipality_id, :address, :post_title, :post_name, :overview, :video, :access, :budget, :body, :rating,

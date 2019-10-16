@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :post_images, only: [:destroy]
     resources :comments, only: [:create, :destroy]
     get 'posts/select_prefectures'
+    get 'posts/checked/:id', to: 'posts#checked'
     resources :posts, only: [:index, :edit, :update, :show, :destroy]
     get 'end_users/select_prefectures'
     resources :end_users, only: [:index, :show, :edit, :update] do
