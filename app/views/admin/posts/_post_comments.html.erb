@@ -23,8 +23,6 @@
     <%= comment.content %>
   </div>
   <div class="comment-area-delete clearfix">
-    <% if comment.end_user == current_end_user %>
       <%= link_to "削除", comment_path(comment), method: :delete, remote: true, class: "btn btn-delete right" %>
-    <% end %>
   </div>
 </div>
