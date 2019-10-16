@@ -1,0 +1,39 @@
+<div class="check-post-list-item">
+  <table>
+    <thead>
+      <tr>
+        <td>記事名</td>
+        <td>投稿者</td>
+        <td>画像数</td>
+        <td>動画</td>
+        <td>投稿日</td>
+        <td>clip数</td>
+        <td>訪問数</td>
+        <td>コメント数</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% posts.each do |post| %>
+        <tr>
+          <td><%= link_to post.post_name, admin_post_path(post) %></td>
+            <% if post.end_user.nickname.blank? %>
+              <td><%= post.end_user.name %></td>
+            <% else %>
+              <td><%= post.end_user.nickname %></td>
+            <% end %>
+          <td><%= post.post_images.count %>枚</td>
+            <% if post.video_url.blank? %>
+              <td>無</td>
+            <% else %>
+              <td>有</td>
+            <% end %>
+          <td><%= post.updated_at.strftime("%Y年%m月%d日") %></td>
+              <td><i class="material-icons heart-pink">attach_file</i> <%= post.clips.count %></td>
+              <td><i class="material-icons">directions_run</i><%= post.visits.count %></td>
+              <td><i class="material-icons comment-icon">comment</i><%= post.comments.count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

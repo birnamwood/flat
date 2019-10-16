@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_16_065811) do
+ActiveRecord::Schema.define(version: 2019_10_16_111255) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "end_user_id"
@@ -160,6 +160,7 @@ ActiveRecord::Schema.define(version: 2019_10_16_065811) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "rating"
+    t.boolean "checked", default: false, null: false
   end
 
   create_table "prefectures", force: :cascade do |t|

@@ -1,0 +1,3 @@
+<h4>未チェック記事一覧</h4>
+      <%= render 'admin/posts/post_list_item', posts: @posts %>
+      <%= paginate @posts, class: "paginate" %>
