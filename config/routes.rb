@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :tags, only: [:show]
     resources :post_tags, only: [:destroy]
     resources :post_images, only: [:destroy]
+    resources :comments, only: [:create, :destroy]
     get 'posts/select_prefectures'
     resources :posts, only: [:index, :edit, :update, :show, :destroy]
     get 'end_users/select_prefectures'

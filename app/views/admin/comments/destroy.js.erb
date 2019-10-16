@@ -1,0 +1,2 @@
+$("#reload-comment-area").html("<%= j(render partial: 'admin/posts/post_comments', collection: @comments, as: "comment") %>");
+$("#reload-pagination-area").html("<%= j(paginate @comments, class: "paginate") %>");
