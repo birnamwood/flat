@@ -32,7 +32,7 @@
               <% end %>
               <i class="material-icons right">arrow_drop_down</i></a></li>
           <% elsif admin_user_signed_in? %>
-              <li><%= link_to "メニュー", admin_admin_users_path %></li>
+              <li><%= link_to "管理者メニュー", admin_admin_users_path %></li>
               <li><%= link_to "ログアウト", destroy_admin_user_session_path, method: :delete %></li>
           <% else %>
               <li><%= link_to "ログイン", new_end_user_session_path %></li>
@@ -58,6 +58,7 @@
                     <li><%= link_to "記事投稿", new_post_path %></li>
                     <li><%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %></li>
                   <% elsif admin_user_signed_in? %>
+                    <li><%= link_to "管理者メニュー", admin_admin_users_path %></li>
                     <li><%= link_to "ログアウト", destroy_admin_user_session_path, method: :delete %></li>
                   <% else %>
                     <li><%= link_to "ログイン", new_end_user_session_path %></li>

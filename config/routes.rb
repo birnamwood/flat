@@ -23,12 +23,11 @@ Rails.application.routes.draw do
   resources :searches, only: [:index]
   resources :relationships, only: [:create, :destroy]
   resources :inquiries, only: [:new, :create]
-  resources :end_users, only: [:show, :edit, :update]
   resources :posts, only: [:new, :create, :edit, :update, :show, :destroy] do
     resources :visits, only: [:destroy, :create]
     resources :clips, only: [:destroy, :create]
   end
-  resources :end_users do
+  resources :end_users, only: [:show, :edit, :update] do
     member do
       get :following, :followers
     end
