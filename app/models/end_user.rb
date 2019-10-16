@@ -2,7 +2,7 @@ class EndUser < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable
 
   belongs_to :prefecture
   belongs_to :municipality
@@ -39,6 +39,22 @@ class EndUser < ApplicationRecord
   # 現在のユーザーがフォローしてたらtrueを返す
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def self.find_for_oauth(auth)
+    end_user = EndUser.where(uid: auth.uid, provider: auth.provider).first
+    unless end_user
+      end_user = EndUser.create(
+        uid:      auth.uid,
+        provider: auth.provider,
+        email:    auth.info.email,
+        nickname:  auth.info.name,
+        password: Devise.friendly_token[0, 20],
+        prefecture_id:  1,
+        municipality_id: 1,
+      )
+    end
+    end_user
   end
 
 end
