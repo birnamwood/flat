@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :admin_users, only: [:index]
+    get 'end_users/select_prefectures'
     resources :end_users, only: [:index, :show, :edit, :update] do
       member do
         get :following, :followers
