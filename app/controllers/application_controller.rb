@@ -3,12 +3,14 @@ class ApplicationController < ActionController::Base
   before_action :set_search
 
   def after_sign_in_path_for(resource)
-    flash[:success] = "ログインしました。"
-    root_path
+    if current_end_user
+      root_path
+    else
+      admin_admin_users_path
+    end
   end
 
   def after_sign_out_path_for(resource)
-    flash[:success] = "ログアウトしました。"
     root_path
   end
 

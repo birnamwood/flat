@@ -16,6 +16,7 @@
           </ul>
         <% end %>
 
+<!-- ヘッダー本体 -->
         <ul class="right hide-on-med-and-down">
           <% if end_user_signed_in? %>
             <li><%= link_to clip_path(current_end_user) do %><i class="material-icons">attach_file</i><% end %></li>
@@ -30,13 +31,16 @@
                 <%= current_end_user.nickname%>
               <% end %>
               <i class="material-icons right">arrow_drop_down</i></a></li>
+          <% elsif admin_user_signed_in? %>
+              <li><%= link_to "メニュー", admin_admin_users_path %></li>
+              <li><%= link_to "ログアウト", destroy_admin_user_session_path, method: :delete %></li>
           <% else %>
               <li><%= link_to "ログイン", new_end_user_session_path %></li>
               <li><%= link_to "新規登録", new_end_user_registration_path %></li>
           <% end %>
         </ul>
 
-
+<!-- ハンバーガーメニュー -->
               <div id="hm-icon">
                 <a class="menu-trigger" href="#">
                   <span></span>
@@ -53,6 +57,8 @@
                     <li><%= link_to "訪問済み一覧", visit_path(current_end_user) %></li>
                     <li><%= link_to "記事投稿", new_post_path %></li>
                     <li><%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %></li>
+                  <% elsif admin_user_signed_in? %>
+                    <li><%= link_to "ログアウト", destroy_admin_user_session_path, method: :delete %></li>
                   <% else %>
                     <li><%= link_to "ログイン", new_end_user_session_path %></li>
                     <li><%= link_to "新規登録", new_end_user_registration_path %></li>
