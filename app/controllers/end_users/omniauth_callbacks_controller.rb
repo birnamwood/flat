@@ -11,7 +11,7 @@ class EndUsers::OmniauthCallbacksController < ApplicationController
     @user = EndUser.find_for_oauth(request.env['omniauth.auth'])
 
     if @user.persisted?
-      flash[:success] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
+      flash[:success] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize) + "住所を登録して下さい。"
       sign_in_and_redirect @user, event: :authentication
     else
       session["devise.#{provider}_data"] = request.env['omniauth.auth']

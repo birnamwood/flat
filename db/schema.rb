@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_16_054702) do
+ActiveRecord::Schema.define(version: 2019_10_16_065811) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "end_user_id"
@@ -77,8 +77,7 @@ ActiveRecord::Schema.define(version: 2019_10_16_054702) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.string "lastname"
-    t.string "firstname"
+    t.string "name"
     t.string "nickname"
     t.string "icon_image_id"
     t.string "zipcode"

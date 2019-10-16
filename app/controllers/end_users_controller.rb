@@ -44,6 +44,6 @@ class EndUsersController < ApplicationController
   private
 
   def end_users_params
-    params.require(:end_user).permit(:icon_image_id, :lastname, :firstname, :nickname, :zipcode, :prefecture_id, :municipality_id, :address)
+    params.require(:end_user).permit(:icon_image_id, :name, :nickname, :zipcode, :prefecture_id, :municipality_id, :address)
   end
 end
