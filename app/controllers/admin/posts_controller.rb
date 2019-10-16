@@ -31,7 +31,7 @@ class Admin::PostsController < ApplicationController
         flash[:success] = "記事を更新しました。"
         redirect_to admin_post_path(@post)
       else
-        flash[:success] = "記事の更新に失敗しました。"
+        flash[:warning] = "記事の更新に失敗しました。"
         redirect_to edit_admin_post_path(@post)
       end
   end

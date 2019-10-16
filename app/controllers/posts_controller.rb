@@ -45,8 +45,10 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
       if @post.update(post_params)
+        flash[:success] = "記事を更新しました。"
         redirect_to post_path(@post)
       else
+        flash[:warning] = "記事の更新に失敗しました。"
         redirect_to edit_post_path(@post)
       end
   end
