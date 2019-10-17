@@ -35,8 +35,20 @@
       <div class="post-content-photo">
         <div class="carousel carousel-slider">
           <% @post_images.each do |p| %>
-            <%= image_tag p.post_image_id.to_s, id: "photo-content", class: "carousel-item" %>
+            <div id="hover-area-<%= p.id %>">
+              <%= image_tag p.post_image_id.to_s, id: "photo-content", class: "carousel-item" %>
+            </div>
+            <p class="photo-comment-box"><%= p.post_image_comment %></p>
             <br>
+                  <script>
+                  $(function () {
+                    $('#hover-area-<%= p.id %>').hover(function() {
+                      $(this).next('p').show();
+                    }, function(){
+                      $(this).next('p').hide();
+                    });
+                  });
+                  </script>
           <% end %>
         </div>
       </div>
@@ -164,3 +176,4 @@ document.addEventListener('turbolinks:load', function() {
   M.Carousel.init(elems, options);
 });
 </script>
+
