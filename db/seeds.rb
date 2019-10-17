@@ -72,3 +72,4 @@ Municipality.create(municipality_name: '新郷村', municipality_name_kana: 'ヒ
 Tag.create(tag_name: '自然', tag_name: '自然')
 Tag.create(tag_name: 'レジャー', tag_name: 'レジャー')
 Tag.create(tag_name: 'ツーリング', tag_name: 'ツーリング')
+Tag.create(tag_name: '寺社仏閣', tag_name: '寺社仏閣')
