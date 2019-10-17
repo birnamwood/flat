@@ -62,7 +62,7 @@
         <% end %>
 
         <p>おすすめ度：<%= @post.rating %>点</p>
-        <div id="star-rate-<%= @post.id %>"></div>
+        <div id="star-rate"></div>
         <br>
         <p>予算：<%= @post.budget %></p>
         <br>
@@ -140,7 +140,7 @@ function initMap(){
 
 <script>
 $(document).on('turbolinks:load', function() {
-  $('#star-rate-<%= @post.id %>').raty({
+  $('#star-rate').raty({
     size: 36,
     starOff:  '<%= asset_path('star-off.png') %>',
     starOn : '<%= asset_path('star-on.png') %>',
