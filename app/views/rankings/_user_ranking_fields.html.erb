@@ -13,9 +13,9 @@
       <tr>
         <td><%= user.posts.count %></td>
           <% if user.icon_image_id.present? %>
-        <td><%= image_tag(user.icon_image_id.to_s, size: "100x100", class:"user-icon") %></td>
+        <td><%= image_tag(user.icon_image_id.to_s, size: "50x50", class:"user-icon") %></td>
           <% else %>
-        <td><%= image_tag("no_image.png", size: "100x100", class: "user-icon") %></td>
+        <td><%= image_tag("no_image.png", size: "50x50", class: "user-icon") %></td>
           <% end %>
           <% if user.nickname.blank? %>
         <td><%= link_to user.name, end_user_path(user) %></td>
