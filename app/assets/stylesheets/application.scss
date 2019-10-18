@@ -47,6 +47,18 @@ $primary-color: color("blue", "lighten-2") !default;
 .btn-google {
   background-color: lightblue;
 }
+.card-image {
+  width:50%;
+}
+.card-title a {
+  color: white;
+}
+.card-stacked {
+  height: 400px;
+}
+.card-content {
+  overflow: hidden;
+}
 .width-max {
   width: 100%;
 }
