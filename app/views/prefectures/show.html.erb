@@ -11,7 +11,7 @@
       <div class="municipality-area clearfix">
         <ul>
           <% @municipalities.each do |m| %>
-            <li class="card-title">
+            <li class="municipality-area-item">
               <%= link_to municipality_path(m) do %>
                 <%= m.municipality_name %>
                 （<%= m.posts.count %>）

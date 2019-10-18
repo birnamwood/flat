@@ -27,7 +27,6 @@ Prefecture.create(prefecture_name: '岩手県', prefecture_name_kana: 'イワテ
 Prefecture.create(prefecture_name: '山形県', prefecture_name_kana: 'ヤマガタケン', region_id: '2')
 Prefecture.create(prefecture_name: '宮城県', prefecture_name_kana: 'ミヤギケン', region_id: '2')
 Prefecture.create(prefecture_name: '福島県', prefecture_name_kana: 'フクシマケン', region_id: '2')
-Prefecture.create(prefecture_name: '福島県', prefecture_name_kana: 'フクシマケン', region_id: '2')
 
 Prefecture.create(prefecture_name: '新潟県', prefecture_name_kana: 'ニイガタケン', region_id: '3')
 Prefecture.create(prefecture_name: '富山県', prefecture_name_kana: 'トヤマケン', region_id: '3')
