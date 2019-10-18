@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'end_users/select_prefectures'
   devise_for :end_users, controllers: { omniauth_callbacks: 'end_users/omniauth_callbacks' }
   devise_for :admin_users
-
+  
   namespace :admin do
     get 'end_users/select_prefectures'
     get 'posts/select_prefectures'
@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   resources :searches, only: [:index]
   resources :relationships, only: [:create, :destroy]
   resources :inquiries, only: [:new, :create]
+  resources :rankings, only: [:index]
   resources :posts, only: [:new, :create, :edit, :update, :show, :destroy] do
     resources :visits, only: [:destroy, :create]
     resources :clips, only: [:destroy, :create]
