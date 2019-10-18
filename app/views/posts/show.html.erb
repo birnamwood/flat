@@ -265,8 +265,8 @@ function search(current) {
       //経路情報をJSONから取り出す
       console.log(response);
       document.getElementById('post-direction').innerHTML = response.routes[0].legs[0].start_address + "から<br>" + response.routes[0].legs[0].end_address + "への経路"
-      document.getElementById('post-distance').innerHTML = "距離:" +response.routes[0].legs[0].distance.text
-      document.getElementById('post-duration').innerHTML = "所要時間:" + response.routes[0].legs[0].duration.text + " " + response.routes[0].summary + "ルート"
+      document.getElementById('post-distance').innerHTML = "距離:" +response.routes[0].legs[0].distance.text + " " + response.routes[0].summary + "ルート"
+      document.getElementById('post-duration').innerHTML = "所要時間:" + response.routes[0].legs[0].duration.text
     }
   });
 }
