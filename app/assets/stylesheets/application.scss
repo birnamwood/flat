@@ -49,6 +49,7 @@ $primary-color: color("blue", "lighten-2") !default;
 }
 .card-image {
   width:40%;
+  background-color: lightgray;
 }
 .card-title a {
   color: white;
