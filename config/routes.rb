@@ -7,15 +7,17 @@ Rails.application.routes.draw do
   devise_for :admin_users
 
   namespace :admin do
+    get 'end_users/select_prefectures'
+    get 'posts/select_prefectures'
+    get 'posts/checked/:id', to: 'posts#checked'
     resources :admin_users, only: [:index]
     resources :tags, only: [:show]
     resources :post_tags, only: [:destroy]
     resources :post_images, only: [:destroy]
     resources :comments, only: [:create, :destroy]
-    get 'posts/select_prefectures'
-    get 'posts/checked/:id', to: 'posts#checked'
+    resources :inquiries, only: [:index, :show]
+    resources :replies, only: [:create]
     resources :posts, only: [:index, :edit, :update, :show, :destroy]
-    get 'end_users/select_prefectures'
     resources :end_users, only: [:index, :show, :edit, :update] do
       member do
         get :following, :followers

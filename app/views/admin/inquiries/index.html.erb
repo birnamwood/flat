@@ -1,0 +1,28 @@
+<h4>未返信問い合わせ一覧</h4>
+
+<% if @inquiries %>
+  <table>
+    <thead>
+      <tr>
+        <td>ユーザー</td>
+        <td>件名</td>
+        <td>問い合わせ日付</td>
+        <td>返信</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @inquiries.each do |i| %>
+        <tr>
+          <td><%= link_to i.end_user.email, admin_end_user_path(i.end_user) %></td>
+          <td><%= i.inquiry_title %></td>
+          <td><%= i.created_at.strftime("%Y年%m月%d日") %></td>
+          <td><%= link_to "返信する", admin_inquiry_path(i), class: "btn" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+<% else %>
+  <p>0件</p>
+<% end %>

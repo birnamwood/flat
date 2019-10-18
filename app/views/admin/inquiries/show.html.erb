@@ -1,0 +1,78 @@
+<h4>問い合わせ詳細</h4>
+<br>
+
+<div class="inquiry-detail">
+  <table class="inquiry-detail-table">
+    <thead>
+      <tr>
+          <td>ユーザー</td>
+          <td><%= link_to @inquiry.end_user.email, admin_end_user_path(@inquiry.end_user) %></td>
+      </tr>
+      <tr>
+          <td>タイトル</td>
+          <td><%= @inquiry.inquiry_title %></td>
+      </tr>
+      <tr>
+          <td>問い合わせ日付</td>
+          <td><%= @inquiry.created_at.strftime("%Y年%m月%d日") %><%= @inquiry.created_at.strftime("%H時%M分") %></td>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+<br>
+
+<div class="inquiry-detail-body">
+  <i class="material-icons">comment</i>
+  <br>
+  <div class="inquiry-detail">
+    <p><%= @inquiry.inquiry_body %></p>
+  </div>
+</div>
+<br>
+
+<div class="reply-input">
+  <i class="material-icons">question_answer</i>
+
+  <%= form_with(model: @reply, url: admin_replies_path, method: :post) do |f| %>
+        <%= f.text_field :reply_title, placeholder: "件名" %>
+        <%= f.text_area :reply_body, placeholder: "本文", class: "input-body"%>
+
+        <%= f.hidden_field :inquiry_id, :value => @inquiry.id %>
+
+        <br>
+        <%= f.submit value="返信する", class: "btn" %>
+  <% end %>
+</div>
+<br>
+
+<h4>返信一覧</h4>
+  <% if @replies %>
+    <% @replies.each do |r|%>
+      <div class="reply-list">
+        <table class="inquiry-detail-table">
+          <thead>
+            <tr>
+                <td>ユーザー</td>
+                <td>タイトル</td>
+                <td>返信日付</td>
+            </tr>
+            <tr>
+                <td><%= r.admin_user.email %></td>
+                <td><%= r.reply_title %></td>
+                <td><%= r.created_at.strftime("%Y年%m月%d日") %><%= r.created_at.strftime("%H時%M分") %></td>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+        <br>
+        <div class="reply-list-item">
+          <i class="material-icons">question_answer</i>
+          <%= r.reply_body %>
+        </div>
+      </div>
+      <br>
+    <% end %>
+  <% end %>
