@@ -5,7 +5,7 @@
         <li class="tab"><a href="#tab1">ユーザー投稿数ランキング</a></li>
         <li class="tab"><a href="#tab2">クリップ数ランキング</a></li>
         <li class="tab"><a href="#tab3">訪問数ランキング</a></li>
-        <li class="tab"><a href="#tab4" class="active">都道府県投稿数ランキング</a></li>
+        <li class="tab"><a href="#tab4" class="active">都道府県別投稿数</a></li>
       </ul>
     </div>
 
@@ -13,7 +13,7 @@
       <div id="tab1">Test 1</div>
       <div id="tab2">Test 2</div>
       <div id="tab3">Test 3</div>
-      <div id="tab4">
+      <div id="tab4" class="chart-area">
          <canvas id="myChart"></canvas>
       </div>
     </div>
@@ -27,45 +27,34 @@
 </script>
 
 <script>
+    var w = $('.chart-aera').width();
+    var h = $('.chart-area').height();
+    $('#myChart').attr('width', w);
+    $('#myChart').attr('height', h);
+
     ctx = document.getElementById("myChart").getContext('2d')
     var graphprefecture = <%== @labelline %>
     var graphscore = <%== @score %>
 
-    console.log(graphscore)
     myChart = new Chart(ctx, {
         type: 'horizontalBar',
         data: {
             labels: graphprefecture,
             datasets: [{
-                label: '# 投稿数',
+                label: '投稿数',
                 data: graphscore,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
+                backgroundColor: 'lightblue',
             }]
         },
         options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            }
+          responsive: true,
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
         }
     })
 </script>

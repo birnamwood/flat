@@ -7,24 +7,76 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+
 Region.create(region_name: '北海道地方', region_name_kana: 'ホッカイドウチホウ')
 Region.create(region_name: '東北地方', region_name_kana: 'トウホクチホウ')
 Region.create(region_name: '北陸地方', region_name_kana: 'ホクリクチホウ')
 Region.create(region_name: '関東地方', region_name_kana: 'カントウチホウ')
 Region.create(region_name: '中部地方', region_name_kana: 'チュウブチホウ')
-Region.create(region_name: '関西地方', region_name_kana: 'カンサイチホウ')
+Region.create(region_name: '近畿地方', region_name_kana: 'キンキチホウ')
 Region.create(region_name: '中国地方', region_name_kana: 'チュウゴクチホウ')
 Region.create(region_name: '四国地方', region_name_kana: 'シコクチホウ')
 Region.create(region_name: '九州地方', region_name_kana: 'キュウシュウチホウ')
 Region.create(region_name: '沖縄地方', region_name_kana: 'オキナワチホウ')
 
 Prefecture.create(prefecture_name: '北海道', prefecture_name_kana: 'ホッカイドウ', region_id: '1')
+
 Prefecture.create(prefecture_name: '青森県', prefecture_name_kana: 'アオモリケン', region_id: '2')
 Prefecture.create(prefecture_name: '秋田県', prefecture_name_kana: 'アキタケン', region_id: '2')
 Prefecture.create(prefecture_name: '岩手県', prefecture_name_kana: 'イワテケン', region_id: '2')
 Prefecture.create(prefecture_name: '山形県', prefecture_name_kana: 'ヤマガタケン', region_id: '2')
 Prefecture.create(prefecture_name: '宮城県', prefecture_name_kana: 'ミヤギケン', region_id: '2')
 Prefecture.create(prefecture_name: '福島県', prefecture_name_kana: 'フクシマケン', region_id: '2')
+Prefecture.create(prefecture_name: '福島県', prefecture_name_kana: 'フクシマケン', region_id: '2')
+
+Prefecture.create(prefecture_name: '新潟県', prefecture_name_kana: 'ニイガタケン', region_id: '3')
+Prefecture.create(prefecture_name: '富山県', prefecture_name_kana: 'トヤマケン', region_id: '3')
+Prefecture.create(prefecture_name: '石川県', prefecture_name_kana: 'イシカワケン', region_id: '3')
+Prefecture.create(prefecture_name: '福井県', prefecture_name_kana: 'フクイケン', region_id: '3')
+
+Prefecture.create(prefecture_name: '茨城県', prefecture_name_kana: 'イバラキケン', region_id: '4')
+Prefecture.create(prefecture_name: '栃木県', prefecture_name_kana: 'トチギケン', region_id: '4')
+Prefecture.create(prefecture_name: '群馬県', prefecture_name_kana: 'グンマケン', region_id: '4')
+Prefecture.create(prefecture_name: '埼玉県', prefecture_name_kana: 'サイタマケン', region_id: '4')
+Prefecture.create(prefecture_name: '千葉県', prefecture_name_kana: 'チバケン', region_id: '4')
+Prefecture.create(prefecture_name: '東京都', prefecture_name_kana: 'トウキョウト', region_id: '4')
+Prefecture.create(prefecture_name: '神奈川県', prefecture_name_kana: 'カナガワケン', region_id: '4')
+
+Prefecture.create(prefecture_name: '山梨県', prefecture_name_kana: 'ヤマナシケン', region_id: '5')
+Prefecture.create(prefecture_name: '長野県', prefecture_name_kana: 'ナガノケン', region_id: '5')
+Prefecture.create(prefecture_name: '岐阜県', prefecture_name_kana: 'ギフケン', region_id: '5')
+Prefecture.create(prefecture_name: '静岡県', prefecture_name_kana: 'シズオカケン', region_id: '5')
+Prefecture.create(prefecture_name: '愛知県', prefecture_name_kana: 'アイチケン', region_id: '5')
+Prefecture.create(prefecture_name: '三重県', prefecture_name_kana: 'ミエケン', region_id: '5')
+
+Prefecture.create(prefecture_name: '大阪府', prefecture_name_kana: 'オオサカフ', region_id: '6')
+Prefecture.create(prefecture_name: '京都府', prefecture_name_kana: 'キョウトフ', region_id: '6')
+Prefecture.create(prefecture_name: '兵庫県', prefecture_name_kana: 'ヒョウゴケン', region_id: '6')
+Prefecture.create(prefecture_name: '奈良県', prefecture_name_kana: 'ナラケン', region_id: '6')
+Prefecture.create(prefecture_name: '三重県', prefecture_name_kana: 'ミエケン', region_id: '6')
+Prefecture.create(prefecture_name: '滋賀県', prefecture_name_kana: 'シガケン', region_id: '6')
+Prefecture.create(prefecture_name: '和歌山県', prefecture_name_kana: 'ワカヤマケン', region_id: '6')
+
+Prefecture.create(prefecture_name: '岡山県', prefecture_name_kana: 'オカヤマケン', region_id: '7')
+Prefecture.create(prefecture_name: '広島県', prefecture_name_kana: 'ヒロシマケン', region_id: '7')
+Prefecture.create(prefecture_name: '山口県', prefecture_name_kana: 'ヤマグチケン', region_id: '7')
+Prefecture.create(prefecture_name: '鳥取県', prefecture_name_kana: 'トットリケン', region_id: '7')
+Prefecture.create(prefecture_name: '島根県', prefecture_name_kana: 'シマネケン', region_id: '7')
+
+Prefecture.create(prefecture_name: '徳島県', prefecture_name_kana: 'トクシマケン', region_id: '8')
+Prefecture.create(prefecture_name: '香川県', prefecture_name_kana: 'カガワケン', region_id: '8')
+Prefecture.create(prefecture_name: '愛媛県', prefecture_name_kana: 'エヒメケン', region_id: '8')
+Prefecture.create(prefecture_name: '高知県', prefecture_name_kana: 'コウチケン', region_id: '8')
+
+Prefecture.create(prefecture_name: '福岡県', prefecture_name_kana: 'フクオカケン', region_id: '9')
+Prefecture.create(prefecture_name: '佐賀県', prefecture_name_kana: 'サガケン', region_id: '9')
+Prefecture.create(prefecture_name: '長崎県', prefecture_name_kana: 'ナガサキケン', region_id: '9')
+Prefecture.create(prefecture_name: '大分県', prefecture_name_kana: 'オオイタケン', region_id: '9')
+Prefecture.create(prefecture_name: '熊本県', prefecture_name_kana: 'クマモトケン', region_id: '9')
+Prefecture.create(prefecture_name: '宮崎県', prefecture_name_kana: 'ミヤザキケン', region_id: '9')
+Prefecture.create(prefecture_name: '鹿児島県', prefecture_name_kana: 'カゴシマケン', region_id: '9')
+
+Prefecture.create(prefecture_name: '沖縄県', prefecture_name_kana: 'オキナワケン', region_id: '10')
 
 Municipality.create(municipality_name: '札幌市', municipality_name_kana: 'サッポロシ', prefecture_id: '1')
 
@@ -69,7 +121,7 @@ Municipality.create(municipality_name: '南部町', municipality_name_kana: 'ヒ
 Municipality.create(municipality_name: '階上町', municipality_name_kana: 'ヒロサキシ', prefecture_id: '2')
 Municipality.create(municipality_name: '新郷村', municipality_name_kana: 'ヒロサキシ', prefecture_id: '2')
 
-Tag.create(tag_name: '自然', tag_name: '自然')
-Tag.create(tag_name: 'レジャー', tag_name: 'レジャー')
-Tag.create(tag_name: 'ツーリング', tag_name: 'ツーリング')
-Tag.create(tag_name: '寺社仏閣', tag_name: '寺社仏閣')
+Tag.create(tag_name: '自然', tag_content: '自然')
+Tag.create(tag_name: 'レジャー', tag_content: 'レジャー')
+Tag.create(tag_name: 'ツーリング', tag_content: 'ツーリング')
+Tag.create(tag_name: '寺社仏閣', tag_content: '寺社仏閣')
