@@ -93,7 +93,11 @@
         <p id="post-map-address">〒<%= @post.zipcode %>
           <%= @prefecture.prefecture_name %><%= @municipality.municipality_name %><%= @post.address %></p>
           <div id="post-map"></div>
+        <br>
+        <button onclick="getPosition();" class="btn">位置情報を取得する</button>
       </div>
+
+
 
       <div class="post-content-comment">
           <h4><i class=" small material-icons comment-icon">comment</i> Comment</h4>
@@ -115,6 +119,33 @@
       </div>
 
 </div>
+
+<script>
+$(document).on('turbolinks:load', function() {
+  $('#star-rate').raty({
+    size: 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    readOnly: true,
+    score: <%= @post.rating %>
+  });
+});
+</script>
+
+<script>
+//画像スライド
+document.addEventListener('turbolinks:load', function() {
+  var elems = document.querySelectorAll('.carousel');
+  // ここでオプションを指定。今回はなし
+  var options = {
+    fullWidth: true,
+    indicators: true
+  }
+  M.Carousel.init(elems, options);
+});
+</script>
 
 <script>
 let map
@@ -150,32 +181,49 @@ function initMap(){
 }
 </script>
 
+
+<script>
+    if (navigator.geolocation) {
+      // Geolocation APIに対応している
+    } else {
+      alert("この端末では位置情報が取得できません");
+    }
+    // 現在地取得処理
+    function getPosition() {
+      // 現在地を取得
+      navigator.geolocation.getCurrentPosition(
+        // 取得成功した場合
+        function(position) {
+            var current = {
+              lat: position.coords.latitude, // 緯度
+              lng: position.coords.longitude // 経度
+            };
+            //alert("緯度:"+position.coords.latitude+",経度"+position.coords.longitude);
+          marker = new google.maps.Marker({
+            map: map,
+            position: current
+      });
+        },
+        // 取得失敗した場合
+        function(error) {
+          switch(error.code) {
+            case 1: //PERMISSION_DENIED
+              alert("位置情報の利用が許可されていません");
+              break;
+            case 2: //POSITION_UNAVAILABLE
+              alert("現在位置が取得できませんでした");
+              break;
+            case 3: //TIMEOUT
+              alert("タイムアウトになりました");
+              break;
+            default:
+              alert("その他のエラー(エラーコード:"+error.code+")");
+              break;
+          }
+        }
+      );
+    }
+
+</script>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5LbkYIm6WbRn2Ddzo8bDxwS0jSinnRnI&callback=initMap" async defer></script>
-
-<script>
-$(document).on('turbolinks:load', function() {
-  $('#star-rate').raty({
-    size: 36,
-    starOff:  '<%= asset_path('star-off.png') %>',
-    starOn : '<%= asset_path('star-on.png') %>',
-    starHalf: '<%= asset_path('star-half.png') %>',
-    half: true,
-    readOnly: true,
-    score: <%= @post.rating %>
-  });
-});
-</script>
-
-<script>
-//画像スライド
-document.addEventListener('turbolinks:load', function() {
-  var elems = document.querySelectorAll('.carousel');
-  // ここでオプションを指定。今回はなし
-  var options = {
-    fullWidth: true,
-    indicators: true
-  }
-  M.Carousel.init(elems, options);
-});
-</script>
-

@@ -130,8 +130,10 @@ GEM
       nokogiri (>= 1.5.11, < 2.0.0)
     foreman (0.86.0)
     formatador (0.2.5)
+    geocoder (1.5.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     hashie (3.6.0)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
@@ -330,6 +332,8 @@ DEPENDENCIES
   dotenv-rails
   fog-aws
   foreman
+  geocoder
+  gmaps4rails
   jbuilder (~> 2.5)
   jquery-rails
   kaminari

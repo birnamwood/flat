@@ -84,3 +84,5 @@ gem 'kaminari'
 gem 'ransack'
 gem 'dotenv-rails'
 gem 'chart-js-rails'
+gem 'gmaps4rails'
+gem "geocoder"
