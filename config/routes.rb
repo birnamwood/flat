@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'masters/index'
+  end
   root to: 'home#index'
   get 'home/regions'
   get 'posts/select_prefectures'
   get 'end_users/select_prefectures'
   devise_for :end_users, controllers: { omniauth_callbacks: 'end_users/omniauth_callbacks' }
   devise_for :admin_users
-  
+
   namespace :admin do
     get 'end_users/select_prefectures'
     get 'posts/select_prefectures'
@@ -17,6 +20,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
     resources :inquiries, only: [:index, :show]
     resources :replies, only: [:create]
+    resources :masters, only: [:index]
     resources :posts, only: [:index, :edit, :update, :show, :destroy]
     resources :end_users, only: [:index, :show, :edit, :update] do
       member do
