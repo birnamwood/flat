@@ -14,7 +14,7 @@
         <%= render 'user_ranking_fields', user_ranking: @user_ranking %>
       </div>
       <div id="tab2">
-        <%= render 'clip_ranking_fields', clip_ranking: @clip_ranking %>
+        <%= render partial: 'clip_ranking_fields', collection: @clip_ranking, as: "post" %>
       </div>
       <div id="tab3">
         <%= render partial: 'visit_ranking_fields', collection: @visit_ranking, as: "post" %>

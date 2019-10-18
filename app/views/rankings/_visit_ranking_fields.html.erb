@@ -21,7 +21,7 @@
       </div>
       <div class="card-stacked">
         <div class="card-content">
-         <div>おすすめ度<div id="star-rate-<%= post.id %>" class="post-list-text-star"></div></div>
+         <div>おすすめ度<div id="star-rate-visit-<%= post.id %>" class="post-list-text-star"></div></div>
          <%= post.body %>
         </div>
         <div class="card-action">
@@ -39,7 +39,7 @@
 
 <script>
 $(document).on('turbolinks:load', function() {
-  $('#star-rate-<%= post.id %>').raty({
+  $('#star-rate-visit-<%= post.id %>').raty({
     size: 36,
     starOff:  '<%= asset_path('star-off.png') %>',
     starOn : '<%= asset_path('star-on.png') %>',

@@ -1,26 +1,52 @@
- <table>
-  <thead>
-    <tr>
-      <td>クリップ数</td>
-      <td>場所名</td>
-      <td>投稿ユーザー</td>
-      <td>所在地</td>
-      <td>投稿日</td>
-    </tr>
-  </thead>
-  <tbody>
-    <% clip_ranking.each  do |clip| %>
-      <tr>
-        <td><%= clip.clips.count %></td>
-        <td><%= link_to clip.post_name, post_path(clip) %></td>
-          <% if clip.end_user.nickname.blank? %>
-        <td><%= link_to clip.end_user.name, end_user_path(clip.end_user) %></td>
+<div class="post-list-item">
+
+  <div class="card horizontal">
+      <div class="card-image">
+          <% if post.post_images.present? %>
+            <% post.post_images.first(1).each do |i| %>
+              <%= image_tag i.post_image_id.to_s, class: "list-image" %>
+            <% end %>
           <% else %>
-        <td><%= link_to clip.end_user.nickname, end_user_path(clip.end_user) %></td>
+              <%= image_tag("no_image.png", class: "list-image") %>
           <% end %>
-        <td><%= clip.prefecture.prefecture_name %><%= clip.municipality.municipality_name %></td>
-        <td><%= clip.created_at.strftime("%Y年%m月%d日") %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <span class="card-title">
+          <%= link_to post.post_name, post_path(post) %>
+          <br> by 
+          <% if post.end_user.nickname %>
+            <%= link_to post.end_user.nickname, end_user_path(post.end_user) %>
+          <% else %>
+            <%= link_to post.end_user.name, end_user_path(post.end_user) %>
+          <% end %>
+        </span>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+         <div>おすすめ度<div id="star-rate-clip-<%= post.id %>" class="post-list-text-star"></div></div>
+         <%= post.body %>
+        </div>
+        <div class="card-action">
+            <i class="material-icons heart-pink">attach_file</i>
+            <%= post.clips.count %>
+            <i class="material-icons">directions_run</i>
+            <%= post.visits.count %>
+            <i class="material-icons comment-icon">comment</i>
+            <%= post.comments.count %>
+        </div>
+      </div>
+  </div>
+
+</div>
+
+<script>
+$(document).on('turbolinks:load', function() {
+  $('#star-rate-clip-<%= post.id %>').raty({
+    size: 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    readOnly: true,
+    score: '<%= post.rating %>'
+  });
+});
+</script>
