@@ -17,7 +17,7 @@
         <%= render 'clip_ranking_fields', clip_ranking: @clip_ranking %>
       </div>
       <div id="tab3">
-        <%= render 'visit_ranking_fields', visit_ranking: @visit_ranking %>
+        <%= render partial: 'visit_ranking_fields', collection: @visit_ranking, as: "post" %>
       </div>
       <div id="tab4" class="chart-area">
          <canvas id="myChart"></canvas>
