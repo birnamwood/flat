@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   devise_for :admin_users
 
   namespace :api do
-    resources :tags, only: [:index, :show, :create, :update]
+    resources :tags, only: [:index, :show, :create, :update, :destroy]
   end
-  
+
   namespace :admin do
     get 'masters/index'
     get 'end_users/select_prefectures'

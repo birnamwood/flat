@@ -13,6 +13,7 @@
         </div>
       </div>
       <div class="btn" v-on:click="updateTag(tag.id)">タグ情報更新</div>
+      <div class="btn #e53935 red darken-1" v-on:click="deleteTag(tag.id)">タグ情報削除</div>
     </form>
   </div>
 </template>
@@ -49,6 +50,11 @@
         }, (error) => {
           console.log(error);
         });
+      },
+      deleteTag(id) {
+        axios.delete(`/api/tags/${id}`).then(res => {
+          this.$router.push({ path: '/tags' });
+        })
       },
     }
   }

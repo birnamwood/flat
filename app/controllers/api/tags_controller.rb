@@ -1,5 +1,5 @@
 class Api::TagsController < ApplicationController
-  protect_from_forgery :except => [:create, :update]
+  protect_from_forgery :except => [:create, :update, :destroy]
 
   def index
     tags = Tag.all
@@ -24,6 +24,15 @@ class Api::TagsController < ApplicationController
     tag = Tag.find(params[:id])
     if tag.update_attributes(tag_params)
       render 'index', formats:'json'
+    else
+      render json: tag.errors, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    tag = Tag.find(params[:id])
+    if tag.destroy
+      head :no_content
     else
       render json: tag.errors, status: :unprocessable_entity
     end
