@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'masters/index'
-  end
   root to: 'home#index'
   get 'home/regions'
   get 'posts/select_prefectures'
@@ -9,10 +6,16 @@ Rails.application.routes.draw do
   devise_for :end_users, controllers: { omniauth_callbacks: 'end_users/omniauth_callbacks' }
   devise_for :admin_users
 
+  namespace :api do
+    resources :tags, only: [:index, :create]
+  end
+  
   namespace :admin do
+    get 'masters/index'
     get 'end_users/select_prefectures'
     get 'posts/select_prefectures'
     get 'posts/checked/:id', to: 'posts#checked'
+    resources :masters, only: [:index]
     resources :admin_users, only: [:index]
     resources :tags, only: [:show]
     resources :post_tags, only: [:destroy]
