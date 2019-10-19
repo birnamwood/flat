@@ -4,11 +4,15 @@
     <form class="col s12">
       <div class="row">
         <div class="input-field">
+          <label>タグ名</label>
+          <br>
           <input placeholder="タグ名" type="text" class="validate" v-model="tag.tag_name" required="required">
         </div>
       </div>
       <div class="row">
         <div class="input-field">
+          <label>タグ説明</label>
+          <br>
           <input placeholder="タグ説明" type="text" class="validate" v-model="tag.tag_content" required="required">
         </div>
       </div>
