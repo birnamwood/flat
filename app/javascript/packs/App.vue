@@ -1,13 +1,17 @@
 <template>
   <div id="app">
-    <h4>マスター管理メニュー</h4>
+    <Header/>
     <router-view/>
   </div>
 </template>
 
 <script>
+import Header from '../components/Header.vue'
   export default {
     name: 'App',
+    components: {
+      Header
+    },
   }
 </script>
 
