@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :admin_users
 
   namespace :api do
-    resources :tags, only: [:index, :create]
+    resources :tags, only: [:index, :show, :create, :update]
   end
   
   namespace :admin do
