@@ -14,6 +14,7 @@
         </div>
       </div>
       <div class="btn btn-info waves-effect waves-light" v-on:click="createRegion">地域を登録</div>
+      <router-link to="/regions" class="btn btn-flat">地方一覧に戻る</router-link>
     </form>
   </div>
 </template>
