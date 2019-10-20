@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :tags, only: [:index, :show, :create, :update, :destroy]
+    get 'regions/getprefectures/:id', to: 'regions#getprefectures'
     resources :regions, only: [:index, :show, :create, :update, :destroy]
+    resources :prefectures, only: [:show, :create, :update, :destroy]
   end
 
   namespace :admin do

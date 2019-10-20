@@ -38,6 +38,12 @@ class Api::RegionsController < ApplicationController
     end
   end
 
+  def getprefectures
+    region = Region.find(params[:id])
+    prefectures = region.prefectures
+    render json: prefectures
+  end
+
   private
   def region_params
     params.fetch(:region, {}).permit(:region_name, :region_name_kana)
