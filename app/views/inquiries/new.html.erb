@@ -1,6 +1,5 @@
 <h4>お問い合わせ</h4>
 <%= form_with( model: @inquiry) do |f| %>
-  <%= render 'layouts/error_messages', model: f.object %>
   <p>メールアドレス:<%= current_end_user.email %><p>
 
   <br>

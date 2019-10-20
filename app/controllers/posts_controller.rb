@@ -38,7 +38,7 @@ class PostsController < ApplicationController
       redirect_to post_path(@post)
     else
         flash[:warning] = "記事の投稿に失敗しました。"
-      redirect_to new_post_path
+        redirect_to new_post_path
     end
   end
 

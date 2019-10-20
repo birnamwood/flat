@@ -1,6 +1,5 @@
 <h4>プロフィール情報編集</h4>
 <%= form_with model: @end_user, method: :patch do |f| %>
-  <%= render 'layouts/error_messages', model: f.object %>
 
   <div class="field">
     <%= f.label "アイコン画像" %>
