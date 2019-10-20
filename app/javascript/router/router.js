@@ -10,6 +10,7 @@ import RegionShow   from '../pages/RegionShow.vue'
 import RegionEdit   from '../pages/RegionEdit.vue'
 import PrefectureShow   from '../pages/PrefectureShow.vue'
 import PrefectureEdit   from '../pages/PrefectureEdit.vue'
+import PrefectureCreate   from '../pages/PrefectureCreate.vue'
 
 Vue.use(VueRouter)
 
@@ -24,6 +25,7 @@ const routes = [
   { path: '/region/edit/:id', component: RegionEdit },
   { path: '/prefecture/:id', component: PrefectureShow },
   { path: '/prefecture/edit/:id', component: PrefectureEdit },
+  { path: '/prefecture/create/:id',  component: PrefectureCreate },
 ];
 
 export default new VueRouter({ routes });
