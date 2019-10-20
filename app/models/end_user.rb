@@ -25,6 +25,10 @@ class EndUser < ApplicationRecord
 
   mount_uploader :icon_image_id, ImagesUploader
 
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, {presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }}
+  validates :encrypted_password, :name, :prefecture_id, :municipality_id, presence: true
+
    # ユーザーをフォローする
   def follow(other_user)
     following << other_user
