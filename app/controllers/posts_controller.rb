@@ -37,7 +37,8 @@ class PostsController < ApplicationController
       flash[:success] = "記事を投稿しました。"
       redirect_to post_path(@post)
     else
-      flash[:success] = "記事の投稿に失敗しました。"
+        flash[:warning] = "記事の投稿に失敗しました。"
+      flash[:error] = @post.errors.full_messages
       redirect_to new_post_path
     end
   end
@@ -52,6 +53,7 @@ class PostsController < ApplicationController
         redirect_to post_path(@post)
       else
         flash[:warning] = "記事の更新に失敗しました。"
+        flash[:error] = @post.errors.full_messages
         redirect_to edit_post_path(@post)
       end
   end
