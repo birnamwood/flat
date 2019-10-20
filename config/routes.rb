@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get 'prefectures/getregion/:id', to: 'prefectures#getregion'
     get 'prefectures/getmunicipalities/:id', to: 'prefectures#getmunicipalities'
     resources :prefectures, only: [:show, :create, :update, :destroy]
-    get 'municipalities/getprefectures/:id', to: 'municipalities#getprefectures'
+    get 'municipalities/getprefecture/:id', to: 'municipalities#getprefecture'
     resources :municipalities, only: [:show, :create, :update, :destroy]
   end
 

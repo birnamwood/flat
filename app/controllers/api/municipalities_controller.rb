@@ -7,7 +7,7 @@ class Api::MunicipalitiesController < ApplicationController
   end
 
   def create
-    municipality = Municipality.find(params[:id])
+    municipality = Municipality.new(municipality_params)
     if municipality.save
       head :no_content
     else

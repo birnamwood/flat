@@ -1,19 +1,19 @@
 <template>
   <div class="container">
-    <h4 class="#f3e5f5 blue lighten-5 center">都道府県登録</h4>
+    <h4 class="#f3e5f5 blue lighten-5 center">市町村登録</h4>
     <form class="col">
       <div class="row">
         <div class="input-field">
-          <input placeholder="Name" type="text" class="validate" v-model="prefecture.prefecture_name" required="required">
+          <input placeholder="Name" type="text" class="validate" v-model="municipality.municipality_name" required="required">
           <br>
         </div>
       </div>
       <div class="row">
         <div class="input-field">
-          <input placeholder="カナ名" type="text" class="validate" v-model="prefecture.prefecture_name_kana" required="required">
+          <input placeholder="カナ名" type="text" class="validate" v-model="municipality.municipality_name_kana" required="required">
         </div>
       </div>
-      <div class="btn btn-info waves-effect waves-light" v-on:click="createPrefecture">都道府県を登録</div>
+      <div class="btn btn-info waves-effect waves-light" v-on:click="createMunicipality">市町村を登録</div>
       <router-link :to="{ path: `/prefecture/${id}` }" class="btn btn-flat">{{prefecture.prefecture_name}}に戻る</router-link>
     </form>
   </div>
@@ -37,17 +37,17 @@
       this.getPrefecture(this.id);
     },
     methods: {
-      createPrefecture: function () {
-        if (!this.prefecture.prefecture_name) return;
-        axios.post('/api/prefectures', { prefecture: this.prefecture }).then((res) => {
-          this.$router.push({ path: `/region/${this.id}` });
+      createMunicipality: function () {
+        if (!this.municipality.municipality_name) return;
+        axios.post('/api/municipalities', { municipality: this.municipality }).then((res) => {
+          this.$router.push({ path: `/prefecture/${this.id}` });
         }, (error) => {
           console.log(error);
         });
       },
-      getRegion(id) {
-        axios.get(`/api/prefectures/getregion/${id}.json`).then(response => {
-          this.region = response.data;
+      getPrefecture(id) {
+        axios.get(`/api/municipalities/getprefecture/${id}.json`).then(response => {
+          this.prefecture = response.data;
         });
       },
     },
