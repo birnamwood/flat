@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :tags, only: [:index, :show, :create, :update, :destroy]
     get 'regions/getprefectures/:id', to: 'regions#getprefectures'
     resources :regions, only: [:index, :show, :create, :update, :destroy]
+    get 'prefectures/getregion/:id', to: 'prefectures#getregion'
+    get 'prefectures/getmunicipalities/:id', to: 'prefectures#getmunicipalities'
     resources :prefectures, only: [:show, :create, :update, :destroy]
   end
 

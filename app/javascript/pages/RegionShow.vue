@@ -9,7 +9,7 @@
         <h4 class="#f3e5f5 blue lighten-5 center">都道府県一覧</h4>
         <div class="col s4 m6" v-for="p in prefectures" :key="p.id">
           <div class="card btn tag-index-area">
-            <router-link :to="{ path: '/' }" class="card-title">{{p.prefecture_name}}</router-link>
+            <router-link :to="{ path: `/prefecture/${p.id}` }" class="card-title">{{p.prefecture_name}}</router-link>
           </div>
         </div>
       </div>

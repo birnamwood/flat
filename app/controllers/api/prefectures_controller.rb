@@ -18,7 +18,7 @@ class Api::PrefecturesController < ApplicationController
   def update
     prefecture = Prefecture.find(params[:id])
     if prefecture.update_attributes(prefecture_params)
-      render 'index', formats:'json'
+      head :no_content
     else
       render json: prefecture.errors, status: :unprocessable_entity
     end
@@ -33,10 +33,21 @@ class Api::PrefecturesController < ApplicationController
     end
   end
 
+  def getregion
+    prefecture = Prefecture.find(params[:id])
+    region = prefecture.region
+    render json: region
+  end
+
+  def getmunicipalities
+    prefecture = Prefecture.find(params[:id])
+    municipalities = prefecture.municipalities
+    render json: municipalities
+  end
+
   private
   def prefecture_params
     params.fetch(:prefecture, {}).permit(:prefecture_name, :prefecture_name_kana, :region_id)
   end
-end
 
 end
