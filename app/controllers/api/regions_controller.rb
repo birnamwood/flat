@@ -40,6 +40,6 @@ class Api::RegionsController < ApplicationController
 
   private
   def region_params
-    params.fetch(:region, {}).permit(:region_name, :region_name_kane)
+    params.fetch(:region, {}).permit(:region_name, :region_name_kana)
   end
 end

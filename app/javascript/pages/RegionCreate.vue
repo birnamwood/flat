@@ -10,7 +10,7 @@
       </div>
       <div class="row">
         <div class="input-field">
-          <input placeholder="Content" type="text" class="validate" v-model="region.region_name_kana" required="required">
+          <input placeholder="カナ名" type="text" class="validate" v-model="region.region_name_kana" required="required">
         </div>
       </div>
       <div class="btn btn-info waves-effect waves-light" v-on:click="createRegion">地域を登録</div>
