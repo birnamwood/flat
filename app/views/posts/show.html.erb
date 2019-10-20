@@ -152,6 +152,8 @@ document.addEventListener('turbolinks:load', function() {
 });
 </script>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>&callback=initMap" async defer></script>
+
 <script>
 let map
 let geocoder
@@ -272,5 +274,3 @@ function search(current) {
 }
 
 </script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5LbkYIm6WbRn2Ddzo8bDxwS0jSinnRnI&callback=initMap" async defer></script>
