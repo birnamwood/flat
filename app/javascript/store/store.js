@@ -1,11 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import router from '../router/router.js'
 import axios from 'axios'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {}
+  state: {
+    tags: [],
+  },
+  mutations: {
+    GetTags(state) {
+      state.tags = [];
+      axios.get('/api/tags.json').then(response => {
+        state.tags = response.data;
+      });
+    },
+  },
 })

@@ -20,15 +20,13 @@ import axios from 'axios';
 
   export default {
     name: 'TagIndex',
-    data: function () {
-      return {
-        tags: []
+    computed: {
+      tags() {
+       return this.$store.state.tags
       }
     },
-    mounted () {
-      axios
-        .get('/api/tags.json')
-        .then(response => (this.tags = response.data))
+    mounted:function() {
+      this.$store.commit('GetTags')
     },
   }
 </script>

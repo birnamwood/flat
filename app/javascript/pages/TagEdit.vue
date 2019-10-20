@@ -41,7 +41,7 @@
     },
     methods: {
       settagEdit(id){
-        axios.get(`/api/tags/${id}.json`).then(res => {
+          axios.get(`/api/tags/${id}.json`).then(res => {
           this.tag.id = res.data.id;
           this.tag.tag_name = res.data.tag_name;
           this.tag.tag_content = res.data.tag_content;
