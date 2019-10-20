@@ -3,7 +3,7 @@
   <p>メールアドレス:<%= current_end_user.email %><p>
 
   <br>
-  <%= f.text_field :inquiry_title, placeholder: "お問い合わせ件名を入力" %>
-  <%= f.text_area :inquiry_body, placeholder: "お問い合わせ内容を入力", class: "inquiry-text-area" %>
+  <%= f.text_field :inquiry_title, placeholder: "お問い合わせ件名を入力（入力必須）" %>
+  <%= f.text_area :inquiry_body, placeholder: "お問い合わせ内容を入力（入力必須）", class: "inquiry-text-area" %>
   <%= f.submit value="送信", class: "btn"%>
 <% end %>
