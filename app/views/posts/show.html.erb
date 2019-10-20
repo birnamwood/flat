@@ -108,7 +108,7 @@
           <h4><i class=" small material-icons comment-icon">comment</i> Comment</h4>
           <% if end_user_signed_in? %>
             <%= form_with( model: @comment_new) do |f| %>
-                <%= f.text_field :content, autofocus: true, class:"form-control", placeholder: "コメントを入力" %>
+                <%= f.text_field :content, autofocus: true, class:"form-control", placeholder: "コメントを入力(200文字以内）" %>
                 <br>
                 <%= f.hidden_field :post_id, :value => @post.id %>
                 <%= f.submit "送信", class:"btn" %>
