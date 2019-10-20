@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <h4 class="#f3e5f5 blue lighten-5 center">{{region.region_name}}（{{region.region_name_kana}}）の情報</h4>
-    <router-link to="/region" class="btn btn-flat">地方一覧へ</router-link>
-    <router-link :to="{ path: `/region/edit/${region.id}` }" class="card-title">{{region.region_name}}の編集</router-link>
+    <router-link to="/regions" class="btn btn-flat">地方一覧へ</router-link>
+    <router-link :to="{ path: `/region/edit/${region.id}` }" class="btn">{{region.region_name}}の編集</router-link>
     <br>
     <br>
       <div class="row #e3f2fd blue lighten-5">
@@ -28,12 +28,17 @@
           region_name: '',
           region_name_kana: '',
         },
-        prefectures: [],
+      }
+    },
+    computed: {
+      prefectures() {
+       return this.$store.state.prefectures
       }
     },
     mounted: function() {
       this.setRegion(this.id);
       this.getPrefectures(this.id);
+      this.$store.commit('GetPrefectures')
     },
     methods: {
       setRegion(id){
@@ -44,9 +49,10 @@
         });
       },
       getPrefectures(id) {
-        axios.get(`/api/regions/getprefectures/${id}.json`).then(response => {
-          this.prefectures = response.data;
-        });
+        this.$store.commit('GetPrefectures', { id })
+        // axios.get(`/api/regions/getprefectures/${id}.json`).then(response => {
+        //   this.prefectures = response.data;
+        // });
       },
     }
   }

@@ -23,7 +23,7 @@ class Api::RegionsController < ApplicationController
   def update
     region = Region.find(params[:id])
     if region.update_attributes(region_params)
-      render 'index', formats:'json'
+      head :no_content
     else
       render json: region.errors, status: :unprocessable_entity
     end
@@ -32,7 +32,7 @@ class Api::RegionsController < ApplicationController
   def destroy
     region = Region.find(params[:id])
     if region.destroy
-      head :no_content
+      render 'show', formats:'json'
     else
       render json: region.errors, status: :unprocessable_entity
     end

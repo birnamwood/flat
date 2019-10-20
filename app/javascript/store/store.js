@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     tags: [],
     regions: [],
+    prefectures: [],
   },
   mutations: {
     GetTags(state) {
@@ -21,6 +22,12 @@ export default new Vuex.Store({
       axios.get('/api/regions.json').then(response => {
         state.regions = response.data;
       });
+    },
+    GetPrefectures(state, { id }) {
+      state.prefectures = [];
+        axios.get(`/api/regions/getprefectures/${id}.json`).then(response => {
+          state.prefectures = response.data;
+        });
     },
   },
 })
