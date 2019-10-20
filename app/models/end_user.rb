@@ -11,7 +11,6 @@ class EndUser < ApplicationRecord
   has_many :visits, dependent: :destroy
   has_many :clips, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :addresses, dependent: :destroy
   has_many :inquiries, dependent: :destroy
 
   has_many :user_clips, foreign_key: "end_user_id", class_name: "Clip", dependent: :destroy

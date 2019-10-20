@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="btn" v-on:click="updatePrefecture(prefecture.id)">情報更新</div>
-      <div class="btn #e53935 red darken-1" v-on:click="DeletePrefecture(prefecture.id)">削除</div>
+      <div class="btn #e53935 red darken-1" v-on:click="deletePrefecture(prefecture.id)">削除</div>
       <router-link :to="{ path:`/prefecture/${prefecture.id}` }" class="btn btn-flat">戻る</router-link>
     </form>
   </div>
@@ -53,8 +53,8 @@
         });
       },
       deletePrefecture(id) {
-        axios.delete(`/api/prefecture/${id}`).then(res => {
-          this.$router.push({ path: `/region/${region.id}` });
+        axios.delete(`/api/prefectures/${id}`).then(res => {
+          this.$router.push({ path: `/region/${this.region.id}` });
         })
       },
       getRegion(id) {
