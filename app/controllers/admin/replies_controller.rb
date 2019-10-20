@@ -7,7 +7,7 @@ class Admin::RepliesController < ApplicationController
       flash[:success] = "返信が完了しました。"
       redirect_to admin_inquiry_path(@inquiry)
     else
-      flash[:error] = @reply.errors.full_messages
+      flash[:warning] = "返信に失敗しました。"
       redirect_to admin_inquiry_path(@inquiry)
     end
   end

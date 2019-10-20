@@ -36,6 +36,7 @@
   <i class="material-icons">question_answer</i>
 
   <%= form_with(model: @reply, url: admin_replies_path, method: :post) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
         <%= f.text_field :reply_title, placeholder: "件名" %>
         <%= f.text_area :reply_body, placeholder: "本文", class: "input-body"%>
 

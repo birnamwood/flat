@@ -86,3 +86,4 @@ gem 'dotenv-rails'
 gem 'chart-js-rails'
 gem 'gmaps4rails'
 gem "geocoder"
+gem 'rails-i18n'

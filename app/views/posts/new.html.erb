@@ -2,6 +2,7 @@
 
 <div class="add-post-area">
     <%= form_with model: @post do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
         <%= f.label "場所の名前" %>
         <%= f.text_field :post_name, placeholder: "場所の名前" %>
 

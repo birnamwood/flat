@@ -10,14 +10,3 @@
     <div class="flash flash-notice">
       <%= flash[:notice] %>
     </div>
-
-  <div class="error">
-    <% if flash[:error].present? %>
-      <p><%= flash[:error].count %> 件のエラーがあります。</p>
-      <ul>
-        <% flash[:error].each do |e| %>
-          <li><%= e %></li>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
