@@ -1,5 +1,5 @@
 <template>
-   <div>
+   <div class="header-vue">
      <nav>
        <div class="nav-wrapper">
          <ul id="nav-mobile" class="left">
@@ -13,4 +13,8 @@
 </template>
 
 <script></script>
-<style scoped></style>
+<style scoped>
+.header-vue {
+  margin-bottom: 50px;
+}
+</style>
