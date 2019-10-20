@@ -17,8 +17,8 @@
         </div>
       </div>
       <div class="btn" v-on:click="updatePrefecture(prefecture.id)">情報更新</div>
-      <div class="btn #e53935 red darken-1" v-on:click="DeletePrefecture(prefecture.id)">{{prefecture.prefecture_name}}の削除</div>
-      <router-link :to="{ path:`/prefecture/${prefecture.id}` }" class="btn btn-flat">{{prefecture.prefecture_name}}に戻る</router-link>
+      <div class="btn #e53935 red darken-1" v-on:click="DeletePrefecture(prefecture.id)">削除</div>
+      <router-link :to="{ path:`/prefecture/${prefecture.id}` }" class="btn btn-flat">戻る</router-link>
     </form>
   </div>
 </template>
