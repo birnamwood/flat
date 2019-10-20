@@ -5,8 +5,8 @@ import TagIndex   from '../pages/TagIndex.vue'
 import TagCreate   from '../pages/TagCreate.vue'
 import TagEdit   from '../pages/TagEdit.vue'
 import RegionIndex   from '../pages/RegionIndex.vue'
-import RegionShow   from '../pages/RegionShow.vue'
 import RegionCreate   from '../pages/RegionCreate.vue'
+import RegionShow   from '../pages/RegionShow.vue'
 
 Vue.use(VueRouter)
 
