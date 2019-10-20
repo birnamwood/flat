@@ -6,6 +6,7 @@ import TagCreate   from '../pages/TagCreate.vue'
 import TagEdit   from '../pages/TagEdit.vue'
 import RegionIndex   from '../pages/RegionIndex.vue'
 import RegionShow   from '../pages/RegionShow.vue'
+import RegionCreate   from '../pages/RegionCreate.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,7 @@ const routes = [
   { path: '/tag/create',  component: TagCreate },
   { path: '/tag/edit/:id', component: TagEdit },
   { path: '/regions',  component: RegionIndex },
+  { path: '/region/create',  component: RegionCreate },
   { path: '/region/:id',  component: RegionShow },
 ];
 
