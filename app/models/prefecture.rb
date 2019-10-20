@@ -5,4 +5,5 @@ class Prefecture < ApplicationRecord
   has_many :end_users, dependent: :destroy
   has_many :posts, dependent: :destroy
 
+  validates :prefecture_name, presence: true
 end
