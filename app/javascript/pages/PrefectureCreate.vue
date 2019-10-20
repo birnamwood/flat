@@ -13,7 +13,7 @@
           <input placeholder="カナ名" type="text" class="validate" v-model="prefecture.prefecture_name_kana" required="required">
         </div>
       </div>
-      <div class="btn btn-info waves-effect waves-light" v-on:click="createPrefecture">当道府県を登録</div>
+      <div class="btn btn-info waves-effect waves-light" v-on:click="createPrefecture">都道府県を登録</div>
       <router-link :to="{ path: `/region/${id}` }" class="btn btn-flat">{{region.region_name}}に戻る</router-link>
     </form>
   </div>
