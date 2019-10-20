@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h4 class="#f3e5f5 blue lighten-5 center">地方一覧</h4>
-    <router-link to="/region/create" class="btn btn-flat">地方新規登録</router-link>
+    <router-link to="/region/create" class="btn">地方新規登録</router-link>
     <br>
     <br>
       <div class="row #e3f2fd blue lighten-5">
