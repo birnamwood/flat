@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :tags, only: [:index, :show, :create, :update, :destroy]
+    resources :regions, only: [:index, :show, :create, :update, :destroy]
   end
 
   namespace :admin do
