@@ -3,6 +3,7 @@
     <h4 class="#f3e5f5 blue lighten-5 center">{{prefecture.prefecture_name}}（{{prefecture.prefecture_name_kana}}）の情報</h4>
     <router-link :to="{ path:`/region/${region.id}` }" class="btn btn-flat">{{region.region_name}}のページへ</router-link>
     <router-link :to="{ path: `/prefecture/edit/${id}` }" class="btn">{{prefecture.prefecture_name}}の編集</router-link>
+    <router-link :to="{ path: `/municipality/create/${prefecture.id}` }" class="btn">市町村の新規登録</router-link>
     <br>
     <br>
       <div class="row #e3f2fd blue lighten-5">
