@@ -12,6 +12,7 @@ import PrefectureShow   from '../pages/PrefectureShow.vue'
 import PrefectureEdit   from '../pages/PrefectureEdit.vue'
 import PrefectureCreate   from '../pages/PrefectureCreate.vue'
 import MunicipalityCreate   from '../pages/MunicipalityCreate.vue'
+import MunicipalityEdit   from '../pages/MunicipalityEdit.vue'
 
 Vue.use(VueRouter)
 
@@ -28,6 +29,7 @@ const routes = [
   { path: '/prefecture/edit/:id', component: PrefectureEdit },
   { path: '/prefecture/create/:id',  component: PrefectureCreate },
   { path: '/municipality/create/:id',  component: MunicipalityCreate },
+  { path: '/municipality/edit/:id',  component: MunicipalityEdit },
 ];
 
 export default new VueRouter({ routes });

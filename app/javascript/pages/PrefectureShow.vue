@@ -10,7 +10,7 @@
         <h4 class="#f3e5f5 blue lighten-5 center">市町村一覧</h4>
         <div class="col s4 m6" v-for="m in municipalities" :key="m.id">
           <div class="card btn tag-index-area">
-            <router-link :to="{ path: '/' }" class="card-title">{{m.municipality_name}}</router-link>
+            <router-link :to="{ path: `/municipality/edit/${m.id}` }" class="card-title">{{m.municipality_name}}</router-link>
           </div>
         </div>
       </div>
