@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h4 class="#f3e5f5 blue lighten-5 center">{{prefecture.prefecture_name}}編集</h4>
+    <h4 class="#f3e5f5 blue lighten-5 center">都道府県編集</h4>
     <form class="col s12">
       <div class="row">
         <div class="input-field">
