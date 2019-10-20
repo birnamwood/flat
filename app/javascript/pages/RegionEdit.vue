@@ -25,7 +25,7 @@
 <script>
   import axios from 'axios';
   export default {
-    name: 'TagEdit',
+    name: 'RegionEdit',
     data: function() {
       return {
         id: this.$route.params.id,
