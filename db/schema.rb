@@ -10,17 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_072711) do
-
-  create_table "addresses", force: :cascade do |t|
-    t.integer "end_user_id"
-    t.string "zipcode"
-    t.integer "prefecture_id"
-    t.integer "municipality_id"
-    t.string "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2019_10_20_104202) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -92,14 +82,6 @@ ActiveRecord::Schema.define(version: 2019_10_17_072711) do
     t.string "uid"
     t.index ["email"], name: "index_end_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
-  end
-
-  create_table "evaluates", force: :cascade do |t|
-    t.integer "end_user_id"
-    t.integer "post_id"
-    t.integer "evaluate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
