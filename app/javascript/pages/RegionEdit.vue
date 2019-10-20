@@ -18,6 +18,7 @@
       </div>
       <div class="btn" v-on:click="updateRegion(region.id)">情報更新</div>
       <div class="btn #e53935 red darken-1" v-on:click="deleteRegion(region.id)">情報削除</div>
+      <router-link :to="{ path:`/region/${region.id}` }" class="btn btn-flat">戻る</router-link>
     </form>
   </div>
 </template>
