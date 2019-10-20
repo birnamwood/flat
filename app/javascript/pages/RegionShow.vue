@@ -23,11 +23,7 @@
     data: function() {
       return {
         id: this.$route.params.id,
-        region: {
-          id: '',
-          region_name: '',
-          region_name_kana: '',
-        },
+        region: {},
       }
     },
     computed: {
@@ -38,14 +34,11 @@
     mounted: function() {
       this.setRegion(this.id);
       this.getPrefectures(this.id);
-      this.$store.commit('GetPrefectures')
     },
     methods: {
       setRegion(id){
           axios.get(`/api/regions/${id}.json`).then(res => {
-          this.region.id = res.data.id;
-          this.region.region_name = res.data.region_name;
-          this.region.region_name_kana = res.data.region_name_kana;
+          this.region = res.data;
         });
       },
       getPrefectures(id) {
