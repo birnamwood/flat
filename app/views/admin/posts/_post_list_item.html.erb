@@ -16,11 +16,7 @@
       <% posts.each do |post| %>
         <tr>
           <td><%= link_to post.post_name, admin_post_path(post) %></td>
-            <% if post.end_user.nickname.blank? %>
-              <td><%= link_to post.end_user.name, admin_end_user_path(post.end_user) %></td>
-            <% else %>
-              <td><%= link_to post.end_user.nickname, admin_end_user_path(post.end_user) %></td>
-            <% end %>
+          <td><%= link_to post.end_user.nickname, admin_end_user_path(post.end_user) %></td>
           <td><%= post.post_images.count %>枚</td>
             <% if post.video_url.blank? %>
               <td>無</td>

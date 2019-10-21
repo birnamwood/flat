@@ -1,17 +1,9 @@
 <% if @end_user.icon_image_id.present? %>
   <h2><%= image_tag(@end_user.icon_image_id.to_s, size: "50x50", class: "user-icon") %> 
-    <% if @end_user.nickname.blank? %>
-      <%= @end_user.name %>さんの情報</h2>
-    <% else %>
       <%= @end_user.nickname %>さんの情報</h2>
-    <% end %>
 <% else %>
   <h2><%= image_tag("no_image.png", size: "50x50", class: "user-icon") %> 
-    <% if @end_user.nickname.blank? %>
-      <%= @end_user.name %>さんの情報</h2>
-    <% else %>
       <%= @end_user.nickname %>さんの情報</h2>
-    <% end %>
 <% end %>
 
 <div class="user-mypage">
@@ -29,11 +21,7 @@
         </thead>
         <tbody>
           <tr><td>名前<td>
-            <% if @end_user.nickname.blank? %>
-              <%= @end_user.name %>
-            <% else %>
               <%= @end_user.nickname %>
-            <% end %>
           </td></tr>
           <tr><td>メールアドレス</td><td><%= @end_user.email %></td></tr>
           <tr><td>在住</td><td><%= @end_user.prefecture.prefecture_name %><%= @end_user.municipality.municipality_name %></td></tr>
@@ -64,11 +52,7 @@
 
   <div class="user-post-area">
     <h4>
-       <% if @end_user.nickname.blank? %>
-        <%= @end_user.name %>
-       <% else %>
         <%= @end_user.nickname %>
-       <% end %>
     の投稿一覧</h4>
       <% if @posts.empty? %>
         <h4>投稿記事は0件です</h4>

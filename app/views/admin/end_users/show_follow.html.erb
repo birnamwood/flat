@@ -1,9 +1,4 @@
-
-<% if @end_user.nickname.blank? %>
-  <h3><%= @end_user.name %><%= @title %></h3>
-<% else %>
-  <h3><%= @end_user.nickname %><%= @title %></h3>
-<% end %>
+<h3><%= @end_user.nickname %><%= @title %></h3>
 <%= link_to "このユーザーのマイページへ", admin_end_user_path(@end_user), class: "btn" %>
 <br>
 

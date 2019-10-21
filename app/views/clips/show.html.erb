@@ -1,10 +1,6 @@
 <div class="clips-page">
 
-  <% if @end_user.nickname.blank? %>
-    <h4><%= @end_user.name%>さんのクリップ一覧</h4>
-  <% else %>
     <h4><%= @end_user.nickname%>さんのクリップ一覧</h4>
-  <% end %>
       <% if @posts.empty? %>
         <h4>クリップは0件です</h4>
       <% end %>

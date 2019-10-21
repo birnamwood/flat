@@ -30,11 +30,7 @@
 
             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">
             <i class="material-icons left">account_box</i>
-              <% if current_end_user.nickname.blank? %>
-                <%= current_end_user.name%>
-              <% else %>
                 <%= current_end_user.nickname%>
-              <% end %>
               <i class="material-icons right">arrow_drop_down</i></a></li>
           <% elsif admin_user_signed_in? %>
               <li><%= link_to "管理者メニュー", admin_admin_users_path %></li>

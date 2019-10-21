@@ -17,11 +17,7 @@
 <div class="post-content">
     <nav>
       <div class="left post-content-title"><%= @post.post_name%></div>
-      <% if @end_user.nickname.blank? %>
-        <div class="right post-content-author">by <%= link_to @end_user.name, admin_end_user_path(@end_user) %></div>
-      <% else %>
-        <div class="right post-content-author">by <%= link_to @end_user.nickname, admin_end_user_path(@end_user) %></div>
-      <% end %>
+      <div class="right post-content-author">by <%= link_to @end_user.nickname, admin_end_user_path(@end_user) %></div>
     </nav>
 
     <div class="post-content-tag">
@@ -58,18 +54,9 @@
 
       <div class="post-content-rating">
         <% if @end_user.icon_image_id.present? %>
-          <% if @end_user.nickname.blank? %>
-            <h4><%= image_tag @end_user.icon_image_id.to_s, size: "50x50", class: "user-icon" %> <%= @end_user.name %>さんの評価</h4>
-          <% else %>
             <h4><%= image_tag @end_user.icon_image_id.to_s, size: "50x50", class: "user-icon" %> <%= @end_user.nickname %>さんの評価</h4>
-          <% end %>
-
         <% else %>
-          <% if @end_user.nickname.blank? %>
-            <h4><%= image_tag("no_image.png", size: "50x50", class:"user-icon") %> <%= @end_user.name %>さんの評価</h4>
-          <% else %>
             <h4><%= image_tag("no_image.png", size: "50x50", class:"user-icon") %> <%= @end_user.nickname %>さんの評価</h4>
-          <% end %>
         <% end %>
 
         <p>おすすめ度：<%= @post.rating %>点</p>

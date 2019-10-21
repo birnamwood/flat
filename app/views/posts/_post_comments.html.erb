@@ -8,11 +8,7 @@
       <% end %>
     </div>
     <div class="comment-area-username">
-      <% if comment.end_user.nickname.blank? %>
-        <p><%= link_to comment.end_user.name, end_user_path(comment.end_user) %></p>
-      <% else %>
         <p><%= link_to comment.end_user.nickname, end_user_path(comment.end_user) %></p>
-      <% end %>
     </div>
     <div class="comment-area-date right">
       <p><%= comment.created_at.strftime("%Y年%m月%d日") %><%= comment.created_at.strftime("%H時%M分") %><p>

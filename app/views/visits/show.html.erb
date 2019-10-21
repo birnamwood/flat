@@ -1,11 +1,7 @@
 
 <div class="visits-page">
 
-<% if @end_user.nickname.blank? %>
-  <h4><%= @end_user.name%>さんの訪問済み一覧</h4>
-<% else %>
   <h4><%= @end_user.nickname%>さんの訪問済み一覧</h4>
-<% end %>
       <% if @posts.empty? %>
         <h4>登録は0件です</h4>
       <% end %>

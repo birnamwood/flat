@@ -18,11 +18,7 @@
           <% else %>
         <td><%= image_tag("no_image.png", size: "50x50", class: "user-icon") %></td>
           <% end %>
-          <% if user.nickname.blank? %>
-        <td><%= link_to user.name, admin_end_user_path(user) %></td>
-          <% else %>
         <td><%= link_to user.nickname, admin_end_user_path(user) %></td>
-          <% end %>
         <td><%= user.email %></td>
         <td><%= user.prefecture.prefecture_name %></td>
         <td><%= user.posts.count %></td>
