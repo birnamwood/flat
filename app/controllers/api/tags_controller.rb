@@ -1,4 +1,6 @@
 class Api::TagsController < ApplicationController
+  before_action :authenticate_admin_user!
+
   protect_from_forgery :except => [:create, :update, :destroy]
 
   def index
