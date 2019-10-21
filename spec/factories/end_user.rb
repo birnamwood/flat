@@ -50,6 +50,11 @@ FactoryBot.define do
     trait :too_long_nickname do
       nickname {Faker::Lorem.characters(number: 31)}
     end
+    trait :create_with_posts do
+      after(:create) do |end_user|
+        create_list(:post, 3, end_user: end_user)
+      end
+    end
 
   end
 end
