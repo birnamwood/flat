@@ -1,0 +1,31 @@
+ja:
+  activerecord:
+    attributes:
+      post:
+        id: ID
+        post_name: 場所名
+        prefecture: 都道府県
+        municipality: 市町村
+        address: 住所
+        video_url: 動画
+        zipcode: 郵便番号
+        body: 紹介文
+      inquiry:
+        id: ID
+        inquiry_title: 件名
+        inquiry_body: 内容
+      end_user:
+        id: ID
+        name: 名前
+        nickname: 内容
+        icon_image: アイコン
+        zipcode: 郵便番号
+        prefecture: 都道府県
+        municipality: 市町村
+        address: 住所
+      post_image:
+        post_image: 画像
+        post_image_comment: 画像コメント
+      post_tag:
+        post: 投稿
+        tag: タグ

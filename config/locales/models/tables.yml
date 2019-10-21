@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+      post_tag: 投稿タグ
+      post_image: 投稿画像
+      clip: クリップ
+      visit: 訪問
+      tag: タグ
+      comment: コメント
+      region: 地方
+      prefecture: 都道府県
+      municipality: 市町村
+      inquiry: 問い合わせ
+      reply: 返信
+      end_user: ユーザー
