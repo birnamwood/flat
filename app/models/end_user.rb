@@ -27,7 +27,9 @@ class EndUser < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, {presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }}
-  validates :encrypted_password, :name, :prefecture_id, :municipality_id, presence: true
+  validates :encrypted_password, :prefecture_id, :municipality_id, presence: true
+  validates :name, length: { in: 1..30 }
+  validates :nickname, length: { in: 1..30 }
 
    # ユーザーをフォローする
   def follow(other_user)
