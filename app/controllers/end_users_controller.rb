@@ -1,4 +1,6 @@
 class EndUsersController < ApplicationController
+  before_action :authenticate_end_user!, only: [:edit, :update, :following, :followers, :select_prefectures]
+
   def show
     @end_user  = EndUser.find(params[:id])
     @posts = @end_user.posts.page(params[:page]).reverse_order

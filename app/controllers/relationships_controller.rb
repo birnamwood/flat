@@ -1,4 +1,6 @@
 class RelationshipsController < ApplicationController
+  before_action :authenticate_end_user!, only: [:create, :destroy]
+
   def create
     @end_user = EndUser.find(params[:followed_id])
     current_end_user.follow(@end_user)

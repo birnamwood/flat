@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_end_user!, only: [:new, :create, :edit, :update, :destroy, :select_prefectures]
+
   def new
     @post = Post.new
     @post_tag = @post.post_tags.build
