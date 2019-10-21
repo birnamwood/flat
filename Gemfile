@@ -60,6 +60,11 @@ end
 
 group :development, :test do
   gem 'foreman'
+  gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem 'faker'
+  gem 'shoulda-matchers'
+  gem 'rspec-parameterized'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
