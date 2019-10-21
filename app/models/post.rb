@@ -23,4 +23,5 @@ class Post < ApplicationRecord
   def visited_by?(end_user) #行ったかどうか
     visits.where(end_user_id: end_user.id).exists?
   end
+
 end

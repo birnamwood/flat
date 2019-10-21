@@ -12,6 +12,7 @@ class InquiriesController < ApplicationController
       redirect_to root_path
     else
       flash[:danger] = "お問い合わせに失敗しました。"
+      flash[:error] = @inquiry.errors.full_messages
       redirect_to new_inquiry_path
     end
   end
