@@ -17,7 +17,7 @@ ja:
       end_user:
         id: ID
         name: 名前
-        nickname: 内容
+        nickname: ニックネーム
         icon_image: アイコン
         zipcode: 郵便番号
         prefecture: 都道府県
