@@ -1,4 +1,6 @@
 class Admin::PostImagesController < ApplicationController
+  before_action :authenticate_admin_user!
+
   def destroy
     @post_image = PostImage.find(params[:id])
     if @post_image.destroy

@@ -1,4 +1,6 @@
 class Admin::EndUsersController < ApplicationController
+  before_action :authenticate_admin_user!
+
   def index
     @end_users = EndUser.all.page(params[:page]).reverse_order
   end

@@ -1,4 +1,6 @@
 class Admin::PostsController < ApplicationController
+  before_action :authenticate_admin_user!
+
   def index
     @posts = Post.where(checked: "false").page(params[:page]).reverse_order
   end

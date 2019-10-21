@@ -1,4 +1,6 @@
 class Admin::PostTagsController < ApplicationController
+  before_action :authenticate_admin_user!
+
   def destroy
     @post_tag = PostTag.find(params[:id])
     if @post_tag.destroy

@@ -1,4 +1,6 @@
 class Admin::RepliesController < ApplicationController
+  before_action :authenticate_admin_user!
+
   def create
     @reply = Reply.new(replies_params)
     @reply.admin_user_id = current_admin_user.id

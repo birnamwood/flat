@@ -1,4 +1,6 @@
 class Admin::InquiriesController < ApplicationController
+  before_action :authenticate_admin_user!
+
   def index
     inquiry_table = Inquiry.arel_table
     reply_table = Reply.arel_table
