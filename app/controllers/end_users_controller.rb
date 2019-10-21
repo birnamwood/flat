@@ -18,7 +18,7 @@ class EndUsersController < ApplicationController
       else
         flash[:danger] = "ユーザー情報の更新に失敗しました。"
         flash[:error] = @end_user.errors.full_messages
-        redirect_to end_user_path(@end_user)
+        redirect_to edit_end_user_path(@end_user)
       end
   end
 
