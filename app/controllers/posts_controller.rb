@@ -45,10 +45,10 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-      if @post.checked == true
-        @post.checked = false
-      end
       if @post.update(post_params)
+        if @post.checked == true
+          @post.checked = false
+        end
         flash[:success] = "記事を更新しました。"
         redirect_to post_path(@post)
       else
