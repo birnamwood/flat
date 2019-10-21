@@ -28,4 +28,43 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  describe '保存時のバリデーションチェック' do
+    context "保存できる場合" do
+      let(:region) {FactoryBot.create(:region)}
+      let(:prefecture) {FactoryBot.create(:prefecture, region_id: region.id)}
+      let(:municipality) {FactoryBot.create(:municipality, prefecture_id: prefecture.id)}
+      let(:end_user) {FactoryBot.create(:end_user, prefecture_id: prefecture.id, municipality_id: municipality.id)}
+
+      # post_name
+      it "post_nameが1文字" do
+        expect(FactoryBot.create(:post, :length_1_post_name, prefecture_id: prefecture.id, municipality_id: municipality.id, end_user_id: end_user.id)).to be_valid
+      end
+      it "post_nameが50文字" do
+        expect(FactoryBot.create(:post, :length_50_post_name, prefecture_id: prefecture.id, municipality_id: municipality.id, end_user_id: end_user.id)).to be_valid
+      end
+    end
+
+    context "保存できない場合" do
+      let(:region) {FactoryBot.create(:region)}
+      let(:prefecture) {FactoryBot.create(:prefecture, region_id: region.id)}
+      let(:municipality) {FactoryBot.create(:municipality, prefecture_id: prefecture.id)}
+      let(:end_user) {FactoryBot.create(:end_user, prefecture_id: prefecture.id, municipality_id: municipality.id)}
+      it "post_nameが空欄" do
+        expect(FactoryBot.build(:post, :no_post_name, prefecture_id: prefecture.id, municipality_id: municipality.id, end_user_id: end_user.id)).to_not be_valid
+      end
+      it "post_nameが51文字以上" do
+        expect(FactoryBot.build(:post, :too_long_post_name, prefecture_id: prefecture.id, municipality_id: municipality.id, end_user_id: end_user.id)).to_not be_valid
+      end
+      it "bodyが空欄" do
+        expect(FactoryBot.build(:post, :no_body, prefecture_id: prefecture.id, municipality_id: municipality.id, end_user_id: end_user.id)).to_not be_valid
+      end
+      it "prefecture_idが選択されていない" do
+        expect(FactoryBot.build(:post, prefecture_id: "", municipality_id: municipality.id, end_user_id: end_user.id)).to_not be_valid
+      end
+      it "municipality_idが選択されていない" do
+        expect(FactoryBot.build(:post, prefecture_id: prefecture.id, municipality_id: "", end_user_id: end_user.id)).to_not be_valid
+      end
+    end
+
+  end
 end

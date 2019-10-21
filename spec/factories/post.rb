@@ -8,6 +8,18 @@ FactoryBot.define do
     trait :no_post_name do
       post_name {}
     end
+    trait :length_1_post_name do
+      post_name {Faker::Lorem.characters(number: 1)}
+    end
+    trait :length_50_post_name do
+      post_name {Faker::Lorem.characters(number: 50)}
+    end
+    trait :too_long_post_name do
+      post_name {Faker::Lorem.characters(number: 51)}
+    end
+    trait :no_body do
+      body {}
+    end
 
   end
 end

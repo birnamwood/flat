@@ -77,10 +77,10 @@ RSpec.describe EndUser, type: :model do
         expect(FactoryBot.build(:end_user, :too_long_nickname, prefecture_id: prefecture.id, municipality_id: municipality.id)).to_not be_valid
       end
       it "prefecture_idが選択されていない" do
-        expect(FactoryBot.build(:end_user, :too_long_nickname, prefecture_id: "", municipality_id: municipality.id)).to_not be_valid
+        expect(FactoryBot.build(:end_user, prefecture_id: "", municipality_id: municipality.id)).to_not be_valid
       end
       it "municipality_idが選択されていない" do
-        expect(FactoryBot.build(:end_user, :too_long_nickname, prefecture_id: prefecture.id, municipality_id: "")).to_not be_valid
+        expect(FactoryBot.build(:end_user, prefecture_id: prefecture.id, municipality_id: "")).to_not be_valid
       end
     end
   end

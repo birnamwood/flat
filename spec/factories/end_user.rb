@@ -6,6 +6,7 @@ FactoryBot.define do
     sequence(:name) { |n| "exmaple-name#{n}"}
     sequence(:nickname) { |n| "example-nickname#{n}"}
     sequence(:email) { |n| "example#{n}@example.com"}
+    sequence(:zipcode) {"9999999"}
     password { password }
     password_confirmation { password }
     icon_image_id {}
