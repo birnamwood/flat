@@ -87,3 +87,5 @@ gem 'chart-js-rails'
 gem 'gmaps4rails'
 gem "geocoder"
 gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
