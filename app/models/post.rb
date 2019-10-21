@@ -16,6 +16,7 @@ class Post < ApplicationRecord
   mount_uploader :video, VideoUploader
 
   validates :post_name, :prefecture_id, :municipality_id, :body, presence: true
+  validates :post_name, length: { in: 1..50 }
 
   def cliped_by?(end_user) #クリップしているかどうか
     clips.where(end_user_id: end_user.id).exists?

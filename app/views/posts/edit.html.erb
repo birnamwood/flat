@@ -1,8 +1,8 @@
 <h1>記事編集</h1>
 
 <%= form_with model: @post do |f| %>
-        <%= f.label "場所の名前" %>
-        <%= f.text_field :post_name, placeholder: "場所の名前が記事のタイトルになります" %>
+        <%= f.label "場所の名前（50文字まで）" %>
+        <%= f.text_field :post_name, placeholder: "場所の名前を入力" %>
 
         <%= f.label "評価を入力" %>
         <div id='rating'>

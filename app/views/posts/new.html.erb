@@ -2,8 +2,8 @@
 
 <div class="add-post-area">
     <%= form_with model: @post do |f| %>
-        <%= f.label "場所の名前" %>
-        <%= f.text_field :post_name, placeholder: "場所の名前" %>
+        <%= f.label "場所の名前（50文字まで）" %>
+        <%= f.text_field :post_name, placeholder: "場所の名前を入力（50文字まで）" %>
 
         <%= f.label "評価を入力" %>
         <div id='rating'>
