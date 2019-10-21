@@ -28,7 +28,7 @@ class EndUser < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, {presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }}
   VALID_ZIPCODE_REGEX = /\A\d{7}\z/
-  validates :zipcode, {format: { with: VALID_EMAIL_REGEX }}
+  validates :zipcode, {format: { with: VALID_ZIPCODE_REGEX }}
   validates :encrypted_password, :prefecture_id, :municipality_id, presence: true
   validates :name, length: { in: 1..30 }
   validates :nickname, length: { in: 1..30 }

@@ -15,8 +15,6 @@ class Post < ApplicationRecord
 
   mount_uploader :video, VideoUploader
 
-  VALID_ZIPCODE_REGEX = /\A\d{7}\z/
-  validates :zipcode, {format: { with: VALID_EMAIL_REGEX }}
   validates :post_name, :prefecture_id, :municipality_id, :body, presence: true
 
   def cliped_by?(end_user) #クリップしているかどうか
