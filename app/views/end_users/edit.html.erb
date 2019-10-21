@@ -16,7 +16,7 @@
     <%= f.text_field :name, autofocus: true, autocomplete: "Name" %>
     <%= f.label "ニックネーム（30文字まで)" %>
     <%= f.text_field :nickname, autofocus: true, autocomplete: "Name" %>
-    <%= f.label "郵便番号" %>
+    <%= f.label "郵便番号（ハイフン無し7桁）" %>
     <%= f.text_field :zipcode, placeholder: "郵便番号" %>
     <%= f.label "都道府県" %>
     <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :prefecture_name, {prompt: "都道府県を選択"}, {class: "browser-default"}) %>

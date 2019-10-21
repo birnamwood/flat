@@ -26,16 +26,16 @@ RSpec.describe EndUser, type: :model do
     end
   end
 
-  describe '保存時のバリデーション' do
+  describe '保存時のバリデーションチェック' do
     context "保存できる場合" do
       let(:region) {FactoryBot.create(:region)}
       let(:prefecture) {FactoryBot.create(:prefecture, region_id: region.id)}
       let(:municipality) {FactoryBot.create(:municipality, prefecture_id: prefecture.id)}
 
-      it "画像データなし" do
+      it "アイコン画像なし" do
         expect(FactoryBot.create(:end_user, prefecture_id: prefecture.id, municipality_id: municipality.id)).to be_valid
       end
-      it "画像データあり" do
+      it "アイコン画像あり" do
         expect(FactoryBot.create(:end_user, :create_with_image, prefecture_id: prefecture.id, municipality_id: municipality.id)).to be_valid
       end
       # name
@@ -57,6 +57,12 @@ RSpec.describe EndUser, type: :model do
       let(:region) {FactoryBot.create(:region)}
       let(:prefecture) {FactoryBot.create(:prefecture, region_id: region.id)}
       let(:municipality) {FactoryBot.create(:municipality, prefecture_id: prefecture.id)}
+      it "emailが空欄" do
+        expect(FactoryBot.build(:end_user, :no_mail, prefecture_id: prefecture.id, municipality_id: municipality.id)).to_not be_valid
+      end
+      it "emailが不正" do
+        expect(FactoryBot.build(:end_user, :wrong_mail, prefecture_id: prefecture.id, municipality_id: municipality.id)).to_not be_valid
+      end
       it "nameが空欄" do
         expect(FactoryBot.build(:end_user, :no_name, prefecture_id: prefecture.id, municipality_id: municipality.id)).to_not be_valid
       end
@@ -70,10 +76,10 @@ RSpec.describe EndUser, type: :model do
       it "nicknameが31文字以上" do
         expect(FactoryBot.build(:end_user, :too_long_nickname, prefecture_id: prefecture.id, municipality_id: municipality.id)).to_not be_valid
       end
-      it "prefecture_id" do
+      it "prefecture_idが選択されていない" do
         expect(FactoryBot.build(:end_user, :too_long_nickname, prefecture_id: "", municipality_id: municipality.id)).to_not be_valid
       end
-      it "municipality_id" do
+      it "municipality_idが選択されていない" do
         expect(FactoryBot.build(:end_user, :too_long_nickname, prefecture_id: prefecture.id, municipality_id: "")).to_not be_valid
       end
     end

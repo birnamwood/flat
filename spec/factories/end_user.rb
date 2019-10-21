@@ -12,9 +12,16 @@ FactoryBot.define do
 
     #アイコン画像
     trait :create_with_image do
-      # icon_image_id Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/image.jpg'))
-      icon_image_id {}
+      icon_image_id {Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/image.jpg'))}
     end
+    # emailカラム
+    trait :no_mail do
+      email {}
+    end
+    trait :wrong_mail do
+      email {"example@example"}
+    end
+
     # nameカラム
     trait :no_name do
       name {}
