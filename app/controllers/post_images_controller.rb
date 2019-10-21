@@ -1,4 +1,6 @@
 class PostImagesController < ApplicationController
+  before_action :authenticate_end_user!
+
   def destroy
     @post_image = PostImage.find(params[:id])
     if @post_image.destroy
