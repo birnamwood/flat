@@ -89,6 +89,29 @@ $primary-color: color("blue", "lighten-2") !default;
   opacity: 100;
   position: relative;
 }
+
+//エラーメッセージ
+.flash {
+  color: white;
+  font-size: 24px;
+  width: 100%;
+  text-align: left;
+}
+.flash-success {
+  background-color: lightgreen;
+}
+.flash-notice {
+  background-color: lightblue;
+}
+.flash-alert {
+  background-color: red;
+}
+.flash-danger {
+  background-color: red;
+}
+.flash-warning {
+  background-color: orange;
+}
 /* ------------------------ */
 /* ------ spメニュー ------ */
 /* ------------------------ */
