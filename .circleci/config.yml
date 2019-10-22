@@ -3,7 +3,7 @@ jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
     parallelism: 3 # run three instances of this job in parallel
     docker: # run the steps with Docker
-      - image: circleci/ruby:2.4.2-jessie-node # ...with this image as the primary container; this is where all `steps` will run
+      - image: circleci/ruby:2.6.0-node-browsers-legacy # ...with this image as the primary container; this is where all `steps` will run
         environment: # environment variables for primary container
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
@@ -19,10 +19,10 @@ jobs: # a collection of steps
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
 
-      # Which version of bundler?
-      # - run:
-      #     name: Which bundler?
-      #     command: bundle -v
+      Which version of bundler?
+      - run:
+          name: Which bundler?
+          command: bundle -v
 
       # Restore bundle cache
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
@@ -33,7 +33,7 @@ jobs: # a collection of steps
 
       # - run: # Install Ruby dependencies
           name: Bundle Install
-          command: bundle install
+          command: bundle install --jobs=4 --retry=3 --path vendor/bundle
           # command: bundle check --path vendor/bundle || bundle install --deployment
 
       # Store bundle cache for Ruby dependencies
@@ -48,9 +48,9 @@ jobs: # a collection of steps
             - rails-demo-yarn-{{ checksum "yarn.lock" }}
             - rails-demo-yarn-
 
-      # - run:
-      #     name: Yarn Install
-      #     command: yarn install --cache-folder ~/.cache/yarn
+      - run:
+          name: Yarn Install
+          command: yarn install --cache-folder ~/.cache/yarn
 
       # Store yarn / webpacker cache
       - save_cache:
@@ -59,12 +59,12 @@ jobs: # a collection of steps
             - ~/.cache/yarn
 
       # - run:
-      #     name: Wait for DB
-      #     command: dockerize -wait tcp://localhost:5432 -timeout 1m
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       # - run:
-      #     name: Database setup
-      #     command: bin/rails db:schema:load --trace
+          name: Database setup
+          command: bin/rails db:schema:load --trace
 
       - run:
           name: Run rspec
