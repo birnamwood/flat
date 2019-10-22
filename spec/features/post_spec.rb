@@ -96,6 +96,31 @@ RSpec.feature "Postコントローラ関連", type: :feature do
       end
     end
 
+    feature "自分が投稿したpostの更新" do
+      before do
+        visit edit_post_path(@post1)
+        find_field('post[post_name]').set('update_title_a')
+        find_field('post[body]').set('update_body_b')
+        find("input[name='commit']").click
+      end
+      scenario "postが更新されているか" do
+        expect(page).to have_content "update_title_a"
+        expect(page).to have_content "update_body_b"
+      end
+      scenario "リダイレクト先は正しいか" do
+        expect(page).to have_current_path post_path(@post1)
+      end
+      scenario "サクセスメッセージが表示されるか" do
+        expect(page).to have_content "記事を更新しました。"
+      end
+    end
+
+    feature "他人が投稿したpostの更新" do
+      scenario "編集ページへアクセスできず、リダイレクトされるか" do
+        visit edit_post_path(@post2)
+        expect(page).to have_current_path post_path(@post2)
+      end
+    end
 
   end
 end
