@@ -122,5 +122,19 @@ RSpec.feature "Postコントローラ関連", type: :feature do
       end
     end
 
+    feature "有効ではない内容のpostの更新" do
+      before do
+        visit edit_post_path(@post1)
+        find_field('post[post_name]').set(nil)
+        find("input[name='commit']").click
+      end
+      scenario "リダイレクト先は正しいか" do
+        expect(page).to have_current_path edit_post_path(@post1)
+      end
+      scenario "エラーメッセージが表示されるか" do
+        expect(page).to have_content "記事の更新に失敗しました。"
+      end
+    end
+
   end
 end
