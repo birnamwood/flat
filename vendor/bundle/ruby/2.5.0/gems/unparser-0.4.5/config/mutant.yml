@@ -1,6 +1,0 @@
----
-includes:
-- lib
-integration: rspec
-requires:
-- unparser
