@@ -20,6 +20,15 @@ FactoryBot.define do
     trait :no_body do
       body {}
     end
+    #動画
+    trait :create_with_movie do
+      video {Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/movie.mp4'))}
+    end
+    trait :create_with_images do
+      after(:create) do |post|
+        create_list(:post_image, 3, post: post)
+      end
+    end
 
   end
 end

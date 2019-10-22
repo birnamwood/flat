@@ -35,6 +35,18 @@ RSpec.describe Post, type: :model do
       let(:municipality) {FactoryBot.create(:municipality, prefecture_id: prefecture.id)}
       let(:end_user) {FactoryBot.create(:end_user, prefecture_id: prefecture.id, municipality_id: municipality.id)}
 
+      it "動画あり" do
+        expect(FactoryBot.create(:post, :create_with_movie, prefecture_id: prefecture.id, municipality_id: municipality.id, end_user_id: end_user.id)).to be_valid
+      end
+      it "動画なし" do
+        expect(FactoryBot.create(:post, prefecture_id: prefecture.id, municipality_id: municipality.id, end_user_id: end_user.id)).to be_valid
+      end
+      it "画像あり" do
+        expect(FactoryBot.create(:post, :create_with_images, prefecture_id: prefecture.id, municipality_id: municipality.id, end_user_id: end_user.id)).to be_valid
+      end
+      it "画像なし" do
+        expect(FactoryBot.create(:post, prefecture_id: prefecture.id, municipality_id: municipality.id, end_user_id: end_user.id)).to be_valid
+      end
       # post_name
       it "post_nameが1文字" do
         expect(FactoryBot.create(:post, :length_1_post_name, prefecture_id: prefecture.id, municipality_id: municipality.id, end_user_id: end_user.id)).to be_valid
