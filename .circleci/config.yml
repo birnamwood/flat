@@ -27,6 +27,9 @@ jobs: # a collection of steps
             sudo rm /usr/local/bin/bundler
             sudo gem install bundler
 
+      - run:
+          name: Which bundler?
+          command: which bundle
       # Which version of bundler?
       - run:
           name: Which bundler?
