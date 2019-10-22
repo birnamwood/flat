@@ -32,8 +32,9 @@ jobs: # a collection of steps
             - rails-demo-bundle-v2-
 
       # - run: # Install Ruby dependencies
-      #     name: Bundle Install
-      #     command: bundle check --path vendor/bundle || bundle install --deployment
+          name: Bundle Install
+          command: bundle install
+          # command: bundle check --path vendor/bundle || bundle install --deployment
 
       # Store bundle cache for Ruby dependencies
       - save_cache:
