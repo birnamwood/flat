@@ -48,7 +48,7 @@ RSpec.feature "Homeページ、サインアップ、ログイン、ログアウ�
       find("input[name='commit']").click
     end
     scenario "リダイレクト先は正しいか" do
-      expect(page).to have_current_path new_end_user_registration_path
+      expect(page).to have_current_path "/end_users"
     end
     scenario "エラーメッセージは正しく表示されるか" do
       expect(page).to have_content "エラー"
@@ -103,9 +103,10 @@ RSpec.feature "Homeページ、サインアップ、ログイン、ログアウ�
       visit root_path
       expect(page).to have_link "",href: root_path
       expect(page).to have_link "",href: rankings_path
-      expect(page).to have_link "",href: end_user_path(@user)
       expect(page).to have_link "",href: clip_path(@user)
       expect(page).to have_link "",href: visit_path(@user)
+      expect(page).to have_link "",href: new_post_path
+      expect(page).to have_link "",href: end_user_path(@user)
       expect(page).to have_link "",href: destroy_end_user_session_path
     end
     scenario "ログアウト時" do
