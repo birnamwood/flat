@@ -10,6 +10,7 @@ class EndUsers::OmniauthCallbacksController < ApplicationController
 
     @user = EndUser.find_for_oauth(request.env['omniauth.auth'])
 
+    binding.pry
     if @user.persisted?
       flash[:success] = "ログインが完了しました。"
       sign_in_and_redirect @user, event: :authentication

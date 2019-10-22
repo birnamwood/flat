@@ -50,19 +50,22 @@ class EndUser < ApplicationRecord
 
   def self.find_for_oauth(auth)
     end_user = EndUser.where(uid: auth.uid, provider: auth.provider).first
+
+    if auth.info.nickname
+      @nickname = auth.info.nickname
+    else
+      @nickname = auth.info.name
+    end
+
     unless end_user
       end_user = EndUser.create(
         uid:      auth.uid,
         provider: auth.provider,
         email:    auth.info.email,
         name:  auth.info.name,
-        if auth.info.nickname
-          nickname:  auth.info.nickname,
-        else
-          nickname:  auth.info.name,
-        end
+        nickname:  @nickname,
         password: Devise.friendly_token[0, 20],
-        zipcode:  0010000,
+        zipcode:  "0010000",
         prefecture_id:  1,
         municipality_id: 1,
       )
