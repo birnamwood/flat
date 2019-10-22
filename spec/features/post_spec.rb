@@ -24,6 +24,7 @@ RSpec.feature "Postコントローラ関連", type: :feature do
     end
   end
 
+
   feature "ログインした状態で" do
     before do
       login(@user1)
@@ -46,8 +47,55 @@ RSpec.feature "Postコントローラ関連", type: :feature do
         expect(page).to have_content @post2.post_name
         expect(page).to have_content @post2.body
       end
-
     end
-  end
 
+    # feature "postを投稿" do
+    #   before do
+    #     visit new_post_path
+    #     find_field('post[post_name]').set("post_name")
+    #     find_field('post[body]').set("body_b")
+    #     select('北海道', from: 'post[prefecture_id]')
+    #     find_field('post[municipality_id]').value("1")
+    #   end
+    #   scenario "正しく保存できているか" do
+    #     expect {
+    #       find("input[name='commit']").click
+    #     }.to change(@user1.posts, :count).by(1)
+    #   end
+    #   scenario "リダイレクト先は正しいか" do
+    #     find("input[name='commit']").click
+    #     expect(page).to have_current_path post_path(Post.last)
+    #     expect(page).to have_content "title_a"
+    #     expect(page).to have_content "body_b"
+    #   end
+    #   scenario "サクセスメッセージが表示されるか" do
+    #     find("input[name='commit']").click
+    #     expect(page).to have_content "記事を投稿しました。"
+    #   end
+    # end
+
+    feature "postの投稿失敗" do
+      before do
+        visit new_post_path
+        find_field('post[post_name]').set("post_name")
+        find_field('post[body]').set("body_b")
+        select('北海道', from: 'post[prefecture_id]')
+      end
+      scenario "保存されない" do
+        expect {
+          find("input[name='commit']").click
+        }.to change(@user1.posts, :count).by(0)
+      end
+      scenario "リダイレクト先は正しいか" do
+        find("input[name='commit']").click
+        expect(page).to have_current_path new_post_path
+      end
+      scenario "メッセージが表示されるか" do
+        find("input[name='commit']").click
+        expect(page).to have_content "記事の投稿に失敗しました。"
+      end
+    end
+
+
+  end
 end
