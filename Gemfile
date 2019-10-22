@@ -94,3 +94,4 @@ gem "geocoder"
 gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'webpacker', '4.0.7'
