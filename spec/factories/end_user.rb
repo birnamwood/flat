@@ -52,7 +52,7 @@ FactoryBot.define do
     end
     trait :create_with_posts do
       after(:create) do |end_user|
-        create_list(:post, 3, end_user: end_user)
+        create_list(:post, 3, end_user: end_user, prefecture_id: "1", municipality_id: "1")
       end
     end
 

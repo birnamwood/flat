@@ -58,6 +58,7 @@ class EndUser < ApplicationRecord
         name:  auth.info.name,
         nickname:  auth.info.nickname,
         password: Devise.friendly_token[0, 20],
+        zipcode:  0010000,
         prefecture_id:  1,
         municipality_id: 1,
       )

@@ -10,6 +10,9 @@ class EndUsersController < ApplicationController
     @end_user  = EndUser.find(params[:id])
     @prefecture = @end_user.prefecture
     @municipality = @prefecture.municipalities
+    if @end_user != current_end_user
+      redirect_to end_user_path(current_end_user)
+    end
   end
 
   def update
