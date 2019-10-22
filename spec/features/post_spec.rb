@@ -136,5 +136,20 @@ RSpec.feature "Postコントローラ関連", type: :feature do
       end
     end
 
+    feature "postの削除" do
+      before do
+        visit post_path(@post1)
+      end
+      scenario "postが削除されているか" do
+        expect {
+          all("a[data-method='delete']").select{|n| n[:href] == post_path(@post1)}[0].click
+        }.to change(@user1.posts, :count).by(-1)
+      end
+      scenario "リダイレクト先が正しいか" do
+        all("a[data-method='delete']").select{|n| n[:href] == post_path(@post1)}[0].click
+        expect(page).to have_current_path end_user_path(@user1)
+      end
+    end
+
   end
 end
