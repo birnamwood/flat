@@ -71,6 +71,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # gem 'webpacker', github: 'rails/webpacker'
+gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 
 gem 'devise'
 gem 'omniauth'
@@ -94,4 +95,3 @@ gem "geocoder"
 gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-gem 'webpacker', git: 'https://github.com/rails/webpacker.git'

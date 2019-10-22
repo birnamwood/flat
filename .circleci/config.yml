@@ -56,7 +56,8 @@ jobs: # a collection of steps
 
       - run: # Install Ruby dependencies
           name: Bundle Install
-          command: bundle check --path vendor/bundle || bundle install --deployment
+          command: bundle install
+          # command: bundle check --path vendor/bundle || bundle install --deployment
 
       - run:
           name: Wait for DB
