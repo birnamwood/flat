@@ -18,6 +18,9 @@ class PostsController < ApplicationController
     @postnew = Post.new
     @post_tag = @postnew.post_tags.build
     @post_image = @postnew.post_images.build
+    if @end_user != current_end_user
+      redirect_to post_path(@post)
+    end
   end
 
   def show
