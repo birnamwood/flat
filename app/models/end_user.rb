@@ -56,7 +56,11 @@ class EndUser < ApplicationRecord
         provider: auth.provider,
         email:    auth.info.email,
         name:  auth.info.name,
-        nickname:  auth.info.nickname,
+        if auth.info.nickname
+          nickname:  auth.info.nickname,
+        else
+          nickname:  auth.info.name,
+        end
         password: Devise.friendly_token[0, 20],
         zipcode:  0010000,
         prefecture_id:  1,
