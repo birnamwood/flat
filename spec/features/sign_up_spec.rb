@@ -8,32 +8,32 @@ RSpec.feature "Homeページ、サインアップ、ログイン、ログアウ�
     @user = FactoryBot.create(:end_user, :create_with_posts, prefecture_id: prefecture.id, municipality_id: municipality.id)
   end
 
-  # feature "サインアップの確認" do
-  #   before do
-  #     visit new_end_user_registration_path
-  #     find_field('end_user[name]').set("name_a")
-  #     find_field('end_user[nickname]').set("nickname_a")
-  #     find_field('end_user[email]').set("aa@aa.com")
-  #     select('北海道', from: 'end_user[prefecture_id]')
-  #     select('札幌市', from: 'end_user[municipality_id]')
-  #     find_field('end_user[password]').set("pppppp")
-  #     find_field('end_user[password_confirmation]').set("pppppp")
-  #   end
+  feature "サインアップの確認" do
+    before do
+      visit new_end_user_registration_path
+      find_field('end_user[name]').set("name_a")
+      find_field('end_user[nickname]').set("nickname_a")
+      find_field('end_user[email]').set("aa@aa.com")
+      select('北海道', from: 'end_user[prefecture_id]')
+      select('札幌市', from: 'end_user[municipality_id]')
+      find_field('end_user[password]').set("pppppp")
+      find_field('end_user[password_confirmation]').set("pppppp")
+    end
 
-  #   scenario "正しくサインアップできているか" do
-  #     expect {
-  #       find("input[name='commit']").click
-  #     }.to change(EndUser, :count).by(1)
-  #   end
-  #   scenario "リダイレクト先は正しいか" do
-  #     find("input[name='commit']").click
-  #     expect(page).to have_current_path root_path
-  #   end
-  #   scenario "サクセスメッセージは正しく表示されるか" do
-  #     find("input[name='commit']").click
-  #     expect(page).to have_content "サインアップしました。"
-  #   end
-  # end
+    scenario "正しくサインアップできているか" do
+      expect {
+        find("input[name='commit']").click
+      }.to change(EndUser, :count).by(1)
+    end
+    scenario "リダイレクト先は正しいか" do
+      find("input[name='commit']").click
+      expect(page).to have_current_path root_path
+    end
+    scenario "サクセスメッセージは正しく表示されるか" do
+      find("input[name='commit']").click
+      expect(page).to have_content "サインアップしました。"
+    end
+  end
 
   feature "有効でない内容でのサインアップの確認" do
     before do
