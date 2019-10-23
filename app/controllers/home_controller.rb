@@ -5,10 +5,12 @@ class HomeController < ApplicationController
   end
 
   def regions
-    # binding.pry
     @region = Region.find(params[:region_id])
     @prefectures = @region.prefectures
     render :index
+  end
+
+  def about
   end
 
 end
