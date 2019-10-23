@@ -117,7 +117,7 @@
   padding: 1%;
 }
 .post-content-image-area {
-  height: 500px;
+  height: 700px;
 }
 .post-content-video, .post-content-photo {
   width: 50%;
@@ -125,8 +125,14 @@
   float: left;
   padding: 1%;
 }
-#video-content, #photo-content {
- width: 100%;
+#video-content {
+  width: 100%;
+  height: 600px;
+}
+#photo-content {
+  width: 100%;
+  height: 600px;
+
 }
 .post-content-rating {
   width: 90%;
@@ -199,4 +205,17 @@
   border-width: 10px;
   pointer-events: none;
   content: " ";
+}
+
+
+
+
+@media (max-width: 1500px) {
+  #video-content, #photo-content {
+    width: 100%;
+    height: 400px;
+  }
+  .post-content-image-area {
+    height: 550px;
+  }
 }
