@@ -79,6 +79,25 @@
   top: 93%;
   left: 8%;
 }
+//aboutページ
+.about-area {
+  box-shadow: 0 0 8px lightgray;
+  margin-bottom: 50px;
+}
+.function-area {
+  width: 100%;
+  box-shadow: 0 0 8px lightgray;
+}
+.about-image, .function {
+  width: 50%;
+  float: left;
+  height: 700px;
+  margin-bottom: 5%;
+  box-shadow: 0 0 8px lightgray;
+}
+.function {
+  padding: 5%;
+}
 
 @media (max-width: 992px) {
   .hokkaido {
