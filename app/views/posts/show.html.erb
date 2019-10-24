@@ -144,9 +144,12 @@ let placeMap
 let geocoder
 
 function initMap(){
+ createMap();
+}
+
+function createMap(){
   // geocoderを初期化
   geocoder = new google.maps.Geocoder()
-
   placeMap = new google.maps.Map(document.getElementById('post-map'), {
     center: {lat: 35.69, lng: 139.644},
     zoom: 16
@@ -157,14 +160,14 @@ function initMap(){
 
   // geocodingしたあとmapを移動
   geocoder.geocode( { 'address': inputAddress}, function(results, status) {
-    if (status == 'OK') {
+  if (status == 'OK') {
 　　　　　　　　　　　　// map.setCenterで地図が移動
-      placeMap.setCenter(results[0].geometry.location);
+    placeMap.setCenter(results[0].geometry.location);
 　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
-      var marker = new google.maps.Marker({
-          map: placeMap,
-          position: results[0].geometry.location
-      });
+    var marker = new google.maps.Marker({
+        map: placeMap,
+        position: results[0].geometry.location
+    });
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
@@ -222,7 +225,6 @@ function search(current) {
   let iAddress = document.getElementById('post-map-address').textContent;
   let dest
 
-////
   let options = {
     zoom: 16,
     center: new google.maps.LatLng(current),
@@ -260,4 +262,6 @@ function search(current) {
 
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>&callback=initMap" async defer></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>&callback=initMap"></script>
+
