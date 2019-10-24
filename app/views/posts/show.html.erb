@@ -140,14 +140,14 @@ document.addEventListener('turbolinks:load', function() {
 
 
 <script>
-let map
+let placeMap
 let geocoder
 
 function initMap(){
   // geocoderを初期化
   geocoder = new google.maps.Geocoder()
 
-  map = new google.maps.Map(document.getElementById('post-map'), {
+  placeMap = new google.maps.Map(document.getElementById('post-map'), {
     center: {lat: 35.69, lng: 139.644},
     zoom: 16
   });
@@ -159,10 +159,10 @@ function initMap(){
   geocoder.geocode( { 'address': inputAddress}, function(results, status) {
     if (status == 'OK') {
 　　　　　　　　　　　　// map.setCenterで地図が移動
-      map.setCenter(results[0].geometry.location);
+      placeMap.setCenter(results[0].geometry.location);
 　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
       var marker = new google.maps.Marker({
-          map: map,
+          map: placeMap,
           position: results[0].geometry.location
       });
     } else {
@@ -191,7 +191,7 @@ function initMap(){
             };
             //alert("緯度:"+position.coords.latitude+",経度"+position.coords.longitude);
           marker = new google.maps.Marker({
-            map: map,
+            map: placeMap,
             position: current
           });
         search(current)
@@ -229,13 +229,13 @@ function search(current) {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   let rendererOptions = {
-    map: map, // 描画先の地図
+    map: placeMap, // 描画先の地図
     draggable: true, // ドラッグ可
     preserveViewport: true // centerの座標、ズームレベルで表示
   };
   let directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
   let directionsService = new google.maps.DirectionsService();
-  directionsDisplay.setMap(map);
+  directionsDisplay.setMap(placeMap);
 
   let request = {
     origin: new google.maps.LatLng(current), // スタート地点
@@ -245,7 +245,7 @@ function search(current) {
   directionsService.route(request, function(response,status) {
     if (status === google.maps.DirectionsStatus.OK) {
       new google.maps.DirectionsRenderer({
-        map: map,
+        map: placeMap,
         directions: response,
         suppressMarkers: true // デフォルトのマーカーを削除
       });
@@ -261,5 +261,3 @@ function search(current) {
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>&callback=initMap" async defer></script>
-<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
-<script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
