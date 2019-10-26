@@ -1,6 +1,6 @@
 class CreateInquiries < ActiveRecord::Migration[5.2]
   def change
-    create_table :inquiries do, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
+    create_table :inquiries, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
       t.string :email
       t.string :name
       t.string :inquiry_title
