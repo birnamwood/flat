@@ -27,5 +27,5 @@ production:
   encoding: utf8mb4
   collation: utf8mb4_general_ci
   host: flat-rds-mysql-server.ctsy6smkntvt.ap-northeast-1.rds.amazonaws.com
-  username: ENV['RDS_USER']
-  password: ENV['RDS_PASSWORD']
+  username: <%= ENV['RDS_USER'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
