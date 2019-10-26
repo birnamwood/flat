@@ -1,6 +1,6 @@
 class CreatePosts < ActiveRecord::Migration[5.2]
   def change
-    create_table :posts do |t|
+    create_table :posts, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
       t.integer :end_user_id
       t.string :zipcode
       t.integer :prefecture_id
