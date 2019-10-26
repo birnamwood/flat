@@ -13,7 +13,7 @@
       <% if @end_user.icon_image_id.present? %>
         <%= image_tag(@end_user.icon_image_id.to_s, size: "300x300", class: "user-icon") %>
       <% else %>
-        <%= image_tag("no_image.png", size: "300x300", class: "user-icon") %>
+        <%= image_tag("/images/no_image.png", size: "300x300", class: "user-icon") %>
       <% end %>
     </div>
     <div class="user-profile-area">

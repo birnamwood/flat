@@ -14,7 +14,7 @@
           <% if user.icon_image_id.present? %>
         <td><%= image_tag(user.icon_image_id.to_s, size: "100x100", class:"user-icon") %></td>
           <% else %>
-        <td><%= image_tag("no_image.png", size: "100x100", class: "user-icon") %></td>
+        <td><%= image_tag("/images/no_image.png", size: "100x100", class: "user-icon") %></td>
           <% end %>
         <td><%= link_to user.nickname, end_user_path(user) %></td>
         <td><%= user.prefecture.prefecture_name %></td>

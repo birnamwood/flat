@@ -4,7 +4,7 @@
       <% if comment.end_user.icon_image_id.present? %>
         <%= image_tag(comment.end_user.icon_image_id.to_s, size: "50x50", class:"user-icon") %>
       <% else %>
-        <%= image_tag("no_image.png", size: "50x50", class:"user-icon") %>
+        <%= image_tag("/images/no_image.png", size: "50x50", class:"user-icon") %>
       <% end %>
     </div>
     <div class="comment-area-username">
