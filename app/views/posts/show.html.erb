@@ -85,7 +85,7 @@
           <div id="post-distance"></div>
           <div id="post-duration"></div>
         <br>
-        <button onclick="getPosition();" class="btn">この場所に行く</button>
+        <button onclick="getPosition();" class="btn" id="search-button">この場所に行く</button>
       </div>
 
 
@@ -181,6 +181,7 @@ function createMap(){
     }
     // 現在地取得処理
     function getPosition() {
+  $('button').attr("disabled", "disabled").after("<span class=\"loading03\"><span></span></span>");
       // 現在地を取得
       navigator.geolocation.getCurrentPosition(
         // 取得成功した場合
@@ -194,7 +195,8 @@ function createMap(){
             map: placeMap,
             position: current
           });
-        search(current)
+        search(current);
+        setTimeout('load_off()', 1000);
         },
         // 取得失敗した場合
         function(error) {
@@ -256,7 +258,9 @@ function search(current) {
     }
   });
 }
-
+function load_off() {
+  $('button').removeAttr("disabled").next("span.loading03").remove();
+}
 </script>
 
 
@@ -271,3 +275,4 @@ if(window.google){
   });
 }
 </script>
+
