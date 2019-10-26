@@ -260,5 +260,14 @@ function search(current) {
 </script>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>&callback=initMap"></script>
 
+<script>
+if(window.google){
+  initMap();
+} else{
+  $.ajax("https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>&callback=initMap", {
+    crossDomain: true,
+    dataType: 'script'
+  });
+}
+</script>
