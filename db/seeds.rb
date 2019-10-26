@@ -395,6 +395,7 @@ Municipality.create(municipality_name: '羽後町', municipality_name_kana: 'ウ
 Municipality.create(municipality_name: '東成瀬村', municipality_name_kana: 'ヒガシナルセムラ', prefecture_id: '5')
 
 Municipality.create(municipality_name: '山形市', municipality_name_kana: '', prefecture_id: '6')
+Municipality.create(municipality_name: '山形市', municipality_name_kana: '', prefecture_id: '6')
 
 Tag.create(tag_name: '自然・景勝地', tag_content: '自然・景勝地')
 Tag.create(tag_name: '景色', tag_content: '景色')
