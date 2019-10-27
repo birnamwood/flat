@@ -119,6 +119,17 @@
     padding: 5%;
     margin-bottom: 5%;
   }
+  .about-image {
+    width: 100%;
+    float: none;
+    height: 800px;
+    margin-bottom: 0%;
+  }
+  .function {
+    width: 100%;
+    float: none;
+    height: 300px;
+  }
 }
 
 @media screen and (max-width:639px) {
@@ -132,8 +143,32 @@
     padding: 5%;
     margin-bottom: 5%;
   }
+  .about-image {
+    width: 100%;
+    float: none;
+    height: 600px;
+    margin-bottom: 0%;
+  }
+  .function {
+    width: 100%;
+    float: none;
+    height: 300px;
+  }
 }
 
+@media screen and (max-width:439px) {
+  .about-image {
+    width: 100%;
+    float: none;
+    height: 400px;
+    margin-bottom: 0%;
+  }
+  .function {
+    width: 100%;
+    float: none;
+    height: 400px;
+  }
+}
 
 
 /*地図表示のレイアウト*/
