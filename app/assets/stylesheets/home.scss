@@ -28,6 +28,11 @@
   position: absolute;
   top: 0%;
   left: 0%;
+  width: 400px;
+}
+#prefecture-zone .collection {
+  float: left;
+  width: 150px;
 }
 .hokkaido {
   position: absolute;
@@ -99,7 +104,40 @@
   padding: 5%;
 }
 
-@media (max-width: 992px) {
+/***************/
+/*レスポンシブ対応*/
+/***************/
+
+@media only screen and (min-width:640px) and (max-width:992px) {
+  .search {
+    box-shadow: 0 0  0 lightgray;
+  }
+  .keyword-search, .tag-search {
+    box-shadow: 0 0 8px lightgray;
+    float: none;
+    width: 100%;
+    padding: 5%;
+    margin-bottom: 5%;
+  }
+}
+
+@media screen and (max-width:639px) {
+  .search {
+    box-shadow: 0 0  0 lightgray;
+  }
+  .keyword-search, .tag-search {
+    box-shadow: 0 0 8px lightgray;
+    float: none;
+    width: 100%;
+    padding: 5%;
+    margin-bottom: 5%;
+  }
+}
+
+
+
+/*地図表示のレイアウト*/
+@media only screen and (min-width:850px) and (max-width:992px) {
   .hokkaido {
     position: absolute;
     top: 8%;
@@ -152,6 +190,168 @@
   }
 }
 
-@media (max-width: 640px) {
+@media only screen and (min-width:740px) and (max-width:849px) {
+  .hokkaido {
+    position: absolute;
+    top: 7%;
+    left: 78%;
+  }
+  .tohoku {
+    position: absolute;
+    top: 38%;
+    left: 75%;
+  }
+  .hokuriku {
+    position: absolute;
+    top: 48%;
+    left: 57%;
+  }
+  .kanto {
+    position: absolute;
+    top: 61%;
+    left: 74%;
+  }
+  .tyubu {
+    position: absolute;
+    top: 73%;
+    left: 60%;
+  }
+  .kansai {
+    position: absolute;
+    top: 66%;
+    left: 42%;
+  }
+  .tyugoku {
+    position: absolute;
+    top: 60%;
+    left: 24%;
+  }
+  .sikoku {
+    position: absolute;
+    top: 79%;
+    left: 25%;
+  }
+  .kyusyu {
+    position: absolute;
+    top: 67%;
+    left: 5%;
+  }
+  .okinawa {
+    position: absolute;
+    top: 93%;
+    left: 6%;
+  }
+}
+@media only screen and (min-width:640px) and (max-width:739px) {
+  #region-button {
+    font-size: 12px;
+  }
+  .hokkaido {
+    position: absolute;
+    top: 7%;
+    left: 77%;
+  }
+  .tohoku {
+    position: absolute;
+    top: 38%;
+    left: 74%;
+  }
+  .hokuriku {
+    position: absolute;
+    top: 48%;
+    left: 56%;
+  }
+  .kanto {
+    position: absolute;
+    top: 61%;
+    left: 73%;
+  }
+  .tyubu {
+    position: absolute;
+    top: 73%;
+    left: 59%;
+  }
+  .kansai {
+    position: absolute;
+    top: 66%;
+    left: 41%;
+  }
+  .tyugoku {
+    position: absolute;
+    top: 60%;
+    left: 23%;
+  }
+  .sikoku {
+    position: absolute;
+    top: 79%;
+    left: 24%;
+  }
+  .kyusyu {
+    position: absolute;
+    top: 67%;
+    left: 4%;
+  }
+  .okinawa {
+    position: absolute;
+    top: 93%;
+    left: 5%;
+  }
+}
 
+
+
+@media only screen and (min-width:551px) and (max-width:639px) {
+  #region-button {
+    font-size: 12px;
+  }
+  .hokkaido {
+    position: absolute;
+    top: 7%;
+    left: 75%;
+  }
+  .tohoku {
+    position: absolute;
+    top: 36%;
+    left: 73%;
+  }
+  .hokuriku {
+    position: absolute;
+    top: 48%;
+    left: 55%;
+  }
+  .kanto {
+    position: absolute;
+    top: 61%;
+    left: 73%;
+  }
+  .tyubu {
+    position: absolute;
+    top: 74%;
+    left: 58%;
+  }
+  .kansai {
+    position: absolute;
+    top: 66%;
+    left: 40%;
+  }
+  .tyugoku {
+    position: absolute;
+    top: 59%;
+    left: 22%;
+  }
+  .sikoku {
+    position: absolute;
+    top: 79%;
+    left: 23%;
+  }
+  .kyusyu {
+    position: absolute;
+    top: 67%;
+    left: 2%;
+  }
+  .okinawa {
+    position: absolute;
+    top: 93%;
+    left: 4%;
+  }
 }

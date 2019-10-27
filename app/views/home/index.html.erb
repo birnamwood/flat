@@ -2,7 +2,7 @@
 
   <div class="search clearfix">
       <div class="keyword-search">
-        <h4>キーワードで検索</h4>
+        <h4>キーワードで探す</h4>
           <%= search_form_for @search, url: searches_path do |f| %>
             <div class="search_form_box">
               <%= f.text_field :post_name_or_end_user_nickname_or_end_user_name_cont , class: "search_form", placeholder: '検索キーワード' %>
