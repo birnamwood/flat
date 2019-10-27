@@ -301,6 +301,9 @@
 
 
 @media only screen and (min-width:540px) and (max-width:639px) {
+  .top h4 {
+    font-size: 18px;
+  }
   .map-place {
     padding-bottom: 250px;
   }
@@ -368,8 +371,10 @@
   }
 }
 
-
 @media only screen and (min-width:440px) and (max-width:539px) {
+  .top h4 {
+    font-size: 18px;
+  }
   .map-place {
     padding-bottom: 250px;
   }
@@ -434,5 +439,67 @@
     position: absolute;
     top: 90%;
     left: 0%;
+  }
+}
+
+@media only screen and (max-width:439px) {
+  .top h4 {
+    font-size: 18px;
+  }
+  .map-place {
+    padding-bottom: 450px;
+  }
+  #prefecture-zone {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    float: left;
+  }
+  #prefecture-zone .collection {
+    float: left;
+    width: 150px;
+  }
+  #region-button {
+    font-size: 11px;
+  }
+  .hokkaido {
+    top: 0%;
+    left: 60%;
+  }
+  .tohoku {
+    top: 20%;
+    left: 60%;
+  }
+  .hokuriku {
+    top: 40%;
+    left: 60%;
+  }
+  .kanto {
+    top: 60%;
+    left: 60%;
+  }
+  .tyubu {
+    top: 80%;
+    left: 60%;
+  }
+  .kansai {
+    top: 0%;
+    left: 10%;
+  }
+  .tyugoku {
+    top: 20%;
+    left: 10%;
+  }
+  .sikoku {
+    top: 40%;
+    left: 10%;
+  }
+  .kyusyu {
+    top: 60%;
+    left: 10%;
+  }
+  .okinawa {
+    top: 80%;
+    left: 10%;
   }
 }
