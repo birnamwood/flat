@@ -81,7 +81,7 @@
 }
 .okinawa {
   position: absolute;
-  top: 93%;
+  top: 92%;
   left: 8%;
 }
 //aboutページ
@@ -185,7 +185,7 @@
   }
   .okinawa {
     position: absolute;
-    top: 93%;
+    top: 92%;
     left: 7%;
   }
 }
@@ -238,7 +238,7 @@
   }
   .okinawa {
     position: absolute;
-    top: 93%;
+    top: 92%;
     left: 6%;
   }
 }
@@ -293,14 +293,26 @@
   }
   .okinawa {
     position: absolute;
-    top: 93%;
+    top: 92%;
     left: 5%;
   }
 }
 
 
 
-@media only screen and (min-width:551px) and (max-width:639px) {
+@media only screen and (min-width:540px) and (max-width:639px) {
+  .map-place {
+    padding-bottom: 250px;
+  }
+  #prefecture-zone {
+    position: relative;
+    width: 100%;
+    margin: auto;
+  }
+  #prefecture-zone .collection {
+    float: left;
+    width: 150px;
+  }
   #region-button {
     font-size: 12px;
   }
@@ -331,13 +343,13 @@
   }
   .kansai {
     position: absolute;
-    top: 66%;
-    left: 40%;
+    top: 63%;
+    left: 41%;
   }
   .tyugoku {
     position: absolute;
-    top: 59%;
-    left: 22%;
+    top: 54%;
+    left: 19%;
   }
   .sikoku {
     position: absolute;
@@ -351,7 +363,7 @@
   }
   .okinawa {
     position: absolute;
-    top: 93%;
+    top: 91%;
     left: 4%;
   }
 }
