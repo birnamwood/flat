@@ -144,7 +144,7 @@ $primary-color: color("blue", "lighten-2") !default;
 /* ------------------------ */
 @media (max-width: 992px) {
   #hm-icon{
-    position: fixed;
+    position: absolute;
     right: 20px;
     top: 10px;
     z-index: 10;
