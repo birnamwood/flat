@@ -8,12 +8,12 @@
   margin-bottom: 5%;
 }
 .user-icon-area {
-  width: 40%;
+  max-width: 40%;
   padding: 3%;
   float: left;
 }
 .user-profile-area {
-  width: 60%;
+  max-width: 60%;
   padding: 3%;
   float: left;
   font-size: 24px;
@@ -37,4 +37,43 @@
 .follow-user-list {
   margin-top: 5%;
   box-shadow: 0 0 8px lightgray;
+}
+
+
+@media only screen and (max-width:992px) {
+  .user-mypage-title h2 {
+    font-size: 24px;
+  }
+  .user-mypage h4 {
+    font-size: 24px;
+  }
+  .user-icon-area, .user-profile-area {
+    float: none;
+    margin: auto;
+    font-size: 20px;
+  }
+  .user-icon-area {
+    max-width: 300px;
+    padding: 5% 0 0 0;
+  }
+  .user-profile-area {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width:439px) {
+  .user-icon-area .user-icon {
+    width: 200px;
+    height: 200px;
+  }
+  .user-icon-area {
+    max-width: 200px;
+    padding: 5% 0 0 0;
+  }
+  .user-mypage-title h2 {
+    font-size: 16px;
+  }
+  .user-mypage h4 {
+    font-size: 16px;
+  }
 }
