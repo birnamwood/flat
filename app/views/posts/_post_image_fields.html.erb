@@ -1,8 +1,8 @@
   <div class="nested-fields add-post-image-area">
-        <%= f.file_field :post_image_id, class:"btn-flat"%>
+        <%= f.file_field :post_image_id, class:"btn-flat add-content-button"%>
         <br>
         <br>
         <%= f.label "画像コメントを入力" %>
-        <%= f.text_field :post_image_comment %>
+        <%= f.text_area :post_image_comment %>
         <%= link_to_remove_association "画像を削除", f, class: "btn-flat btn-delete" %>
   </div>
