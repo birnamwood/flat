@@ -37,7 +37,7 @@ $primary-color: color("blue", "lighten-2") !default;
   margin-bottom: 50px;
   min-height: 100vh;
 }
-
+//ボタン
 .btn-flat {
   background-color: lightgray;
 }
@@ -47,6 +47,7 @@ $primary-color: color("blue", "lighten-2") !default;
 .btn-google {
   background-color: lightblue;
 }
+//materialize上書き
 .card-image {
   width:40%;
 }
@@ -62,10 +63,11 @@ $primary-color: color("blue", "lighten-2") !default;
 .card-content {
   overflow: hidden;
 }
-.width-max {
-  width: 100%;
+.nav-wrapper {
+  overflow: hidden;
 }
 
+//アイコン
 .heart-pink {
   color: pink;
 }
@@ -78,7 +80,12 @@ $primary-color: color("blue", "lighten-2") !default;
 .comment-icon {
   color: green;
 }
+// 横幅100%
+.width-max {
+  width: 100%;
+}
 
+//devise
 .login-help {
   padding: 5%;
   width: 50%;
@@ -196,4 +203,14 @@ $primary-color: color("blue", "lighten-2") !default;
     transform: translateY(-12px) rotate(35deg);
     background-color: white;
   }
+}
+
+@media only screen and (min-width:640px) and (max-width:992px) {
+/* ----- パンくずリスト ----- */
+  .breadcrumb {
+  }
+}
+
+
+@media only screen and (min-width:540px) and (max-width:639px) {
 }
