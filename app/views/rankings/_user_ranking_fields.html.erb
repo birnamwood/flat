@@ -5,7 +5,7 @@
       <td>アイコン</td>
       <td>ユーザー名</td>
       <td>在住</td>
-      <td>登録日</td>
+      <td class="user-list-regist-date">登録日</td>
     </tr>
   </thead>
   <tbody>
@@ -19,7 +19,7 @@
           <% end %>
         <td><%= link_to user.nickname, end_user_path(user) %></td>
         <td><%= user.prefecture.prefecture_name %></td>
-        <td><%= user.created_at.strftime("%Y年%m月%d日") %></td>
+        <td class="user-list-regist-date"><%= user.created_at.strftime("%Y年%m月%d日") %></td>
       </tr>
     <% end %>
   </tbody>

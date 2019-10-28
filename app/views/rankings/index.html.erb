@@ -2,24 +2,28 @@
 
     <div class="rankings-tab">
       <ul class="tabs">
-        <li class="tab"><a href="#tab1" class="active">ユーザー投稿数ランキング</a></li>
-        <li class="tab"><a href="#tab2">クリップ数ランキング</a></li>
-        <li class="tab"><a href="#tab3">訪問数ランキング</a></li>
-        <li class="tab"><a href="#tab4">都道府県別投稿数</a></li>
+        <li class="tab"><a href="#tab1" class="active"><i class="material-icons">accessibility</i></a></li>
+        <li class="tab"><a href="#tab2"><i class="material-icons">attach_file</i></a></li>
+        <li class="tab"><a href="#tab3"><i class="material-icons">directions_run</i></a></li>
+        <li class="tab"><a href="#tab4"><i class="material-icons">map</i></a></li>
       </ul>
     </div>
 
     <div class="rankings-content">
       <div id="tab1">
+        <h4>ユーザー投稿数ランキング</h4>
         <%= render 'user_ranking_fields', user_ranking: @user_ranking %>
       </div>
       <div id="tab2">
+        <h4>クリップ数ランキング</h4>
         <%= render partial: 'clip_ranking_fields', collection: @clip_ranking, as: "post" %>
       </div>
       <div id="tab3">
+        <h4>訪問数ランキング</h4>
         <%= render partial: 'visit_ranking_fields', collection: @visit_ranking, as: "post" %>
       </div>
       <div id="tab4" class="chart-area">
+        <h4>都道府県別投稿数ランキング</h4>
          <canvas id="myChart"></canvas>
       </div>
     </div>
@@ -27,16 +31,17 @@
 
 
 <script>
-  $(document).ready(function(){
+$(document).on('turbolinks:load', function() {
     $('.tabs').tabs();
   });
 </script>
 
 <script>
-    var w = $('.chart-aera').width();
-    var h = $('.chart-area').height();
+$(document).on('turbolinks:load', function() {
+    var w = $('window').width();
+    var h = $('window').height();
     $('#myChart').attr('width', w);
-    $('#myChart').attr('height', h);
+    $('#myChart').attr('height', h * 2 );
 
     ctx = document.getElementById("myChart").getContext('2d')
     var graphprefecture = <%== @labelline %>
@@ -63,4 +68,5 @@
           }
         }
     })
+});
 </script>
