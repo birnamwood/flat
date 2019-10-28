@@ -57,10 +57,10 @@
   float: left;
   position: relative;
 }
-.list-image {
-  width: 100%;
-  height: 400px;;
-}
+// .list-image {
+//   width: 100%;
+//   height: 400px;;
+// }
 .list-title {
   text-decoration: underline;
 }
@@ -252,5 +252,11 @@ span.loading03:after {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width:539px) {
+  .post-list-item {
+    box-shadow: 0 0 0;
   }
 }
