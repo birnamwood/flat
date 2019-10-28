@@ -31,14 +31,14 @@
             <%= render "select_municipality", {municipality: @municipality} %>
           </div>
         <%= f.label "住所その他" %>
-        <%= f.text_field :address, placeholder: "住所" %>
+        <%= f.text_area :address, placeholder: "住所" %>
 
         <%= f.label "紹介文" %>
         <%= f.text_area :body, placeholder: "紹介文", class: "input-body" %>
 
         <%= f.label "動画を編集" %>
         <br>
-        <%= f.file_field :video, class:"btn-flat"%>
+        <%= f.file_field :video, class:"btn-flat  add-content-button"%>
         <br>
 
         <%= f.label "画像を編集" %>
