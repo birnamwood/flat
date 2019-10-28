@@ -218,6 +218,9 @@ $primary-color: color("blue", "lighten-2") !default;
   }
 }
 
+/* ------------------------ */
+/* ---- レスポンシブ対応  ---- */
+/* ------------------------ */
 @media only screen and (min-width:640px) and (max-width:992px) {
   #photo-content {
     height: 600px;
