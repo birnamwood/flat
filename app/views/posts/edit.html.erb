@@ -65,7 +65,7 @@ $(document).on('turbolinks:load', function() {
   //userScore = document.getElementById('post_rating').value
 
   $('#rating').raty({
-    path: '/assets/',
+    path: '/images/',
     score: <%= @post.rating %>,
     half: true,
     scoreName: 'post[rating]'
