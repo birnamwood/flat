@@ -79,6 +79,9 @@ $primary-color: color("blue", "lighten-2") !default;
 .nav-wrapper {
   overflow: hidden;
 }
+header .nav-wrapper {
+  overflow: visible;
+}
 
 //アイコン
 .heart-pink {

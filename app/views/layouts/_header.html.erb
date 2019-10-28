@@ -12,13 +12,6 @@
 
       <div>
 
-        <!-- Dropdown Structure -->
-        <% if end_user_signed_in? %>
-          <ul id="dropdown1" class="dropdown-content">
-            <li><%= link_to "マイページ", end_user_path(current_end_user) %></li>
-            <li><%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %></li>
-          </ul>
-        <% end %>
 
 <!-- ヘッダー本体 -->
         <ul class="right hide-on-med-and-down">
@@ -80,10 +73,24 @@
     </div>
   </nav>
 </header>
+        <!-- Dropdown Structure -->
+        <% if end_user_signed_in? %>
+          <ul id="dropdown1" class="dropdown-content">
+            <li><%= link_to "マイページ", end_user_path(current_end_user) %></li>
+            <li><%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %></li>
+          </ul>
+        <% end %>
 
 <script>
-$(function() {
-  $(".dropdown-trigger").dropdown();
+document.addEventListener('turbolinks:load', function() {
+  var elems = document.querySelectorAll('.dropdown-trigger');
+  var options = {
+    // coverTriggerをfalseにする
+    coverTrigger: false,
+    belowOrigin: true,
+    hover: false,
+  };
+  M.Dropdown.init(elems, options);
 });
 </script>
 
