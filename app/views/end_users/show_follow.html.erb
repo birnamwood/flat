@@ -1,8 +1,9 @@
+<div class="show-follow">
+  <h3><%= @end_user.nickname %><%= @title %></h3>
+  <%= link_to "このユーザーのマイページへ", end_user_path(@end_user), class: "btn" %>
+  <br>
 
-<h3><%= @end_user.nickname %><%= @title %></h3>
-<%= link_to "このユーザーのマイページへ", end_user_path(@end_user), class: "btn" %>
-<br>
-
-<div class="follow-user-list">
-  <%= render "user_list_fields", users: @users %>
+  <div class="follow-user-list">
+    <%= render "user_list_fields", users: @users %>
+  </div>
 </div>
