@@ -31,13 +31,12 @@
 
 
 <script>
-$(document).on('turbolinks:load', function() {
+$(document).ready(function(){
     $('.tabs').tabs();
   });
 </script>
 
 <script>
-$(document).on('turbolinks:load', function() {
     var w = $('window').width();
     var h = $('window').height();
     $('#myChart').attr('width', w);
@@ -68,5 +67,4 @@ $(document).on('turbolinks:load', function() {
           }
         }
     })
-});
 </script>
