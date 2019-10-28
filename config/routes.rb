@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get 'home/regions'
   get 'home/about'
+  get 'home/terms'
   get 'posts/select_prefectures'
   get 'end_users/select_prefectures'
   get 'select_prefectures', to: 'end_users#select_prefectures'
