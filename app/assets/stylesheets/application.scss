@@ -218,6 +218,26 @@ $primary-color: color("blue", "lighten-2") !default;
   }
 }
 
+@media only screen and (min-width:640px) and (max-width:992px) {
+  #photo-content {
+    height: 600px;
+  }
+  .login-help {
+    width: 70%;
+  }
+}
+@media only screen and (max-width:640px) {
+  .login-help {
+    width: 100%;
+  }
+  .login-help a {
+    font-size: 9px;
+  }
+  .edit-user-icon {
+    font-size: 9px;
+    max-width: 100%;
+  }
+}
 @media only screen and (min-width:440px) and (max-width:639px) {
 /* ----- パンくずリスト ----- */
   .breadcrumb {
