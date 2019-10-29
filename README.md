@@ -1,11 +1,13 @@
-# README
+# FLAT
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Overview
+Ruby on Railsで作成したポートフォリオ用サイト。訪れた場所を写真と動画付きで投稿し、ユーザー間で共有できるサービス。
 
-Things you may want to cover:
+![スクリーンショット](s3://rails-flat-image/uploads/readme/スクリーンショット 2019-10-29 12.23.41.png)
 
-* Ruby version
+* Ruby version 2.5.5
+
+* Rails version 5.2.3
 
 * System dependencies
 
@@ -21,4 +23,4 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Requirement
