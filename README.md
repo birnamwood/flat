@@ -12,6 +12,7 @@ Ruby on Railsで作成したポートフォリオ用サイト。訪れた場所�
 * Yarn version 1.19.1
 * Webpacker
 * Vue.js
+* Materialize
 
 ## Vue.js 使用ライブラリ
 * axios
