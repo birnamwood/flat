@@ -3,7 +3,7 @@
 Overview
 Ruby on Railsで作成したポートフォリオ用サイト。訪れた場所を写真と動画付きで投稿し、ユーザー間で共有できるサービス。
 
-![スクリーンショット](s3://rails-flat-image/uploads/readme/スクリーンショット 2019-10-29 12.23.41.png)
+![スクリーンショット](https://s3://rails-flat-image/uploads/readme/スクリーンショット 2019-10-29 12.23.41.png)
 
 * Ruby version 2.5.5
 
