@@ -10,6 +10,7 @@
               <%= image_tag("/images/no_image.png", class: "list-image") %>
           <% end %>
         <span class="card-title">
+          <p class="ranking-counter"><%= post_counter + 1 %>位</p>
           <%= link_to post.post_name, post_path(post), class:"list-title" %>
           <br> by 
             <%= link_to post.end_user.nickname, end_user_path(post.end_user) %>
