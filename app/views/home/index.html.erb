@@ -40,7 +40,7 @@
                 <%= link_to r.region_name, {controller: "home", action: "regions", region_id: r.id}, id:"region-button", class:"btn kanto", remote: true %>
               <% elsif r.region_name == "中部地方" %>
                 <%= link_to r.region_name, {controller: "home", action: "regions", region_id: r.id}, id:"region-button", class:"btn tyubu", remote: true %>
-              <% elsif r.region_name == "近畿地方" %>
+              <% elsif r.region_name == "関西地方" %>
                 <%= link_to r.region_name, {controller: "home", action: "regions", region_id: r.id}, id:"region-button", class:"btn kansai", remote: true %>
               <% elsif r.region_name == "中国地方" %>
                 <%= link_to r.region_name, {controller: "home", action: "regions", region_id: r.id}, id:"region-button", class:"btn tyugoku", remote: true %>
