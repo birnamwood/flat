@@ -1,6 +1,7 @@
  <table>
   <thead>
     <tr>
+      <td>順位</td>
       <td>投稿数</td>
       <td>アイコン</td>
       <td>ユーザー名</td>
@@ -9,8 +10,9 @@
     </tr>
   </thead>
   <tbody>
-    <% user_ranking.each  do |user| %>
+    <% user_ranking.each_with_index  do |user, idx| %>
       <tr>
+        <td><%= idx + 1 %>位</td>
         <td><%= user.posts.count %></td>
           <% if user.icon_image_id.present? %>
         <td><%= image_tag(user.icon_image_id.to_s, size: "50x50", class:"user-icon") %></td>
