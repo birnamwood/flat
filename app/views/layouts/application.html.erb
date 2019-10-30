@@ -13,9 +13,11 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <%= render 'layouts/messages' %>
-    <div class="body">
-      <%= yield %>
+    <div class="outline">
+      <%= render 'layouts/messages' %>
+      <div class="body">
+        <%= yield %>
+      </div>
     </div>
     <%= render 'layouts/footer' %>
   </body>

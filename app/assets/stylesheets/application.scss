@@ -29,12 +29,16 @@ $primary-color: color("blue", "lighten-2") !default;
   display: block;
   clear: both;
 }
+.outline {
+  background-image: image-url("/images/body.jpg");
+  background-size: cover;
+}
 
 .body {
   width: 80%;
   margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   min-height: 100vh;
 }
 //ボタン
@@ -81,6 +85,9 @@ $primary-color: color("blue", "lighten-2") !default;
 }
 header .nav-wrapper {
   overflow: visible;
+}
+.tabs {
+  background-color: rgba(255, 255, 255, 0);
 }
 
 //アイコン
