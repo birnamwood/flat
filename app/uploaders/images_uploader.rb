@@ -1,7 +1,19 @@
 class ImagesUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
+
+  # Exif情報のOrientationから画像を修正した後、Exif情報を除去する
+  process :fix_exif_rotation_and_strip_exif
+
+  def fix_exif_rotation_and_strip_exif
+    manipulate! do |img|
+      img.auto_orient # 自動
+      img.strip       # Exif情報除去
+      img = yield(img) if block_given?
+      img
+    end
+  end
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.development?
