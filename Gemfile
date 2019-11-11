@@ -58,12 +58,23 @@ group :test do
 end
 
 group :development, :test do
+  # Foreman
   gem 'foreman'
+  # RSpec関連
   gem 'rspec-rails'
   gem "factory_bot_rails"
   gem 'faker'
   gem 'shoulda-matchers'
   gem 'rspec-parameterized'
+  # Capistrano
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+end
+
+group :production, :staging do
+  gem 'unicorn'
 end
 
 group :production do
