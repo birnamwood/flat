@@ -1,5 +1,5 @@
 # Deploy先の情報
-server 'www.birnamwood-flat.com/', user: 'ec2-user', roles: %w{app db web}
+server '52.68.126.242', user: 'ec2-user', roles: %w{app db web}
 # SSH設定
 set :ssh_options, keys: '.ssh/practice-aws.pem'
 # server-based syntax
