@@ -3,7 +3,7 @@ lock "~> 3.11.2"
 
 set :application, "flat"
 set :repo_url, "git@github.com:birnamwood/flat.git"
-set :scm, :git
+# set :scm, :git
 set :rbenv_ruby, '2.5.5'
 # deployするブランチ。デフォルトはmasterなのでなくても可。
 set :branch, 'master'
@@ -44,7 +44,7 @@ set :keep_releases, 3
 namespace :deploy do
   desc 'Restart application'
   task :restart do
-    invoke 'unicorn:restart'
+    invoke 'puma:restart'
   end
 
   desc 'Create database'

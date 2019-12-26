@@ -1,7 +1,7 @@
 # Deploy先の情報
 server '52.68.126.242', user: 'ec2-user', roles: %w{app db web}
 # SSH設定
-set :ssh_options, keys: '.ssh/practice-aws.pem'
+set :ssh_options, keys: '~/.ssh/practice-aws.pem'
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.

@@ -71,10 +71,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
-end
-
-group :production, :staging do
-  gem 'unicorn'
+  gem 'capistrano3-puma'
 end
 
 group :production do
